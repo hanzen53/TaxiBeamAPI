@@ -108,8 +108,8 @@ app.use("/ecmap", express.static(__dirname + '/public/app/ecmap'));
 //app.use("/passenger", express.static(__dirname + '/public/app/passenger'));
 app.use("/passengerdev", express.static(__dirname + '/public/app/passengerdev'));
 
-app.use("/image/driver", express.static(__dirname + '../upload_drivers'));
-app.use("/image/broken", express.static(__dirname + '../upload_brokens'));
+app.use("/image/driver", express.static(__dirname + '/../upload_drivers'));
+app.use("/image/broken", express.static(__dirname + '/../upload_brokens'));
 
 
 /* start Configure the multer.*/
