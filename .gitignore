@@ -1,6 +1,6 @@
-_mongserver
+_mongoserver
 config/config.js
-bower_compnents
+bower_components
 node_modules
 public/js
 public/libs
