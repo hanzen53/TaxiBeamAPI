@@ -1,0 +1,1099 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 16px;
+	font-family: "db_helvethaica_x55_regular";
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden; 
+}
+input , textarea {
+	-webkit-appearance: none;
+    border-radius: 0;
+}
+h2.active {
+	margin: 50px;
+}
+.clear {
+	clear: both;
+}
+:focus {
+	outline: 0 !important;
+}
+.taxibeam-header {
+	border-bottom: 1px solid #b5b5b8;
+	width: 100%;
+	background-color: #ffffff;
+	height: 100px;
+	position: fixed;
+	z-index: 3;
+	display: block;
+}
+.taxibeam-header-mb {
+	display: none;
+}
+.taxibeam-wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+.taxibeam-logo {
+	overflow: hidden;
+	display: block;
+	float: left;	
+	margin-top: 25px;
+}
+.taxibeam-logo img {
+	border: 0px;
+}
+.taxibeam-container {
+	padding-top: 100px;
+}
+/* Menu */
+.taxibeam-menu {
+	float: right;
+	font-family: "db_helvethaica_x65_med";
+	font-size: 24px;
+	margin-top: 45px;
+}
+.taxibeam-menu a {
+	text-decoration: none;
+	color: #3d3d3d;		
+}
+.taxibeam-menu a:hover {
+	color: #f33d39;
+}
+.taxibeam-menu ul {
+	list-style: none;
+}
+.taxibeam-menu ul li {
+	float: left;
+	margin-left: 37px;
+}
+.taxibeam-menu-mb {
+	display: none;
+}
+.taxibeam-menu .taxibeam-language {
+	width: 100px;
+	height: 40px;
+	border: 2px solid #f33d39;
+	color: #f33d39;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 36px;
+	margin-top: -8px;
+	overflow: hidden;
+}
+.taxibeam-menu .taxibeam-language a {
+	display: block;
+	position: relative;
+}
+.taxibeam-menu .taxibeam-language i {
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	font-size: 5px;
+	color: #f33d39;
+}
+/*.taxibeam-menu .category.active a {
+	color: #ff6666;
+}*/
+
+
+/* Head */
+
+.taxibeam-head {
+	background-image: url('/img/taxibeam-head.jpg');
+	/*background-color: #d4f2f7;*/
+	height: 660px;
+	width: 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+}
+.taxibeam-head-mobile {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+}
+.taxibeam-head-content {
+	margin-left: 470px;
+	padding-top: 75px;
+	z-index: 2;
+}
+.taxibeam-head-content h1 {
+	font-size: 120px;
+	font-family: "db_helvethaica_x75_bd";
+	font-weight: normal;
+	color: #f33d39;
+	line-height: 120px;
+}
+.taxibeam-head-content h2 {
+	font-family: "db_helvethaica_x65_med";
+	font-weight: normal;
+	font-size: 45px;
+	color: #008945;
+	width: 500px;
+	line-height: 35px;
+}
+.taxibeam-head-content p {
+	font-size: 26px;
+	margin-top: 10px;
+}
+.taxibeam-head-content h3 {
+	font-weight: normal;
+	font-size: 36px;
+	color: #f33d39;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.taxibeam-head .taxibeam-wrapper {
+	position: relative;
+	height: 100%;
+	z-index: 2;
+}
+.taxibeam-head-btn-appstore {
+	height: 60px;
+	background-color: #000000;
+	display: block;
+    width: 180px;
+    float: left;
+    margin-right: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.taxibeam-head-btn-googleplay {
+	height: 60px;
+	background-color: #000000;
+	display: block;
+    width: 180px;
+    float: left;
+    margin-right: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.taxibeam-head-btn-appstore img , .taxibeam-head-btn-googleplay img {
+	border: 0px;
+}
+
+/* About */
+
+.taxibeam-about {
+	background-image: url('/img/taxibeam-about.jpg');
+	height: 700px;
+	width: 100%;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.taxibeam-about .taxibeam-wrapper {
+	position: relative;
+	height: 100%;
+}
+.taxibeam-about-content {
+	padding-top: 100px;
+}
+.taxibeam-about-content h2 {
+	font-family: "db_helvethaica_x65_med";
+	font-weight: normal;
+	font-size: 80px;
+	color: #fff154;
+	margin-left: 13px;
+}
+.taxibeam-about-content h3 {
+	font-family: "db_helvethaica_x65_med";
+	font-weight: normal;
+	font-size: 50px;
+	color: #3a0404;
+	width: 500px;
+	margin-bottom: 10px;
+	margin-left: 13px;
+}
+.taxibeam-about-content h3 br {
+	display: none;
+}
+.taxibeam-about-content p {
+	font-size: 26px;
+	color: #ffffff;
+	line-height: 40px;
+	margin-left: 13px;
+	margin-bottom: 40px;
+}
+.taxibeam-about-mobile {
+	position: absolute;
+	bottom: 50px;
+	right: 0px;
+}
+.taxibeam-about-btn {
+	border-radius: 20px;
+	background-color: #510606;
+	width: 300px;
+	text-decoration: none;
+	color: #ffffff;
+	display: block;
+	font-size: 24px;
+	line-height: 40px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.taxibeam-about-floatbutton:hover {
+	background-color: #f33d39;
+}
+.taxibeam-about-floatbutton {
+	width: 80px;
+	height: 80px;
+	background-color: #361818;
+	padding: 15px 10px;
+	cursor: pointer;
+}
+.taxibeam-about-floatbox {
+	position: fixed;
+	right: 0;
+	bottom: 40%;
+	z-index: 1;
+}
+.taxibeam-about-floatbox a {
+	text-decoration: none;
+}
+.taxibeam-about-floatbutton p {
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+}
+.taxibeam-about-floatbutton i {
+	margin: 0 auto;
+	margin-bottom: 5px;
+	display: block;
+	text-align: center;
+	color: #ffffff;
+	font-size: 28px;
+}
+.taxibeam-about-floatbutton:last-child {
+	margin-top: 1px;
+}
+
+/* User */
+.taxibeam-user {
+	background-color: #c84f4e;
+	overflow: hidden;
+}
+.taxibeam-user .taxibeam-wrapper {
+	overflow: hidden;
+}
+.taxibeam-user h2 {
+	font-family: "db_helvethaica_x65_med";
+    font-weight: normal;
+	color: #fff154;
+	font-size: 50px;
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 40px;
+}
+.taxibeam-user h3 {
+	font-family: "db_helvethaica_x65_med";
+    font-weight: normal;
+	color: #f33d39;
+	font-size: 30px;
+	text-align: center;
+}
+.taxibeam-user p {
+	/*font-family: "db_helvethaica_x65_med";*/
+    font-weight: normal;
+	color: #666666;
+	font-size: 26px;
+	text-align: center;
+}
+.taxibeam-user-left {
+	background-color: #f8f8f8;
+    width: 50%;
+    float: left;
+    height: 380px;
+}
+.taxibeam-user-right {
+    background-color: #fcfcfc;
+    width: 50%;
+    float: left;
+    padding: 0 35px;
+    height: 380px;
+}
+.taxibeam-user-left img, .taxibeam-user-right img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    max-width: 260px;
+    width: 100%;
+}
+
+/* Why */
+
+.taxibeam-why {
+	background-image: url('/img/taxibeam-why.jpg');
+	height: 800px;
+	width: 100%;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.taxibeam-why-woman {
+	position: absolute;
+	bottom: 0;
+	left: -40px;
+}
+.taxibeam-why-man {
+	position: absolute;
+	bottom: 0;
+	right: -60px;
+}
+.taxibeam-why h2 {
+	font-family: "db_helvethaica_x65_med";
+	font-weight: normal;
+	font-size: 80px;
+	color: #333333;
+	padding-top: 100px;
+	text-align: center;
+}
+.taxibeam-why-tabs {
+	width: 600px;
+	margin: 0 auto;
+	display: block;
+	overflow: hidden;
+	margin-top: 20px;
+	margin-bottom: 70px;
+}
+.taxibeam-why .bx-wrapper  .bx-prev {
+	left: -50px;
+	text-indent: 0px;
+	text-decoration: none;
+}
+.taxibeam-why .bx-wrapper  .bx-next {
+	right: -60px;
+	text-indent: 0px;
+	text-decoration: none;
+}
+.taxibeam-why i {
+	font-size: 40px;
+    color: rgba(0,0,0,0.6);
+}
+.taxibeam-why-tabs-left {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	font-size: 24px;
+	cursor: pointer;
+	background-color: #ffffff;
+	color: #f33d39;
+}
+.taxibeam-why-tabs-left.active , .taxibeam-why-tabs-right.active {
+	color: #ffffff;
+	background-color: #f33d39;
+	cursor: default;
+}
+.taxibeam-why-tabs-right {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	background-color: #ffffff;
+	color: #f33d39;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	font-size: 24px;
+	cursor: pointer;
+}
+.taxibeam-why-content-left , .taxibeam-why-content-right {
+	/*display: none;*/ 
+	opacity: 0; 
+	z-index: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	zoom: 0;
+}
+.taxibeam-why-content-left.active , .taxibeam-why-content-right.active {
+	/*display: block;*/ opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	zoom: 1;
+}
+.taxibeam-why-content-right {
+	margin-top: -325px;
+}
+.taxibeam-why-slide p {
+	line-height: 23px;
+	text-align: center;
+	padding: 20px 20px;
+	font-size: 26px;
+}
+.taxibeam-why .bx-pager.bx-default-pager a.active , .taxibeam-why .bx-wrapper .bx-pager.bx-default-pager a:hover {
+	background-color: #f33d39;
+}
+.taxibeam-why .bx-pager.bx-default-pager a {
+	background-color: #000000;
+}
+.taxibeam-why .bx-wrapper {
+	z-index: 1;
+}
+.taxibeam-why .bx-viewport {
+	height: 325px !important;
+	padding-top: 4px !important;
+}
+.taxibeam-why .slider-why-psg .slide , .taxibeam-why .slider-why-taxi .slide {
+	  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+}
+.taxibeam-why .taxibeam-why-content-right .bx-wrapper .bx-pager {
+	display: none;
+}
+
+/* How */
+.taxibeam-how {
+	background-image: url('/img/taxibeam-how.jpg');
+	height: 700px;
+	width: 100%;
+	background-repeat: no-repeat;
+}
+.taxibeam-how h2 {
+	font-family: "db_helvethaica_x65_med";
+	font-weight: normal;
+	font-size: 80px;
+	color: #333333;
+	padding-top: 85px;
+	text-align: center;
+}
+.taxibeam-how h3 {
+	font-weight: normal;
+	font-size: 50px;
+	color: #333333;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.taxibeam-how .bx-wrapper .bx-controls-direction a {
+	text-indent: 2px;
+	text-decoration: none;
+	padding: 15px;
+    text-align: center;
+}
+.taxibeam-how .bx-wrapper .bx-controls-direction a.bx-prev {
+	text-indent: -2px;
+}
+.taxibeam-how i {
+	font-size: 30px;
+	color: #ffffff;
+}
+.taxibeam-how h3 span {
+	font-size: 80px;
+	color: #ff6666;
+}
+.taxibeam-how-tabs {
+	width: 600px;
+	margin: 0 auto;
+	display: block;
+	overflow: hidden;
+	margin-top: 5px;
+	margin-bottom: 40px;
+}
+.taxibeam-how-tabs-left {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	background-color: #ffffff;
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	color: #f33d39;
+	font-size: 24px;
+	cursor: pointer;
+}
+.taxibeam-how-tabs-left.active , .taxibeam-how-tabs-right.active {
+	background-color: #f33d39;
+	color: #ffffff;
+	cursor: default;
+}
+.taxibeam-how-tabs-right {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	background-color: #ffffff;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	color: #f33d39;
+	font-size: 24px;
+	cursor: pointer;
+}
+.taxibeam-why-content-right .bx-viewport {
+	padding-top: 4px !important;
+}
+.taxibeam-how-content-left , .taxibeam-how-content-right {
+	opacity: 0;
+}
+.taxibeam-how-content-left.active , .taxibeam-how-content-right.active {
+	opacity: 1;
+}
+.taxibeam-how .bx-wrapper {
+	margin-top: 20px;
+}
+.taxibeam-how .bx-viewport {
+	position: absolute !important;
+	padding-top: 0px !important;
+}
+.taxibeam-how-slide p {
+	position: absolute;
+	top: 155px;
+	font-size: 26px;
+	text-align: left;
+	width: 50%;
+	right: 0;
+}
+.slider-how-howto .slide:nth-child(2) img {
+	margin-left: 176px;
+}
+.slider-how-howto .slide:nth-child(3) img {
+	margin-left: 161px;
+}
+.taxibeam-how-slide p span {
+	color: #f33d39;
+}
+
+.taxibeam-how-slide img {
+	margin: 0 auto;
+	margin-left: 250px;
+}
+.taxibeam-how .bx-viewport {
+	height: 409px !important;
+}
+
+.taxibeam-how .bx-wrapper .bx-controls-direction a {
+	
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	behavior: url(../js/PIE.htc);
+	background-color: rgba(35,38,47,0.25);
+	width: 60px;
+	height: 60px;
+	margin-top: 180px;
+	z-index: 1
+}
+.taxibeam-how .bx-wrapper .bx-prev {
+	left: 20px;
+}
+.taxibeam-how .bx-wrapper .bx-next {
+	right: 20px;
+}
+
+
+/* Footer */
+.taxibeam-footer {
+	height: 50px;
+	text-align: center;
+	font-size: 20px;
+	color: #666666;
+	line-height: 50px;
+}
+
+/* Popup */
+.taxibeam-overlay {
+	background-color: rgba(255,255,255,0.95);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	display: none;
+}
+.taxibeam-popup-user {
+	overflow: hidden;
+	width: 1000px;
+	margin: 0 auto;
+	height: 550px;
+	margin-top: 200px;
+	left: 0;
+	right: 0;
+	position: absolute;
+	z-index: 9;
+	background-color: #ffffff;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+	display: none;
+}
+.taxibeam-overlay.active , .taxibeam-popup.active , .taxibeam-popup-user.active , .taxibeam-popup-problem.active , 
+.taxibeam-popup-question.active , .taxibeam-popup-contact.active {
+	display: block;
+}
+.taxibeam-popup-user h2 {
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 100px;
+	padding-left: 40px;
+	font-family: "db_helvethaica_x65_med";
+}
+.taxibeam-popup-user h3 {
+	font-size: 30px;
+	font-weight: normal;
+	color: #ff6666;
+	text-align: center;
+	font-family: "db_helvethaica_x65_med";
+}
+.taxibeam-popup-user p {
+	font-size: 24px;
+	text-align: center;
+}
+.taxibeam-popup-user-left {
+	background-color: #f8f8f8;
+	width: 50%;
+	float: left;
+	height: 100%;
+}
+.taxibeam-popup-user-right {
+	background-color: #fcfcfc;
+	width: 50%;
+	float: left;
+	padding: 0 55px;
+	height: 100%;
+}
+.taxibeam-popup-user-left img , .taxibeam-popup-user-right img {
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.taxibeam-popup-problem {
+	display: none;
+	overflow: hidden;
+	width: 1000px;
+	margin: 0 auto;
+	height: 640px;
+	margin-top: 200px;
+	left: 0;
+	right: 0;
+	position: absolute;
+	z-index: 9;
+	background-color: #ffffff;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+}
+.taxibeam-popup-problem h2 {
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 100px;
+	padding-left: 40px;
+	font-family: "db_helvethaica_x65_med";
+}
+.taxibeam-popup-problem h3 {
+	font-size: 30px;
+	font-weight: normal;
+	color: #ff6666;
+	text-align: center;
+	font-family: "db_helvethaica_x65_med";
+	margin-bottom: 10px;
+}
+.taxibeam-popup-problem ul {
+	font-size: 24px;
+	padding-left: 20px;
+}
+.taxibeam-popup-problem ul li {
+	line-height: 30px;
+}
+.taxibeam-popup-problem-left {
+	background-color: #f8f8f8;
+	width: 50%;
+	float: left;
+	height: 100%;
+	padding: 0 40px;
+}
+.taxibeam-popup-problem-right {
+	background-color: #fcfcfc;
+	width: 50%;
+	float: left;
+	padding: 0 55px;
+	height: 100%;
+}
+.taxibeam-popup-problem-left img , .taxibeam-popup-problem-right img {
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.taxibeam-popup-question {
+	display: none;
+	overflow: hidden;
+	width: 1000px;
+	margin: 0 auto;
+	height: 680px;
+	margin-top: 150px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #fcfcfc;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+	position: absolute;
+	z-index: 9;
+}
+.taxibeam-popup-question i {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 22px;
+	cursor: pointer;
+}
+.taxibeam-popup-question h2 {
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 100px;
+	padding-left: 40px;
+	font-family: "db_helvethaica_x65_med";
+	background-color: #ffffff;
+}
+.taxibeam-question-tabs {
+	width: 600px;
+	margin: 0 auto;
+	display: block;
+	overflow: hidden;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.taxibeam-question-tabs-left {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	
+	background-color: #ffffff;
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	color: #f33d39;
+	font-size: 24px;
+	cursor: pointer;
+}
+.taxibeam-question-tabs-left.active , .taxibeam-question-tabs-right.active {
+	background-color: #f33d39;
+	color: #ffffff;
+	cursor: default;
+}
+.taxibeam-question-tabs-right {
+	border-radius: 20px;
+	width: 300px;
+	float: left;
+	border: 2px solid #f33d39;
+	background-color: #ffffff;
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	line-height: 36px; 
+	text-align: center;
+	color: #f33d39;
+	font-size: 24px;
+	cursor: pointer;
+}
+.taxibeam-question-content-left , .taxibeam-question-content-right {
+	display: none;
+	font-size: 22px;
+	padding: 0 40px;
+	overflow-y: auto;
+	height: 445px;
+	margin-bottom: 30px; 
+}
+.taxibeam-question-content-left.active , .taxibeam-question-content-right.active {
+	display: block;
+}
+.taxibeam-question-content-left p , .taxibeam-question-content-right p {
+	margin-bottom: 20px;
+	line-height: 30px;
+	font-family: "db_helvethaica_x65_med";
+}
+.taxibeam-question-content-left p span , .taxibeam-question-content-right p span {
+	color: #f33d39;
+}
+.taxibeam-question-link {
+	text-decoration: none;
+	border-bottom: 1px solid;
+	color: #f33d39;
+	cursor: pointer;
+}
+
+.taxibeam-popup-contact {
+	display: none;
+	overflow: hidden;
+	width: 1000px;
+	margin: 0 auto;
+	height: 610px;
+	margin-top: 150px;
+	left: 0;
+	right: 0;
+	top: 0;
+	position: absolute;
+	z-index: 9;
+	background-color: #ffffff;
+	box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+}
+.taxibeam-warning {
+	display: none;
+	color: #ff6666;
+	background-color: #ffe0e0;
+	line-height: 60px;
+	border: 1px solid #ff6666;
+	margin-bottom: 10px;
+	font-size: 26px;
+	padding-left: 30px;
+}
+.taxibeam-warning.active {
+	display: block;
+}
+.taxibeam-popup-contact i {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 22px;
+	cursor: pointer;
+}
+.taxibeam-popup-contact h2 {
+	font-size: 40px;
+	font-weight: normal;
+	line-height: 100px;
+	padding-left: 40px;
+	font-family: "db_helvethaica_x65_med";
+}
+.taxibeam-popup-contact-inputform {
+	font-size: 24px;
+	padding: 0 10px;
+	color: #666666;
+	position: relative;
+	margin-bottom: 10px;
+}
+.taxibeam-popup-contact-inputform input {
+	width: 100%;
+	border: 0px;
+	background-color: #f8f8f8;
+	line-height: 58px;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 24px;
+	font-family: "db_helvethaica_x55_regular";
+	border: 1px solid #f8f8f8;
+}
+.taxibeam-on-mb h2 {
+	font-size: 60px;
+	color: #3d3d3d;
+	padding: 0px;
+	margin-bottom: 30px;
+	margin-top: 45px;
+	font-weight: normal;
+}
+.taxibeam-on-mb .taxibeam-question-content-left, .taxibeam-on-mb .taxibeam-question-content-right {
+	height: 100%;
+	padding: 0px;
+}
+.taxibeam-on-mb .taxibeam-popup-contact-inputform , .taxibeam-on-mb .taxibeam-popup-contact-submitform {
+	padding: 0px;
+}
+input::-webkit-input-placeholder , textarea::-webkit-input-placeholder{
+	color: rgba(149,149,149,1);
+}
+input::-moz-placeholder , textarea::-moz-placeholder {
+	color: rgba(149,149,149,1);
+}
+input:-moz-placeholder , textarea:-moz-placeholder {   /* Older versions of Firefox */
+	color: rgba(149,149,149,1);
+}
+input:-ms-input-placeholder , textarea:-ms-input-placeholder { 
+	color: rgba(149,149,149,1);
+}
+.taxibeam-popup-contact-inputform input:focus , .taxibeam-popup-contact-inputform textarea:focus {
+	border: 1px solid #000000;
+}
+.taxibeam-popup-contact-inputform input:focus ~ label , .taxibeam-popup-contact-inputform textarea:focus ~ label {
+	color: #ff6666;
+}
+.taxibeam-popup-contact-inputform textarea {
+	width: 100%;
+	border: 0px;
+	background-color: #f8f8f8;
+	border: 1px solid #f8f8f8;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-bottom: 15px;
+	padding-right: 30px;
+	resize: none;
+	height: 235px;
+	font-size: 24px;
+	font-family: "db_helvethaica_x55_regular";
+}
+.taxibeam-popup-contact-inputform label {
+	position: absolute;
+	top: 16px;
+	left: 40px;
+}
+.taxibeam-popup-contact-submitform {
+	font-size: 24px;
+	padding: 0 10px;
+	color: #666666;
+	position: relative;
+	margin-top: 8px;
+}
+.taxibeam-popup-contact-submitform input {
+	background: #f33d39;
+	color: #ffffff;
+	border: 0px;
+	width: 100%;
+	height: 60px;
+	font-size: 24px;
+	font-family: "db_helvethaica_x55_regular";
+	cursor: pointer;
+	margin-top: 20px;
+}
+.taxibeam-popup-contact-submitform input:hover {
+	background-color: #e53c39;
+}
+.taxibeam-popup-contact-inputform i {
+	color: #f33d39;
+	font-size: 8px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	display: none;
+}
+.taxibeam-popup-contact-inputform i.active {
+	display: block;
+}
+
+/* Animate Head */
+
+.taxibeam-car { 
+	animation: taxiDrive 0.3s ease-in-out 0s infinite Alternate both; 
+	-webkit-animation: taxiDrive 0.3s ease-in-out 0s infinite Alternate both; 
+	position: absolute;
+	right: 50px;
+	display: block; 
+	bottom: 10px;
+	z-index: 1;
+}
+
+@keyframes taxiDrive {
+  0% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes taxiDrive {
+  0% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.taxibeam-building {
+  animation: building 10s linear infinite both; 
+  -webkit-animation: building 10s linear infinite both; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+@keyframes building {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -1877px;
+    opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes building {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -1877px;
+    opacity: 1;
+  }
+}
+
+/* Go to top */
+.taxibeam-gototop {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: rgba(0,0,0,0.5);
+	width: 50px;
+	height: 50px;
+	display: none;
+	text-decoration: none;
+	padding: 14px;
+	z-index: 2;
+}
+.taxibeam-gototop i {
+	font-size: 20px;
+	color: #ffffff;
+}
+
+/* Question */
+.taxibeam-ask li {
+	line-height: 50px;
+	border-bottom: 1px solid #ebebeb;
+	cursor: pointer;
+	position: relative;
+}
+.taxibeam-ask li p {
+	margin-bottom: 0px;
+	padding-right: 55px;
+	line-height: 50px;
+}
+.taxibeam-ask .icon-arrowD , .taxibeam-ask .icon-arrowU {
+	font-size: 10px;
+	position: absolute;
+	top: 20px;
+	color: #b5b5b8;
+	right: 20px;
+}
+.taxibeam-ask .icon-arrowU {
+	color: #f33d39;
+	top: 17px;
+}
+
+.taxibeam-answer {
+	line-height: 30px;
+	display: none;
+	background-color: #f8f8f8;
+	color: #707070;
+	padding: 30px 20px;
+}
+.taxibeam-answer.active {
+	display: block;
+}

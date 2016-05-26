@@ -1,0 +1,219 @@
+
+{{ include head }}
+
+<!-- views/admin.ejs -->
+
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+        <div class="form-group form-group-sm">
+          <label class="col-sm-2">เมนู</label>
+          <select id="select-form" class="form-control col-sm-9">
+            <option value="">เลือกรายการ</option>
+          </select>
+
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <div id="atool"></div>
+    <br>
+    <div id="tb-detail"></div>
+  </div>
+  <!-- form preview  -->
+  <div class="modal fade" id="modal-preview" tabindex="-1" role="dialog" aria-labelledby="modal-preview-label" aria-hidden="true" style="z-index:8000;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modal-preview-label"></h4>
+        </div>
+        <div class="modal-body" style="height:500px;overflow:auto;" id="body-preview">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"  id="btn_del">ลบ</button>
+          <button type="button" class="btn btn-primary" id="btn_save">บันทึก</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End form preview  -->
+  <!-- Template -->
+  <script type="text/template" id="tmp_text">
+    <div class="form-group col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <input type="text"
+        class="form-control"
+        name="<%= name %>" value="<%= value %>"
+        <% if(readOnly) { %>readonly<% } %>
+        style="<% if(!visible){ %> display: none; <% } %>">
+    </div>
+  </script>
+  <script type="text/template" id="tmp_formula">
+    <div class="form-group col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <input type="text"
+        class="form-control"
+        name="<%= name %>" formula="<%= value %>"
+        readonly
+        style="<% if(!visible){ %> display: none; <% } %>" 
+        el-type="formula">
+    </div>
+  </script>
+  <script type="text/template" id="tmp_combobox90">
+    <div class="form-group form-group col-md-6 col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <select class="form-control"  name="<%= name %>">
+        <option value=""></option>
+        option
+      </select>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_header">
+    <div class="col-md-<%= col %>">
+      <h4 class="page-header"><%= displayName %></h4>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_table">
+    <div class="col-md-<%= col %>" id="<%= id %>">
+      <div class="pull-right"><button type="button" class="btn btn-default" btn-add=1>เพิ่ม</button></div>
+      <div style="clear:both;"></div>
+      <table class="table table-bordered table-hover table-condensed" >
+        <thead>
+          <tr>
+            <% _.each(cols, function(col){ %>
+              <td><%= col.name %></td>
+            <% }); %>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_date">
+    <div class="form-group col-md-<%= col %> date">
+      <label><%= displayName %></label>
+      <div class="input-group">
+        <input type="text" 
+          class="form-control"
+          name="<%= name %>" value="<%= value %>"
+          <% if(readOnly) { %>readonly<% } %>
+          style="<% if(!visible){ %> display: none; <% } %>">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-th"></i></div>
+      </div>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_color">
+    <div class="form-group col-md-<%= col %> color">
+      <label><%= displayName %></label>
+      <div class="input-group">
+        <input type="text" 
+          class="form-control"
+          name="<%= name %>" value="<%= value %>"
+          <% if(readOnly) { %>readonly<% } %>
+          style="<% if(!visible){ %> display: none; <% } %>">
+        <span class="input-group-addon"><i></i></span>
+      </div>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_checkbox">
+    <div class="checkbox col-md-<%= col %>">
+      <input type="hidden" name="<%= name %>" value="">
+      <label>
+        <input type="checkbox"
+          name="<%= name %>" value="<%= value %>"
+          <% if(readOnly) { %>readonly<% } %>
+          style="<% if(!visible){ %> display: none; <% } %>"
+        > <%= displayName %>
+      </label>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_select">
+    <div class="form-group col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <select class="form-control"  name="<%= name %>">
+        <% var options = value %>
+        <% _.each(options, function(op){%>
+          <option value="<%= op.val %>"><%= op.text %></option>
+        <%})%>
+      </select>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_select_multiple">
+    <div class="checkbox col-md-<%= col %>">
+      <label style="  margin-bottom:5px;padding-left:0px"><b><%= displayName %><b></label><br>
+      <input type="hidden" name="<%= name %>[]" value="">
+      <% var options = value %>
+      <% _.each(options, function(op){%>
+        <label>
+          <input type="checkbox" value="<%= op.val %>" name="<%= name %>[]"> <%= op.text %>
+        </label>
+      <%})%>
+    </div>    
+  </script>
+  <script type="text/template" id="tmp_link">
+    <div class="form-group col-md-<%= col %>" style="padding-top: 35px;">
+      <a href="<%= value %>"><%= displayName %></a>
+    </div>
+  </script>
+  <script type="text/template" id="tmp_image">
+  <div id="div_<%= name %>" name="<%= name %>" alt="<%= name %>" class="rows">
+    <img src="<%= value %>" id="img_<%= name %>" name="<%= name %>"  height=250 width=250>
+  </div>
+   
+
+  </script>
+  <script type="text/template" id="tmp_file_image">
+    <div class="form-group col-md-12">
+      <label><%= displayName %></label>
+      <button type="button" class="btn btn-primary btn-sm" id="btn<%= id_random %>" style="margin-bottom:20px;">+</button>
+
+      <div id="div<%= id_random %>" class="rows"></div>
+    </div>
+  </script>
+
+  <script type="text/template" id="tmp_link_room">
+    <div class="form-group col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <select class="form-control"  name="<%= name %>">
+        <% var options = value %>
+        <% _.each(options, function(op){%>
+          <option value="<%= op.val %>"><%= op.text %></option>
+        <%})%>
+      </select>
+    </div>
+  </script> 
+
+  <script type="text/template" id="tmp_number">
+    <div class="form-group col-md-<%= col %>">
+      <label><%= displayName %></label>
+      <input type="text"
+        class="form-control"
+        name="<%= name %>" value="<%= value %>"
+        <% if(readOnly) { %>readonly<% } %>
+        style="<% if(!visible){ %> display: none; <% } %>"
+        data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true"
+        el="number">
+    </div>
+  </script>
+
+
+  <script type="text/javascript" src="/libs/general.js"></script>
+  <script type="text/javascript" src="/libs/form_dynamic.js"></script>
+  <script type="text/javascript" src="/user/templ.js"></script>
+
+  <script type="text/javascript" src="/libs/manage_data.js"></script>
+  <script type="text/javascript">
+  $(function () {
+    Manage.init();
+  })
+  </script>
+
+
+{{ include foot }}

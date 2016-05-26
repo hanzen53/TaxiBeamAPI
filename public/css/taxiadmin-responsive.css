@@ -1,0 +1,102 @@
+@media screen and (max-width : 1200px){ 
+	.taxiadmin-table.driver th:first-child {
+		min-width: 250px;
+	}
+	.taxiadmin-table.driver th:nth-child(2) {
+		min-width: 95px;
+	}
+	.taxiadmin-table.driver th:nth-child(3) {
+		min-width: 145px;
+	}
+	.taxiadmin-table.driver th:nth-child(4) {
+		min-width: 171px;
+	}
+	.taxiadmin-table.driver th:nth-child(5) {
+		min-width: 135px;
+	}
+	.taxiadmin-table.driver th:nth-child(6) {
+		min-width: 125px;
+	}
+	.taxiadmin-table.driver th:last-child {
+		min-width: 50px;
+	}
+
+	.taxiadmin-table.taxi th:nth-child(1) {
+		min-width: 171px;
+	}
+	.taxiadmin-table.taxi th:nth-child(2) {
+		min-width: 250px;
+	}
+	.taxiadmin-table.taxi th:nth-child(3) {
+		min-width: 156px;
+	}
+	.taxiadmin-table.taxi th:nth-child(4) {
+		min-width: 120px;
+	}
+	.taxiadmin-table.taxi th:last-child {
+		min-width: 50px;
+	}
+	.taxiadmin-table-container {
+		overflow: hidden;
+		overflow-x: auto; 
+	}
+
+	.taxiadmin-table.stat th:nth-child(1) {
+		min-width: 250px;
+	}
+	.taxiadmin-table.stat th:nth-child(2) {
+		width: 171px;
+		min-width: 171px;
+	}
+	.taxiadmin-table.stat th:nth-child(3) {
+		width: 155px;
+		min-width: 155px;
+	}
+	.taxiadmin-table.stat th:nth-child(4) {
+		width: 125px;
+		min-width: 125px;
+	}
+
+	input[type=radio]:checked + label:after {
+	    /* content: "\2022"; */
+	    /* color: #b31a1a; 
+	    font-size: 12px;
+	    text-align: center;
+	    line-height: 11px;*/
+	    border: 2px solid #b31a1a;
+	    background-image: url(../img/taxiadmin-radio.png);
+	    background-size: 8px 8px;
+	    background-repeat: no-repeat;
+	    background-position: 2px 2px;
+	}
+}
+@media screen and (max-width : 1000px){ 
+	.taxiadmin-groupsearch , .taxiadmin-groupsearch.last {
+		width: 187px;
+	}
+	.taxiadmin-inspica-search {
+		width: 390px;
+	}
+}
+@media screen and (max-width : 845px){ 
+	.taxiadmin-input-form {
+		height: auto;
+	}
+	.taxiadmin-group-radio.last {
+		margin-right: 0px;
+	}
+	.taxiadmin-driver-uploadprofile:not(.taxiadmin-taxi-profileupload) .taxiadmin-input-form > label , 
+	.taxiadmin-driver-profile:not(.taxiadmin-taxi-profileupload) .taxiadmin-input-form > label {
+		float: none;
+	}
+	.taxiadmin-taxi-profile .taxiadmin-input-form > label {
+		float: left !important;
+	}
+	.taxiadmin-driver-img {
+		height: 440px;
+	}
+	/*.taxiadmin-hidden-status {
+		top: -103px;
+	}*/
+
+}

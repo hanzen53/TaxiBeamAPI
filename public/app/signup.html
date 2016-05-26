@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/local/autocomplete.css"> 
+		<link rel="stylesheet" href="/resources/demos/style.css">	
+		<link rel="stylesheet" href="assets/stylesheets/admin.signup.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	</head>
+	<body class="bg">
+
+		<div class="container">
+			<div class="col-md-6 col-md-offset-3">
+
+				<div class="logo-wrapper text-center">
+					<img src="/assets/img/taxiadmin-logo@2x.png">
+				</div>
+
+				<div class="panel panel-default" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+					<div class="panel-heading">
+					<h2>Sign up to join Devices member</h2>
+					</div>
+					<div class="panel-body">
+						<form id="signUpForm"  action="/signup" method="POST" class="form-horizontal">
+
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<input type="text" class="form-control" name="cname" placeholder="Name" autocomplate="off">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<input type="email" class="form-control" name="cemail" placeholder="Email" autocomplete="off">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<input type="text" class="form-control" name="cgroup" placeholder="Grop name" autocomplete="off">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-8 col-xs-offset-2">
+									<select name="ctype" class="form-control">
+										<option value="taxi">Taxi</option>
+										<option value="bike">Motorcycle</option>
+										<option value="van">Van commuter</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group mb-n">
+								<div class="col-xs-offset-2 col-xs-8">
+									<div class="checkbox">
+										<label for="agreement-chk">
+											<input type="checkbox" id="agreement-chk" name="agreement-chk"><span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;I accept the 
+											<a href="#" data-toggle="modal" data-target="#agreementModal">user agreement</a>
+										</label>
+									</div>
+								</div>
+							</div>
+						</form>
+
+					</div>
+					<div class="panel-footer">
+						<div class="clearfix">
+							<a href="./login" class="btn btn-link pull-left">Already Registered? Login</a>
+							<a href="#/" class="btn btn-primary btn-raised pull-right custom" onclick="SignUpForm.submit();">Register</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal" id="agreementModal" tabindex="-1" role="dialog" aria-labelledby="agreementModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+		<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script type="text/javascript">
+
+			var SignUpForm = {
+				initial: function() {
+					this.onSubmit();
+				},
+				submit: function() {
+					$("#signUpForm").submit();
+				},
+				onSubmit: function() {
+					$("#signUpForm").validate({
+						rules: {
+							username: { required: true },
+							password: { required: true },
+							password: { required: true },
+							cname: { required: true },
+							cemail: { required: true },
+							cgroup: { required: true }
+						}
+					});
+				}
+			};
+
+			$(function() {
+				SignUpForm.initial();
+			});
+		</script>
+
+
+	</body>
+</html>

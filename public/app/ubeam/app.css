@@ -1,0 +1,45 @@
+  
+  
+  #idirection {  width: 400px; height: 200px; background-color: #ccc; padding: 10px; line-height: 25px; position: absolute; top: 10px; left: 350px; z-index: 11; }
+
+      /* start css for autocomplete  : http://www.pontikis.net/blog/jquery-ui-autocomplete-step-by-step */
+      /* highlight results */
+      .ui-autocomplete span.hl_results {
+          background-color: #ffff66;
+      }
+       
+      /* loading - the AJAX indicator */
+      .ui-autocomplete-loading {
+          background: white url('../img/ui-anim_basic_16x16.gif') right center no-repeat;
+      }
+       
+      /* scroll results */
+      .ui-autocomplete {
+          max-height: 250px;
+          overflow-y: auto;
+          /* prevent horizontal scrollbar */
+          overflow-x: hidden;
+          /* add padding for vertical scrollbar */
+          padding-right: 5px;
+      }
+       
+      .ui-autocomplete li {
+          font-size: 16px;
+      }
+       
+      /* IE 6 doesn't support max-height
+      * we use height instead, but this forces the menu to always be this tall
+      */
+      * html .ui-autocomplete {
+          height: 250px;
+      }
+      /* start css for autocomplete */
+
+      .map-box {  width: 100%; height: 100%; float: left;}
+      .myVar_true{ color:#000; background-color: #ccc;}
+      /*.myVar_false{ color:green; background-color: green; }*/
+	  
+	  
+	  .taxiadmin-navigation-menu {
+		  width:200px;
+	  }

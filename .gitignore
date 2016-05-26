@@ -1,0 +1,9 @@
+_mongserver
+config/config.js
+bower_compnents
+node_modules
+public/js
+public/libs
+public/plugins
+uploadb
+uploads

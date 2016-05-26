@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+		<head>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">	
+		
+		<script src="/assets/libs/jquery/dist/jquery.min.js"></script>	
+		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+				
+		<style>
+		
+		</style>
+		<script>
+		$(document).ready(function() {
+				$('#example').DataTable( {
+//					"ajax": 'array.txt'
+//					       "processing": true,
+//							"serverSide": true,
+							"ajax": "./array.txt",
+							"deferLoading": 20
+					
+				} );
+		} );
+		</script>
+	</head>		
+<body>		
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+	
+	</body>
+
+
+</html>
+	

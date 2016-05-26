@@ -1,0 +1,71 @@
+{{ include head-psg-login }}
+
+
+
+	<div class="passenger-login">
+		<a class="btn-back" href="/calltaxi"><i class="icon-ic_backcopy"></i>Back</a>
+
+		<form id="signUpForm"  action="/psgprofile" method="POST" class="registform">
+			<div class="passenger-loginwrapper">
+
+				<img class="userimg" src="{{= displayPicture}}" >
+				
+
+
+				<input type="text" id="displayName" name="displayName" class="username" placeholder="Name" autocomplete="off" value="{{= displayName }}">
+				<input type="email" id="email" name="email" class="email" placeholder="Email" autocomplete="off" value="{{= email }}">
+			
+				<input type="phone" id="phone" name="phone" class="phone" placeholder="Phone Number" autocomplete="off" maxlength="10" value="{{= phone }}">
+
+				<div class="gender">
+					<input type="radio" name="gender" id="male" value="male" 					
+					{{ if (gender=='male') { }}  checked {{ } }}
+					><label class="label male {{ if (gender=='male') { }}  active {{ } }}" for="male" >Male</label> 
+					<input type="radio" name="gender" id="female" value="female"
+					{{ if (gender=='female') { }}  checked {{ } }}
+					><label class="label female {{ if (gender=='female') { }}  active {{ } }}" for="female">Female</label> 
+				</div>
+
+				<!--<input type="checkbox" id="agreement-chk" name="agreement-chk"><span class="checkbox-material"><span class="check"></span></span>&nbsp;&nbsp;I accept the 
+				<a href="#" data-toggle="modal" data-target="#agreementModal">user agreement</a>-->
+
+				<a href="#/" class="btn register" onclick="SignUpForm.submit();">Update</a>
+
+
+
+			</div>
+		</form>
+
+	</div>
+
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+		<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script type="text/javascript">
+
+			var SignUpForm = {
+				initial: function() {
+					this.onSubmit();
+				},
+				submit: function() {
+					$("#signUpForm").submit();
+				},
+				onSubmit: function() {
+					$("#signUpForm").validate({
+						rules: {
+							displayName: { required: true, minlength: 4 },
+							password: { required: true, minlength: 4 },							
+							email: { required: true , email: true },
+							phone: { required: true, minlength: 9 }
+						}
+					});
+				}
+			};
+
+			$(function() {				
+				SignUpForm.initial();
+			});
+		</script>
+
+
+{{ include foot-psg-login }}

@@ -1,0 +1,197 @@
+<!-- NAV BAR FIXED -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+
+			<button type="button" 
+			class="navbar-toggle collapsed mdl-button mdl-js-button mdl-js-ripple-effect" data-toggle="collapse" 
+			data-target="#navbar" 
+			aria-expanded="false" aria-controls="navbar" onclick="$('#navbar-menu').toggleClass('open');">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a class="navbar-brand garageadmin-homelogo" href="./"><img src="/assets/img/taxiadmin-logo.png" srcset="/assets/img/taxiadmin-logo@2x.png 2x"></a>
+		</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+
+			<ul class="nav navbar-nav">
+				<li class="sound-notification-tab" data-toggle="tooltip" data-placement="bottom" title="เปิด/ปิดเสียงเตือน">
+					<a data-toggle="tooltip">
+						<div class="icon">
+							<i class="material-icons">volume_up</i>
+						</div>
+						<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+						<div class="clearfix"></div>
+					</a>
+				</li>
+				<li class="refresh-tab" data-toggle="tooltip" data-placement="bottom" title="โหลดข้อมูลใหม่อีกครั้ง">
+					<a onclick="DataTable.updateAll(true);"><i class="material-icons">refresh</i></a>
+				</li>
+				<li class="chat-tab hide" data-toggle="tooltip" data-placement="bottom" title="แชทบีม">
+					<a onclick="Chat.toggle();"><i class="material-icons">chat</i></a>
+				</li>
+				<li class="announce-tab" data-toggle="tooltip" data-placement="bottom" title="ประกาศ">
+					<a onclick="Modal.announcementModal.open();"><i class="material-icons">announcement</i></a>
+				</li>
+				<li class="alert-tab" data-toggle="tooltip" data-placement="bottom" title="แจ้งเตือน">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="material-icons">add_alert</i> <span class="label label-danger">0</span></a>
+					<div class="dropdown-menu">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							<h3 class="panel-title">Notifications </h3>
+							</div>
+							<div class="panel-body">
+								<ul class="list-group"></ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="live-voice-tab" data-toggle="tooltip" data-placement="bottom" title="พูดคุยกับแท็กซี่">
+					<a onclick="Modal.driverListChatModal.open()"><i class="material-icons">mic</i></a>
+				</li>
+				<li class="search-tab" data-toggle="tooltip" data-placement="bottom" title="ค้นหางานจ่ายแล้ว">
+					<a onclick="Modal.searchTaskWithResultListModal.open();"><i class="material-icons">search</i></a>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="callcenter-tab active" data-toggle="tooltip" data-placement="bottom" title="คอลเซ็นเตอร์">
+					<a onclick="Monitoring.hide(event)">
+						<i class="material-icons">headset_mic</i>
+					</a>
+				</li>
+				<li class="monitoring-tab" data-toggle="tooltip" data-placement="bottom" title="มอนิเตอร์">
+					<a onclick="Monitoring.show(event)">
+						<i class="material-icons">map</i>
+					</a>
+				</li>
+				<li class="report-tab" data-toggle="tooltip" data-placement="bottom" title="สถิติ">
+					<a data-toggle="modal" data-target="#reportModal">
+						<i class="material-icons">assessment</i>
+					</a>
+				</li>
+				<li class="report-tab" data-toggle="tooltip" data-placement="bottom" title="รายงาน">
+					<a onclick="Report.openReportWindow();">
+						<i class="material-icons">assignment</i>
+					</a>
+				</li>
+				<li class="dropdown hide" data-toggle="tooltip" data-placement="bottom" title="กำหนดค่า">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="material-icons">settings</i>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a onclick="App.layout.setToRowAlign();">แสดงผลแบบแถว</a></li>
+						<li><a onclick="App.layout.setToColumnAlign();">แสดงผลแบบคอลัมน์</a></li>
+						<li><a onclick="Parking.openReportWindow();">กำหนดจุดจอด</a></li>
+					</ul>
+				</li>
+				<li class="user-profile-tab dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<img src="assets/img/callcenter-profile-sample-face.png" class="img-circle pull-left" />
+						<div class="pull-left garage-info">
+							<p>{{= user_data.groupNameTH }}</p>
+							<p>{{= user_data.provinceTH }}</p>
+						</div>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<img class="img-garage" src="https://placeholdit.imgix.net/~text?txtsize=22&txt=100%C3%97100&w=100&h=100" >
+									<div class="profile">
+										<p class="title">ข้อมูลเจ้าหน้าที่</p>
+										<p class="name">{{= user_data.name }}</p>
+										<p class="email">{{= user_data.email }}</p>
+										<p class="position">{{= user_data.group }}</p>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li class="control">
+							<a href="/profile"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> ตั้งค่าบัญชี</a>
+							<a href="/logout"> ออกจากระบบ</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div id="navbar-menu">
+	<div class="wrapper">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12">
+				<div class="mdl-card">
+					<div class="mdl-card__supporting-text">
+						<ul class="mdl-list">
+							<li class="mdl-list__item mdl-list__item--two-line">
+								<span class="mdl-list__item-primary-content">
+									<i class="material-icons mdl-list__item-avatar">person</i>
+									<span>{{= user_data.name }}</span>
+									<span class="mdl-list__item-sub-title">{{= user_data.group }}</span>
+								</span>
+							</li>
+						</ul>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12">
+				<ul class="mdl-list">
+
+					<li class="mdl-list__item" onclick="Monitoring.hide(); $('#navbar-menu').removeClass('open');">
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons  mdl-list__item-icon">headset_mic</i>
+							Callcenter
+						</span>
+					</li>
+					<li class="mdl-list__item" onclick="Monitoring.show(); $('#navbar-menu').removeClass('open');">
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons  mdl-list__item-icon">map</i>
+							Monitoring
+						</span>
+					</li>
+					<li class="mdl-list__item" onclick="Modal.reportModal.open(); $('#navbar-menu').removeClass('open');">
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons mdl-list__item-icon">timeline</i>
+							Report
+						</span>
+					</li>
+					<li class="mdl-list__item" onclick="Modal.announcementModal.open(); $('#navbar-menu').removeClass('open');">
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons  mdl-list__item-icon">announcement</i>
+							Announcements
+						</span>
+					</li>
+					<li class="mdl-list__item hide">
+						<span class="mdl-list__item-primary-content">
+							<i class="material-icons  mdl-list__item-icon">volume_up</i>
+							เปิด / ปิดเสียง
+						</span>
+						<span class="mdl-list__item-secondary-action">
+							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="sound-switch">
+								<input type="checkbox" id="sound-switch" class="mdl-switch__input" checked />
+							</label>
+						</span>
+					</li>
+					<li class="mdl-list__item">
+						<a href="/logout" class="mdl-list__item-primary-content">
+							<i class="material-icons  mdl-list__item-icon">close</i>
+							ออกจากระบบ
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

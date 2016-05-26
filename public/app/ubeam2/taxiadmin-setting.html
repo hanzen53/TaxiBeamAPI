@@ -1,0 +1,110 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/font/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-datepicker.standalone.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/iconfont/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-responsive.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/taxiadmin-function.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/taxiadmin-ie8.css"><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/taxiadmin-ie9.css"><![endif]-->
+</head>
+
+<body>
+	<div class="taxiadmin-container">
+		<div class="taxiadmin-header">
+			<div class="taxiadmin-header-menu">
+				<a class="garageadmin-homelogo" href="taxiadmin-home.html">
+					<img src="/assets/img/taxiadmin-logo.png" srcset="img/taxiadmin-logo@2x.png 2x"></a>
+			</div>
+			<div class="taxiadmin-user">
+				<ul>
+					<li>
+						<a>Piyapong</a>
+						<div class="taxiadmin-user-picture">
+							<img src="/assets/img/taxiadmin-user-picture.png">
+						</div>
+						<ul class="taxiadmin-user-option">
+							<li class="taxiadmin-change-password-btn"><a>เปลี่ยนรหัสผ่าน</a></li>
+							<li><a href="taxiadmin-login.html">ออกจากระบบ</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="taxiadmin-navigation-menu">
+			<ul>
+				<li><a class="taxiadmin-ico-menu"><i class="icon-menu_show"></i></a></li>
+				<li><a href="taxiadmin-home.html"><i class="icon-menu"></i><p>หน้าแรก</p></a></li>
+				<li><a href="taxiadmin-driver-list.html"><i class="icon-menu_chf"></i><p>ข้อมูลคนขับ</p></a></li>
+				<li><a href="taxiadmin-taxi-list.html"><i class="icon-menu_taxi"></i><p>ข้อมูลรถแท๊กซี่</p></a></li>
+				<li><a href="taxiadmin-message.html"><i class="icon-menu_msg"></i><p>ส่งข้อความ</p></a></li>
+				<li><a href="taxiadmin-stat.html"><i class="icon-menu_stat"></i><p>สถิติ</p></a></li>
+				<li class="active"><a href="taxiadmin-setting.html"><i class="icon-menu_setting"></i><p>ปรับแต่ง</p></a></li>
+			</ul>
+		</div>
+		<div class="taxiadmin-content home active">
+			<div class="taxiadmin-content-wrapper">
+
+				<div class="taxiadmin-dialog-viewtaxi setting">
+					<div class="taxiadmin-dialog-container">
+						<div class="taxiadmin-setting-title">
+							<i class="icon-menu_setting"></i>ปรับแต่งระดับการซูม
+						</div>
+						<div class="taxiadmin-setting-form">
+							<ul>
+								<li>ระดับ 1 <input type="radio" name="setting" id="setting1" checked><label for="setting1"></label></li>
+								<li>ระดับ 2 <input type="radio" name="setting" id="setting2"><label for="setting2"></label></li>
+								<li>ระดับ 3 <input type="radio" name="setting" id="setting3"><label for="setting3"></label></li>
+								<li>ระดับ 4 <input type="radio" name="setting" id="setting4"><label for="setting4"></label></li>
+								<li>ระดับ 5 <input type="radio" name="setting" id="setting5"><label for="setting5"></label></li>
+								<li>ระดับ 6 <input type="radio" name="setting" id="setting6"><label for="setting6"></label></li>
+								<li>ระดับ 7 <input type="radio" name="setting" id="setting7"><label for="setting7"></label></li>
+								<li>ระดับ 8 <input type="radio" name="setting" id="setting8"><label for="setting8"></label></li>
+								<li>ระดับ 9 <input type="radio" name="setting" id="setting9"><label for="setting9"></label></li>
+								<li>ระดับ 10 <input type="radio" name="setting" id="setting10"><label for="setting10"></label></li>
+								<li>ระดับ 11 <input type="radio" name="setting" id="setting11"><label for="setting11"></label></li>
+								<li>ระดับ 12 <input type="radio" name="setting" id="setting12"><label for="setting12"></label></li>
+								<li>ระดับ 13 <input type="radio" name="setting" id="setting13"><label for="setting13"></label></li>
+								<li>ระดับ 14 <input type="radio" name="setting" id="setting14"><label for="setting14"></label></li>
+								<li>ระดับ 15 <input type="radio" name="setting" id="setting15"><label for="setting15"></label></li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="taxiadmin-dialog-arrow"></div>
+				</div>
+
+				<img class="taxiadmin-map" src="/assets/img/taxiadmin-map.jpg">
+			</div>
+		</div>
+		<div class="taxiadmin-footer">©2014 Ecartstudio Co.,Ltd. All Reserved</div>
+		<div class="taxiadmin-change-password-overlay"></div>
+		<div class="taxiadmin-change-password">
+			<div class="taxiadmin-change-password-title">
+				เปลี่ยนรหัสผ่าน
+			</div>
+			<div class="taxiadmin-close-dialog">
+				<i class="icon-ico_close"></i>
+			</div>
+			<div class="taxiadmin-change-password-form">
+				<p>รหัสเดิม</p>
+				<input type="password">
+				<p>รหัสใหม่</p>
+				<input type="password">
+				<p>ยืนยันรหัสใหม่</p>
+				<input type="password">
+				<input type="submit" value="เปลี่ยนรหัส" class="taxiadmin-btn-changepw">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

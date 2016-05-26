@@ -1,0 +1,201 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/font/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-datepicker.standalone.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/iconfont/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-responsive.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/EC.Popup.css">
+	<link rel="stylesheet" href="/assets/css/app.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+	<script type="text/javascript" src="/assets/libs/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/taxiadmin-function.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/bootstrap-datepicker.js"></script>
+	<script src="/assets/libs/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/placeholder.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/taxiadmin-ie8.css"><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/taxiadmin-ie9.css"><![endif]-->
+	<!--[if IE]><!-->
+	<style type="text/css">
+
+	</style><!--<![endif]-->
+	
+	<script src="/assets/libs/jquery-ui/jquery.ui.touch-punch.min.js"></script>	
+	<script src="/assets/libs/angular/angular.js"></script>	
+	<script src="/assets/libs/jquery/dist/jquery.min.js"></script>	
+	<!--script src="http://hmap.ecartmap.com/v1/hobbit-loader.js"></script-->
+	<script src="/socket.io/socket.io.js"></script>	
+
+	<script src="http://rawgithub.com/openplans/Leaflet.AnimatedMarker/master/src/AnimatedMarker.js"></script>
+	<script src="http://rawgithub.com/makinacorpus/Leaflet.GeometryUtil/master/dist/leaflet.geometryutil.js"></script>
+	<!-- Start Auto complete -->
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<!-- End Auto complete --> 
+	<!-- EC.Popup -->
+	<script src="/assets/libs/js/EC.Popup.js"></script>
+
+
+		
+</head>
+
+<body>
+	<div class="taxiadmin-container">
+		<div class="taxiadmin-header">
+			<div class="taxiadmin-header-menu">
+				<a class="garageadmin-homelogo" href="#"><img src="/assets/img/taxiadmin-logo.png" srcset="/assets/img/taxiadmin-logo@2x.png 2x"></a>
+			</div>
+
+			<div class="taxiadmin-search">
+				<a href="" class="garageadmin-btn-search"><i class="icon-ico_search"></i></a>
+				<div class="taxiadmin-groupsearch last">					
+					<input type="text" placeholder="ชื่อ, สกุล, ทะเบียนรถ, รหัสแท็กซี่" name="drivernearby" id="drivernearby" value=""  class="ui-autocomplete-input ui-corner-all" autocomplete="off">
+					<div class="taxiadmin-border-search"></div>
+				</div>
+				<div class="taxiadmin-groupsearch">
+					<input type="text" placeholder="ค้นหาสถานที่" name="placenearby" id="placenearby" value=""  class="ui-autocomplete-input ui-corner-all" autocomplete="off">
+					<div class="taxiadmin-border-search"></div>
+				</div>
+				<div class="taxiadmin-groupsearch last">
+					<table >
+						<tr>
+							<td width=75><a href="#" OnClick="getTaxibemList('OFF')";><img src="../assets/img/map/pin-taxi-off-label.png" align="middle"></a></td>
+							<td width=75><a href="#" OnClick="getTaxibemList('ON')";><img src="../assets/img/map/pin-taxi-on-label.png" align="middle"></a></td>
+							<td width=75><a href="#" OnClick="getTaxibemList('WAIT')";><img src="../assets/img/map/pin-taxi-wait-label.png" align="middle"></a></td>
+							<td width=75><a href="#" OnClick="getTaxibemList('BUSY')";><img src="../assets/img/map/pin-taxi-busy-label.png" align="middle"></a></td>
+							<td width=65><a href="#" OnClick="getTaxibemList('PICK')";><img src="../assets/img/map/pin-taxi-pick-label.png" align="middle"></a></td>
+						</tr>
+					</table>
+				</div>
+
+				
+			</div>
+			<div class="taxiadmin-user">
+				<ul>
+					<li>
+						<a>Monitor</a>
+						<div class="taxiadmin-user-picture">
+							<img src="/assets/img/map/pin-taxi.png">
+						</div>
+						<!--ul class="taxiadmin-user-option">
+							<li class="taxiadmin-change-password-btn"><a>เปลี่ยนรหัสผ่าน</a></li>
+							<li><a href="taxiadmin-login.html">ออกจากระบบ</a></li>
+						</ul-->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="taxiadmin-navigation-menu active">
+
+
+
+		</div>
+
+		<div class="entry-form">
+			<form name="userinfo" id="userinfo"> 
+			<table width="100%" border="0" cellpadding="4" cellspacing="0">
+				<tr>
+					<td colspan="2" align="right"><a href="#" id="close">Close</a></td>
+				</tr>
+				<tr>
+					<td>จุดรับ</td>					
+					<td><input type="text" placeholder="" name="curaddr" id="curaddr" value=""  class="ui-autocomplete-input ui-corner-all" autocomplete="off"></td>				
+				</tr>
+				<tr>
+					<td>จุดส่ง</td>
+					<td><input type="text" name="destination" id="destination"></td>
+				</tr>
+				<tr>
+					<td>โทรศัพท์</td>
+					<td><input type="text" name="phone" id="phone"></td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td><input type="button" value="Save" id="save"><!--input type="button" value="cancel" id="cancel"--></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+
+		<div class="taxiadmin-content home active">
+			<div class="taxiadmin-content-wrapper">
+				<div class="taxiadmin-inspica-search">
+					<ul>
+						<li>พระราม 9</li>
+						<li>อาคารควาวาซากิ ถนนพระราม 9 กรุงเทพฯ</li>
+						<li>โรงพยาบาลพระราม 9 ถนนพระราม9 ซอย 50 กรุงเทพฯ</li>
+						<li>แยก อสมท พระราม 9 กรุงเทพฯ</li>
+						<li>อาคารว่องวานิ112/14 ถนนพระราม 9 กรุงเทพฯ</li>
+					</ul>
+				</div>
+				<div class="taxiadmin-taxi-status">
+					<ul>
+						<li><p>สถานะรถแท็กซี่<i class="icon-ico_sortup"></i></p>
+							<ul class="taxiadmin-hidden-status">
+								<li><div class="taxiadmin-status-avaliable"></div><p>รถว่าง</p></li>
+								<li><div class="taxiadmin-status-unavaliable"></div><p>มีผู้โดยสาร</p></li>
+								<li><div class="taxiadmin-status-broken"></div><p>รถเสีย</p></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+
+				<a class="taxiadmin-search-map">Search this Area</a>
+				<!--img class="taxiadmin-map" src="/assets/img/taxiadmin-map.jpg"-->
+				<!-- map -->
+
+			</div>
+		</div>
+		<div class="taxiadmin-footer">©2014 Ecartstudio Co.,Ltd. All Reserved</div>
+		<div class="taxiadmin-change-password-overlay"></div>
+		<div class="taxiadmin-change-password">
+			<div class="taxiadmin-change-password-title">
+				เปลี่ยนรหัสผ่าน
+			</div>
+			<div class="taxiadmin-close-dialog">
+				<i class="icon-ico_close"></i>
+			</div>
+			<div class="taxiadmin-change-password-form">
+				<p>รหัสเดิม</p>
+				<input type="password">
+				<p>รหัสใหม่</p>
+				<input type="password">
+				<p>ยืนยันรหัสใหม่</p>
+				<input type="password">
+				<input type="submit" value="เปลี่ยนรหัส" class="taxiadmin-btn-changepw">
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+
+
+  <script>
+
+	//var socket = io.connect('http://localhost:1115');
+	var socket = io.connect(document.location.hostname+'');
+		
+
+	$(function() {  
+		socket.on('driverAcceptCall', function (data) {          
+			console.log('driverAcceptCall = '+data);
+			//addPoiPsg(data);
+		});
+	});
+
+
+
+
+</script>
+
+	
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Socket.io Demo</title>
+
+  <style>
+    .chat-form { display: none; }
+  </style>
+</head>
+<body>
+
+<form class="chat-form" method="post" action="">
+
+  <label>{{= user.username }} </label><br />
+  <textarea id="message"></textarea><br />
+  <label>To:</label> <input id="recipient" type="text"    /><br />
+  <input type="submit" value="Send" />
+
+  <ul id="messages">
+
+  </ul>
+</form>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:8888');
+
+  // Add a username
+  //$(".username-form").on("submit", function(){
+
+    // Tell the server about it
+
+   // return false;
+  //});
+
+  // Chat form
+ var chat_form = $(".chat-form");
+ chat_form.on("submit", function(){
+
+   // Send the message to the server
+   socket.emit("private-message", {
+    "username": $(this).find("input:first").val(),
+    "content": $(this).find("textarea").val()
+   });
+
+   // Empty the form
+   $(this).find("input:first, textarea").val('');
+  return false;
+ });
+
+ // Whenever we receieve a message, append it to the <ul>
+ socket.on("add-message", function(data){
+  $("#messages").append($("<li>", {
+    "text": data.content
+  }));
+ });
+
+ socket.on("all-message", function(data){
+  $("#messages").append($("<li>", {
+    "text": data.content
+  }));
+ });
+
+    //var username = {{= user.username }} ;
+    socket.emit("add-user", {"username": "{{= user.username }}" });
+    // Remove this form and show the chat form
+    $(this).remove();
+  //  $("#username").text(username);
+    chat_form.show();
+</script>
+</body>
+</html>
+

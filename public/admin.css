@@ -1,0 +1,68 @@
+   .container {
+      /* padding-top: 60px;
+      */ 
+    }
+    .modal-footer {      
+      text-align: center;
+    }
+
+
+/* 
+    Document   : tb-detail
+    Created on : 28/02/2012, 11:01:54 AM
+    Author     : Simon Elvery
+    Description:
+        Demonstration of the responsive tables method described at by Chris Coyier
+		at http://css-tricks.com/responsive-data-tables/
+*/
+
+@media only screen and (max-width: 800px) {
+	
+	/* Force table to not be like tables anymore */
+	#tb-detail table, 
+	#tb-detail thead, 
+	#tb-detail tbody, 
+	#tb-detail th, 
+	#tb-detail td, 
+	#tb-detail tr { 
+		display: block; 
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#tb-detail thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+		color: blue;
+	}
+
+	#tb-detail tr { border: 1px solid #ccc; }
+
+	#tb-detail td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+
+	#tb-detail td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+
+	/*
+	Label the data
+	*/
+	#tb-detail td:before { content: attr(data-title); }
+}

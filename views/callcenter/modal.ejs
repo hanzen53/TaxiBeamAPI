@@ -1,0 +1,894 @@
+<!-- POPUP MODAL -->
+<div id="createTaskModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+
+				<div class="row">
+					<form id="createTaskForm">
+						<div class="col-md-12 col-lg-12">
+							<div class="pull-left">
+								<h3 class="modal-title"><i class="fa fa-plus-square-o"></i> เพิ่มงานใหม่</h3>
+							</div>
+							<div class="pull-right">
+								<div class="js-switch-wrap">
+									<span class="text">จองแบบปกติ</span>
+									<input type="checkbox" class="js-switch" id="jobType" />
+									<span class="text">จองล่วงหน้า</span>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<hr>
+						</div>
+						
+						<div class="col-md-6 col-lg-6">
+							<div class="form-left-wrap">
+								<div class="row">
+									<div class="col-md-7 col-lg-7">
+										<div class="form-group">
+											<label for="pass-phone-inp">เบอร์ติดต่อผู้โดยสาร</label>
+											<input type="text" class="form-control" id="pass-phone-inp" name="phone" autocomplete="off" minlength="9" maxlength="10">
+										</div>
+									</div>
+									<div class="col-md-5 col-lg-5">
+										<div class="form-group">
+
+											<label for="customer-province-list">จังหวัด</label>
+											<select id="customer-province-list" class="form-control">
+												<option value="ubonratchathani" data-loc="15.24519, 104.84691">อุบลราชธานี</option>
+												<option value="srisaket" data-loc="15.11638, 104.31834">ศรีสะเกษ</option>
+												<option value="nakhonratchasima" data-loc="14.97472, 102.09183">นครราชสีมา</option>
+												<option value="roiet" data-loc="16.05439, 103.65326">ร้อยเอ็ด</option>
+											</select>
+
+											<!-- <label for="passengerJob">ประเภทผู้ติดต่อ</label>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="passengerJob">
+												<input type="radio" id="passengerJob" class="mdl-radio__button" name="isContractJob" value="-1" checked>
+												<span class="mdl-radio__label">ผู้โดยสารทั่วไป</span>
+											</label>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="contractJob">
+												<input type="radio" id="contractJob" class="mdl-radio__button" name="isContractJob" value="1">
+												<span class="mdl-radio__label">โรงแรม/อื่นๆ</span>
+											</label> -->
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-lg-12">
+										<div class="form-group">
+											<label for="pass-from-inp">ตำแหน่งไปรับ</label>
+											<!-- <div class="input-group"> -->
+												<input type="text" class="form-control" id="pass-from-inp" name="current" autocomplete="off" minlength="1" maxlength="255">
+												<!-- <span class="input-group-btn">
+													<button class="btn btn-default" type="button" data-toggle="modal" data-target="#areaSuggestion"><i class="material-icons">place</i></button>
+												</span> -->
+											<!-- </div> -->
+										</div>
+									</div>
+									<div class="col-md-12 col-lg-12">
+										<div class="form-group">
+											<label for="pass-dest-inp">จุดหมาย</label>
+											<!-- <div class="input-group"> -->
+												<input type="text" class="form-control" id="pass-dest-inp" name="destination" autocomplete="off" minlength="1" maxlength="255">
+												<!-- <span class="input-group-btn">
+													<button class="btn btn-default" type="button" data-toggle="modal" data-target="#areaSuggestion"><i class="material-icons">place</i></button>
+												</span> -->
+											<!-- </div> -->
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="taxiAmount">จำนวน/คัน</label>
+											<input type="text" class="form-control" id="taxiAmount" name="taxiAmount" autocomplete="off" minlength="1" maxlength="2" value="1">
+										</div>
+									</div>
+									<div class="col-md-6 col-lg-6">
+										<div class="form-group">
+										<label for="ccstation">หมายเลขเครื่องรับ</label>
+											<input type="text" class="form-control" id="ccstation" name="ccstation" autocomplete="off" minlength="1" maxlength="2" value="1">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-5 col-lg-5 col-md-offset-1">
+							<div class="datetime-overlay"></div>
+							<div id="createdjob"></div>
+						</div>
+
+						<div class="col-md-12 col-lg-12">
+							<div class="form-group">
+								<label for="pass-desc-txt">รายละเอียดการไปรับ</label>
+								<textarea class="form-control" row="7" id="pass-desc-txt"></textarea>
+							</div>
+						</div>
+
+						<div class="col-md-12 col-lg-12">
+							<button type="submit" class="btn btn-success">บันทึก</button>
+							<!-- <button type="submit" class="btn btn-success">บันทึกเป็นงานจากโรงแรม</button> -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="assignTaskModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog full-screen">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<div class="modal-control">
+					<div class="btn-group" role="group">
+						<button class="btn btn-default toggle-size" onclick="Modal.assignTaskModal.toggleFullScreen();"><i class="fa fa-arrows-alt"></i></button>
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+
+				<div class="content">
+					<div class="row">
+						<div class="col-md-8 col-lg-8">
+							<div class="map-wrap">
+								<form id="assignTaskSearchTaxiForm">
+									<i class="fa fa-search" icon-for="map-search-inp"></i>
+									<input type="text" class="form-control" id="map-search-inp" autocomplete="off" />
+								</form>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-lg-4">
+							<div class="detail-wrap">
+
+								<h3 class="title">รายละเอียด</h3>
+								<hr>
+
+								<div class="value-set">
+									<p class="caption">เบอร์ติดต่อผู้โดยสาร</p>
+									<p class="text phone"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">จังหวัด</p>
+									<p class="text province"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">จุดรับ</p>
+									<p class="text current"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">จุดส่ง</p>
+									<p class="text destination"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">รายละเอียดการไปรับ</p>
+									<p class="text detail"></p>
+								</div>
+
+								<form id="searchTaxiBeforeAssignForm">
+									<label for="car-plate-inp">ระบุหมายเลขรถ</label>
+									<input type="text" class="form-control" id="car-plate-inp" name="carplate" minlength="2" maxlength="8" autocomplete="off">
+								</form>
+
+								<form id="assignTaskForm">
+									<div class="form-group">
+										<input type="hidden" id="pass_id">
+									</div>
+									<button type="submit" class="btn btn-block btn-lg btn-success">บันทึก</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+
+
+<div id="assignTaskByLineModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h3 class="modal-title">รายละเอียด</h3>
+				<div class="modal-control">
+					<div class="btn-group" role="group">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body">
+
+				<div class="content">
+					<div class="row">
+						<div class="col-md-12 col-lg-12">
+							<div class="detail-wrap">
+
+								
+
+								<div class="value-set">
+									<p class="caption">เบอร์ติดต่อผู้โดยสาร</p>
+									<p class="text phone"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">จุดรับ</p>
+									<p class="text current"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">จุดส่ง</p>
+									<p class="text destination"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">รายละเอียดการไปรับ</p>
+									<p class="text detail"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">เลขทะเบียนแท็กซี่เจ้าของงาน </p>
+									<p class="text carplate"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-block btn-lg btn-success">จ่ายงานผ่าน Line เรียบร้อย</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+
+
+<div id="assignedTaskModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+				
+				<div class="content">
+					<div class="row">
+						<div class="col-md-8 col-lg-8">
+							<div class="map-wrap">
+							</div>
+						</div>
+
+						<div class="col-md-4 col-lg-4">
+							<div class="detail-wrap">
+
+								<h3 class="title">รายละเอียด</h3>
+								<hr>
+
+								<div class="value-set">
+									<p class="caption">เบอร์ติดต่อผู้โดยสาร</p>
+									<p class="text phone"></p>
+								</div>
+
+								<div class="value-set col-md-6 col-lg-6">
+									<p class="caption">จุดรับ</p>
+									<p class="text current"></p>
+								</div>
+
+								<div class="value-set col-md-6 col-lg-6">
+									<p class="caption">จุดส่ง</p>
+									<p class="text destination"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">รายละเอียดการไปรับ</p>
+									<p class="text detail"></p>
+								</div>
+
+								<div class="value-set">
+									<p class="caption">หมายเหตุ</p>
+									<div class="input-group commentForm">
+										<input type="text" class="form-control">
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="button">บันทึก</button>
+										</span>
+									</div>
+								</div>
+
+								<h4 class="title">ข้อมูลแท็กซี่</h4>
+								<hr>
+
+								<div class="alert alert-warning alert-missing-driver" role="alert">งานนี้ถูกจ่ายไปยังแท็กซี่นอกระบบ!</div>
+
+								<div class="driver-wrap">
+									<div class="col-md-5 col-lg-5">
+										<img src="" class="driver-img img-circle">
+									</div>
+
+									<div class="col-md-7 col-lg-7">
+										<div class="value-set">
+											<p class="caption">ชื่อ/สกุล</p>
+											<p class="text driver_fullname"></p>
+										</div>
+										<div class="value-set">
+											<p class="caption">เลขทะเบียน</p>
+											<p class="text driver_carplate"></p>
+										</div>
+										<div class="value-set">
+											<p class="caption">เบอร์โทรติดต่อ</p>
+											<p class="text driver_phone">-</p>
+										</div>
+									</div>
+
+									<div class="clearfix"></div>
+								</div>
+
+								<button type="submit" class="btn btn-block btn-lg btn-danger reject-btn">ยกเลิกงานนี้</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+
+
+<div id="assignedTaskEditableModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+				<h3 class="title">รายละเอียด</h3>
+				<hr>
+
+				<form id="assignedTaskEditableForm">
+					<input type="hidden" id="psg_id">
+					<div class="form-group">
+						<label for="phone">เบอร์ติดต่อผู้โดยสาร</label>
+						<input type="text" class="form-control" id="phone" name="phone">
+					</div>
+					<div class="form-group">
+						<label for="curaddr">จุดรับ</label>
+						<input type="text" class="form-control" id="curaddr" name="curaddr">
+					</div>
+					<div class="form-group">
+						<label for="destination">จุดส่ง</label>
+						<input type="text" class="form-control" id="destination" name="destination">
+					</div>
+					<div class="form-group">
+						<label for="detail">รายละเอีดยการไปรับ</label>
+						<input type="text" class="form-control" id="detail" name="detail">
+					</div>
+					<div class="form-group">
+						<label for="cccomment">หมายเหตุ</label>
+						<input type="text" class="form-control" id="cccomment" name="cccomment">
+					</div>
+					<button type="submit" class="btn btn-block btn-lg btn-primary">บันทึก</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="reportModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="top" title="ปิด"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">รายงาน</h4>
+				<p class="modal-message"><i>ภาพรวมของวันที่ :: </i> <span class="detail"></span></p>
+			</div>
+			<div class="modal-body">
+				{{ include report }}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="confirmModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="message"></div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-danger confirm">ยืนยัน</button>
+				<button class="btn btn-link" data-dismiss="modal">ยกเลิก</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="confirmNoneRegisterDriverModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="message"><h3 class="title">รถคันนี้ไม่มีในระบบ <i class="fa fa-exclamation"></i></h3><p class="text">คุณต้องการจ่ายงานหรือไม่</p></div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary confirm">ยืนยัน</button>
+				<button class="btn btn-link" data-dismiss="modal">ยกเลิก</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="areaSuggestion" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+				<h4 class="title"><i class="material-icons">star_border</i> ตำแหน่งแนะนำ</h4>
+			</div>
+			<div class="modal-body">
+
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+					<div class="mdl-tabs__tab-bar">
+
+						<a href="#panel-0" class="mdl-tabs__tab is-active">ห้าง/ร้าน</a>
+						<a href="#panel-1" class="mdl-tabs__tab">สถานศึกษา</a>
+						<a href="#panel-2" class="mdl-tabs__tab">รพ/ราชการ</a>
+						<a href="#panel-3" class="mdl-tabs__tab">วัด</a>
+						<a href="#panel-4" class="mdl-tabs__tab">ที่พัก</a>
+						<a href="#panel-5" class="mdl-tabs__tab">กินเที่ยว</a>
+						<a href="#panel-6" class="mdl-tabs__tab">อื่นๆ</a>
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-0">
+						<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--3-col">
+								<ul class="mdl-list">
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+								<ul class="mdl-list">
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+								<ul class="mdl-list">
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+								<ul class="mdl-list">
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-1">
+						<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--3-col">
+								<ul class="mdl-list">
+									<li class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="material-icons mdl-list__item-icon">store_mall_directory</i>
+											<span>วิทยาลัยพยาบาล</span>
+											<span class="mdl-list__item-sub-title">จุดจอดรพ.ใหญ่</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-2">2
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-3">3
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-4">4
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-5">5
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="panel-6">6
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="successModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<i class="fa fa-check"></i>
+				<div class="message"></div>
+				<button class="btn btn-link" data-dismiss="modal">ปิด</button>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="announcementModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<div class="modal-control">
+					<div class="btn-group" role="group">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					</div>
+				</div>
+
+				<h3 class="title">ประกาศ</h3>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-block" type="button" data-toggle="collapse" data-target="#collapseAddAnnounce" aria-expanded="false" aria-controls="collapseAddAnnounce">
+					<i class="fa fa-bullhorn"></i>
+					สร้างประกาศใหม่
+				</button>
+				<div class="collapse" id="collapseAddAnnounce">
+					<div class="well">
+						<form id="announceForm">
+
+							<div class="form-group">
+								<input type="text" class="form-control" name="topic" id="inputTitleAnnounce" placeholder="หัวข้อ" autocomplete="off">
+							</div>
+
+							<div class="form-group">
+								<textarea class="form-control" name="detail" id="textareaAnnounceMessage" placeholder="ข้อความ" rows="3"></textarea>
+							</div>
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-default">ประกาศ</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="announcementEditModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="announceEditForm">
+				<div class="modal-body">
+
+					<div class="modal-control">
+						<div class="btn-group" role="group">
+							<button class="btn btn-default close-modal" data-dismiss="modal"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+
+					<h3 class="title">แก้ไขประกาศ</h3>
+					<input type="hidden" name="ann_id">
+
+					<div class="form-group">
+						<input type="text" class="form-control" name="topic" id="inputTitleAnnounce" placeholder="หัวข้อ" autocomplete="off">
+					</div>
+
+					<div class="form-group">
+						<textarea class="form-control" name="detail" id="textareaAnnounceMessage" placeholder="ข้อความ" rows="3"></textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default">บันทึก</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div id="messageBoxModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h3 class="title"></h3>
+				<p class="message"></p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" data-dismiss="modal">ปิด</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="searchTaskWithResultListModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">ค้นหางาน</h4>
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="material-icons">clear</i></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+						<form id="searchFinishedTaskForm" role="search" class="pull-left">
+							<div class="input-group">
+								<i class="material-icons">search</i>
+								<input type="text" class="form-control" name="keyword" autocomplete="off">
+								<span class="input-group-btn">
+									<input class="btn btn-default" type="submit" value="ค้นหา" />
+								</span>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+						<div class="daterange pull-right">
+							<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+							<span></span> <b class="caret"></b>
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<table id="searchTaskResultTable" class="display dataTable table-inline-editable" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>เบอร์โทร</th>
+									<th>จุดรับ</th>
+									<th>จุดส่ง</th>
+									<th>ทะเบียน</th>
+									<th>หมายเหตุ</th>
+									<th>สร้างโดย</th>
+									<th>เลขเครื่องรับ</th>
+									<th>เวลารับงาน</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div id="driverListChatModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title"><i class="material-icons">mic</i> LiveBeam</h4>
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="material-icons">clear</i></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="list-group driver-list">
+							<button type="button" class="list-group-item" onclick="Modal.liveChatModal.open();">Cras justo odio</button>
+							<button type="button" class="list-group-item" onclick="Modal.liveChatModal.open();">Dapibus ac facilisis in</button>
+							<button type="button" class="list-group-item" onclick="Modal.liveChatModal.open();">Morbi leo risus</button>
+							<button type="button" class="list-group-item" onclick="Modal.liveChatModal.open();">Porta ac consectetur ac</button>
+							<button type="button" class="list-group-item" onclick="Modal.liveChatModal.open();">Vestibulum at eros</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="liveChatModal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-control">
+					<div class="btn-group" role="group" aria-label="...">
+						<button class="btn btn-default close-modal" data-dismiss="modal"><i class="material-icons">clear</i></button>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="driver-img-wrapper">
+							<img class="img-circle" src="https://placeholdit.imgix.net/~text?txtsize=22&txt=150%C3%97150&w=150&h=150">
+						</div>
+						<div class="driver-detail">
+							<h4 class="name"></h4>
+							<p class="carplate"></p>
+							<hr>
+						</div>
+						<div class="controller">
+							<button class="record"><i class="material-icons">mic</i></button>
+							<br>
+							<button class="cancel btn btn-link">ยกเลิก</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Nifty Modal -->
+<div class="md-overlay"></div>

@@ -1,0 +1,51 @@
+@media screen and (max-width : 1320px){ 
+.garageadmin-formbox-box.last {
+	margin-top: 20px;
+}
+
+}
+
+@media screen and (max-width : 1100px){ 
+.garageadmin-listemployee tr.active .garageadmin-btn-primary , .garageadmin-listemployee tr.active .cd-dropdown {
+	margin-top: 10px;
+	margin-left: 0px;
+}
+.garageadmin-listemployee tr.active .garageadmin-btn-primary {
+	margin-bottom: 10px;
+}
+
+}
+
+@media screen and (max-width : 1042px){ 
+.garageadmin-addGarage-form .garageadmin-addGarage-addressgroup.subdistrict {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width : 1016px){ 
+.garageadmin-formbox-box.center {
+	margin-top: 20px;
+}
+
+@media screen and (max-width : 1012px){ 
+.garageadmin-addGarage-form .garageadmin-addGarage-addressgroup.zipcode {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width : 876px){ 
+.garageadmin-addGarage-form .garageadmin-addGarage-addressgroup.latitude {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.garageadmin-list .garageadmin-contactbox {
+	width: 50%;
+	margin-top: 10px;
+}
+
+
+
+
+
+
+}

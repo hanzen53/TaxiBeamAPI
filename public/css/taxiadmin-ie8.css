@@ -1,0 +1,63 @@
+.taxiadmin-dialog-viewtaxi .taxiadmin-dialog-arrow {
+	
+}
+.taxiadmin-dialog-viewtaxi.taxiadmin-distance .taxiadmin-dialog-container {
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#8C000000,endColorstr=#8C000000);
+	background-color: transparent;
+}
+.active.taxiadmin-overlay , .taxiadmin-change-password-overlay {
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF1c1c24,endColorstr=#BF1c1c24);
+}
+.taxiadmin-dialog-viewtaxi .taxiadmin-dialog-arrow {
+	display: none;
+}
+.taxiadmin-loginform {
+	position: fixed;
+}
+.taxiadmin-dialog-viewtaxi.setting {
+	height: 542px;
+	position: fixed;
+	border: 1px solid #b21617 !important;
+}
+.taxiadmin-btn-file {
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+	background-color: transparent;
+	bottom: 3px;
+}
+.taxiadmin-hidden-status {
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+	background-color: transparent;
+}
+tr.odd , li.odd {
+	background-color: #f2f2f2;
+}
+.taxiadmin-search-date i {
+	top: 0px;
+}
+.taxiadmin-content-wrapper input[type=text] , .taxiadmin-input-form input[type=text] {
+	line-height: 28px;
+	height: 30px;
+}
+
+input[type=radio] {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.taxiadmin-setting-form input[type=radio] {
+	margin-right: 0px;
+}
+input[type=checkbox] {
+	float: left;
+	position: relative !important;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.taxiadmin-group-radio label , .color.taxiadmin-input-form i , .year.taxiadmin-input-form i , .taxiadmin-checkbox label ,
+.taxiadmin-setting-form label {
+	display: none;
+}
+.taxiadmin-pagination {
+	width: 270px;
+}

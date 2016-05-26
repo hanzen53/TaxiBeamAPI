@@ -1,0 +1,50 @@
+<div class="col-md-6 col-lg-6">
+	<ul id="leftTabList" class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#table-queue-tab" aria-controls="table-queue-tab" role="tab" data-toggle="tab">
+				<h5 class="title"> คิวงาน <span class="indicator green"></span></h5>
+			</a>
+		</li>
+		<li role="presentation">
+			<a href="#table-advance-tab" aria-controls="table-advance-tab" role="tab" data-toggle="tab">
+				<h5 class="title">งานจองล่วงหน้า</h5>
+			</a>
+		</li>
+	</ul>
+
+	<div id="leftTabContent" class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="table-queue-tab">
+			{{ include table-queues }}
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="table-advance-tab">
+			{{ include table-advance }}
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6 col-lg-6">
+	<ul id="rightTabList" class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#table-pending-tab" aria-controls="table-pending-tab" role="tab" data-toggle="tab">
+				<h5 class="title">งานรอตอบรับ<span class="indicator red"></span>
+				</h5>
+			</a>
+		</li>
+		<li role="presentation">
+			<a href="#table-assigned-tab" aria-controls="table-assigned-tab" role="tab" data-toggle="tab">
+				<h5 class="title">งานที่จ่ายแล้ว</h5>
+			</a>
+		</li>
+	</ul>
+
+	<div id="rightTabContent" class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="table-pending-tab">
+			{{ include table-pending }}
+		</div>
+
+		<div role="tabpanel" class="tab-pane" id="table-assigned-tab">
+			{{ include table-assigned }}
+		</div>
+	</div>
+</div>

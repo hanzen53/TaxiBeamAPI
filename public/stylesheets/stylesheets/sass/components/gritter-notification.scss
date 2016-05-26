@@ -1,0 +1,72 @@
+// Notification
+#gritter-notice-wrapper.bottom-center {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    left: 50%;
+}
+
+.gritter-item {
+	font-family: 'base_webfont';
+	.gritter-title {
+		text-shadow: none;
+	}
+	.btn.btn-link {
+		color: #AAA;
+		padding: 0px;
+	}
+}
+
+.gritter-item > .gritter-close {
+	top: -10px;
+	left: auto;
+	right: -10px;
+}
+
+.gritter-top {
+	border-radius: 4px 4px 0px 0px;
+}
+
+.gritter-bottom {
+	border-radius: 0px 0px 4px 4px;
+}
+
+.gritter-primary {
+	.gritter-top,  
+	.gritter-item,
+	.gritter-bottom {
+    color: #fff;
+    background: $third-color;
+    border: 1px solid $third-color;
+	}
+}
+
+.gritter-success {
+	.gritter-top,  
+	.gritter-item,
+	.gritter-bottom {
+    color: #fff;
+    background: #6D8400;
+    border: 1px solid #6D8400;
+	}
+}
+
+.gritter-warning {
+	.gritter-top,  
+	.gritter-item,
+	.gritter-bottom {
+		color: #fff;
+		background: #D54E21;
+		border: 1px solid #D54E21;
+	}
+}
+
+.gritter-danger {
+	.gritter-top,  
+	.gritter-item,
+	.gritter-bottom {
+		color: #fff;
+		background: #A51413;
+		border: 1px solid #A51413;
+	}
+}

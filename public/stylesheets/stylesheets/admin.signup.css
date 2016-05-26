@@ -1,0 +1,71 @@
+@import url(sass/vendors/font-awesome/css/font-awesome.min.css);
+@import url(sass/vendors/hover-master/css/hover-min.css);
+@import url(sass/vendors/animate/animate.css);
+@font-face {
+  font-family: base_webfont;
+  src: url(fonts/sukhumvitset-text-webfont.woff); }
+html, body {
+  font-family: 'base_webfont'; }
+
+body {
+  background-color: #e6e6e6; }
+
+::-webkit-scrollbar {
+  width: 12px; }
+
+::-webkit-scrollbar-track {
+  background-color: #eaeaea;
+  border-left: 1px solid #ccc; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc; }
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; }
+
+body {
+  font-family: 'Roboto', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif; }
+
+.bg {
+  background-color: #303940; }
+
+.logo-wrapper {
+  margin-top: 120px;
+  margin-bottom: 50px; }
+
+.btn-primary.custom {
+  min-width: 200px;
+  border-radius: 2px;
+  border-color: #03A9F4;
+  background-color: #2196F3; }
+
+label.error {
+  color: #FFFFFF;
+  font-size: 12px;
+  padding: 2px 16px;
+  background-color: #A03636;
+  border-radius: 1px 1px 3px 3px; }
+
+.panel {
+  border-radius: 2px; }
+  .panel .panel-heading {
+    line-height: 48px;
+    padding: 0px 16px 0px 16px;
+    color: #222;
+    background-color: #fcfcfc;
+    border-color: #fcfcfc;
+    text-align: center; }
+    .panel .panel-heading h2 {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 14px 0 14px;
+      margin: 0;
+      line-height: 20px;
+      opacity: 0.75;
+      text-transform: uppercase; }
+  .panel body, .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel .h1, .panel .h2, .panel .h3, .panel .h4 {
+    font-weight: 300; }
+  .panel .form-control {
+    border-radius: 2px; }
+
+/*# sourceMappingURL=admin.signup.css.map */

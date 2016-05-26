@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en"> 
+	<head>
+		<meta content="charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<!-- Passenger WEB Mobile version  1.0 cutoff 20160307 -->	
+		<title>Taxi-Beam: Passengers</title>
+
+		<style>
+		/* Paste this css to your style sheet file or under head tag */
+		/* This only works with JavaScript, 
+		if it's not present, don't show loader */
+		.no-js #loader { display: none;  }
+		.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+		.se-pre-con {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			background: url(../assets/img/home_screen.png) center no-repeat #fff;
+			background-size: 320px;
+		}
+
+		.se-pre-click{
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			background: url(../assets/img/loadingwaiting.gif) center no-repeat rgba(255,255,255,0.6);
+			background-size: 300px;
+		}
+		</style>
+
+		<script src="/libs/jquery/dist/jquery.min.js"></script>	
+		
+		<script>
+			//paste this code under head tag or in a seperate js file.
+			// Wait for window load
+			if (!/ismobile=1/.test(window.location.search)) {
+				$(window).load(function() {
+					// Animate loader off screen
+					$(".se-pre-con").fadeOut("slow");
+				});
+			}			
+
+		</script>
+
+		<link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/font.css">
+		<link rel="stylesheet" href="/app/passenger/fonts/icomoon_031116/style.css">
+		<link rel="stylesheet" href="/assets/libs/jquery-ui/themes/smoothness/jquery-ui.min.css">		
+		<link rel="stylesheet" href="/app/passenger/fonts/iconmoon/style.css">	
+		<link rel="stylesheet" href="/assets/plugins/splash-mobi/splash-mobi.css">		
+		<link rel="stylesheet" href="/app/passenger/app.css">
+					
+		<script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/assets/plugins/splash-mobi/splash-mobi.js"></script>	
+
+		<script>
+			/*
+			$(function(){
+				if (!/ismobile=1/.test(window.location.search)) {
+					Splash.show();
+				}				
+				
+			});
+			*/
+		</script>
+
+		<script type="text/javascript" src="/assets/libs/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>	
+			
+	</head>	
+
+<script> 
+    
+</script>
+
+	<body class="bg" >
+
+	<!-- Paste this code after body tag -->
+	<div class="se-pre-con"></div>
+	<div class="se-pre-click" style="display: none;"></div>	
+	<!-- Ends -->
+
+		<!-- header -->
+		<div class="taxibeampsng-wrapper">
+			<div class="taxibeampsng-header">
+				<img src="/assets/img/logo.png">
+				<span>{{= appversion }}</span>
+			</div>
+			<div class="header" >TAXI-BEAM Lite</div>
+
+			<!-- map -->
+			<div class="taxibeampsng-map-box">
+				<div id="map" class="map-box taxibeampsng-map">
+					<div  class="taxibeampsng-map-gps-center">
+						<div class="taxibeampsng-map-gps-center-tooltip">กำหนดจุดรับ</div>
+						<img src="../assets/img/map/pickup_pin.png"  />
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="taxibeampsng-navmap"><img src="../../assets/img/navicator@2x.png"></div>
+
+			<div class="menu-box taxibeampsng-form-calltaxi active">
+				<div class="taxibeampsng-hide-form-calltaxi">
+					<!--i class="icon-btn_hide2"></i-->
+					<!--i class="icon-ccollapsedown"></i-->
+					<img src="../assets/img/ccollapsedownx.png"  srcset="../assets/img/collapsedown@2x.png.png 2x">
+				</div>
+				<div class="taxibeampsng-choose-typeoftaxi">
+					<div class="taxibeampsng-checkbox">
+						<input type="checkbox" id="car" value="car" name="favcartype" checked>
+						<label for="car" class="taxibeampsng-checkbox-car">
+							<div class="taxibeampsng-grouptext car active">
+								<i class="icon-btn_sedan_check"></i>
+								Car
+							</div>
+						</label>
+					</div>
+					<div class="taxibeampsng-splitline"></div>
+					<div class="taxibeampsng-checkbox">
+						<input type="checkbox" id="minivan" value="minivan" name="favcartype" checked>
+						<label for="minivan" class="taxibeampsng-checkbox-minivan">
+							<div class="taxibeampsng-grouptext minivan active">
+								<i class="icon-btn_minivan_check"></i>
+								Mini Van
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_pin" ></i>จาก</div>
+					<input type="text" name="psgfrom" id="psgfrom" class="box_input" maxlength="100" value="ใช้ตำแหน่งปัจจุบัน" placeholder=""  />
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_destination"></i>ไป</div>
+					<input type="text" name="psgto" id="psgto" class="box_input" maxlength="100" placeholder="ใส่ปลายทาง"  />
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_phone"></i>โทร</div>
+					<input type="tel" name="psgphone" id="psgphone" class="box_input" maxlength="10"  min="100000000" max="999999999"  onKeyDown="if(this.value.length==10) this.value = this.value.slice(0, - 1);"  placeholder="ใส่เบอร์โทร"  />
+					<div class="taxibeampsng-tipsbox">
+						<i class="icon-icn_tips"></i>
+						<input  type="number" pattern="\d*" name="tips" id="tips" class="box_input" maxlength="3"  min="0" max="999"  onKeyDown="if(this.value.length==3) this.value = this.value.slice(0, - 1);"   placeholder="TIP" />
+					</div>
+				</div>			      
+
+				<div class="menu-box-row taxibeampsng-submit-taxi">
+					<button type="button" class="btn btn-large btn-block taxibeampsng-submit-btn" id="but_gatMeaTaxi">เรียกแท็กซี่</button>					
+				</div>			
+			</div>
+
+			<div class="show-dialog-btn btn btn-warning" style="display:none;">SHOW</div>
+
+			
+			<div  class="taxibeampsng-info-sec">
+				<div class="taxibeampsng-info">
+					กด <img src="../img/map/tx_ON.png" srcset="../img/map/tx_ON@2x.png 2x"> เพื่อโทรหาคนขับ
+
+					<div class="taxibeampsng-submit-btn taxibeampsng-calltaxi-btn btn_show">
+						<img src="../assets/img/collapseupx.png"  srcset="../assets/img/collapseup@2x.png 2x">
+					</div>
+				</div>
+
+				<div class="taxibeampsng-taxishortdetail wrap" style="display:none;">
+					<div class="taxibeampsng-submit-btn taxibeampsng-calltaxi-btn btn_show">
+						<img src="../assets/img/collapseupx.png"  srcset="../assets/img/collapseup@2x.png 2x">
+					</div>
+					<div class="taxibeampsng-status-cropimg">
+						<img src="../assets/img/taxibeam-why-taxi-slide3.jpg">
+					</div>
+					<div class="taxibeampsng-status-taxi">
+						<p class="taxibeampsng-taxiplatestatus">Carplate</p>
+						<p class="taxibeampsng-taxinamestatus">First name</p>
+						<p class="taxibeampsng-status-taxitel"><a href="tel:Phone"><i class="icon-icn_phone"></i>Phone</p></a>
+						<img class="taxibeampsng-arrowright" src="../assets/img/arrow-right@1x.png" srcset="../assets/img/arrow-right@2x.png 2x">
+						<!--svg fill="#46b48f" height="120" viewBox="0 0 10 80" width="80" xmlns="http://www.w3.org/2000/svg">
+						    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+						    <path d="M0-.25h24v24H0z" fill="none"/>
+						</svg-->
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Taxi detail -->
+			<div class="taxibeampsng-status-taxidetail showtaxidetail" style="display: none; height: 77%;">
+				<div class="taxibeampsng-status-header">กท 1111</div>
+				<div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="../assets/img/taxibeam-why-taxi-slide3.jpg">
+					</div>
+					<p class="taxibeampsng-taxidetail-taxiname">Fname Lname</p>
+					<div class="taxibeampsng-statusgroup-tel">
+						<i class="icon-icn_phone"></i>
+						<p class="taxibeampsng-taxidetail-taxitel">Phone</p>
+					</div>
+					<!--<i class="icon-icn_fav"></i>-->
+				</div>
+				<div class="taxibeampsng-status-content taxidetail taxicolor">
+					<img class="taxibeampsng-taxicolor" src="../assets/img/car_c012@2x.png">
+					<p>Car</p>
+				</div>
+				<div class="taxibeampsng-status-content taxidetail taxioption">
+					<div class="taxibeampsng-statusgroup">
+						<i class="" id="TaxiInfo_outbound" ></i>
+						<p class="taxibeampsng-taxidetail">รับเหมางานไปต่างจังหวัด</p>
+					</div>
+					<div class="taxibeampsng-statusgroup">
+						<i class="" id="TaxiInfo_carryon"></i>
+						<p class="taxibeampsng-taxidetail">รับส่งของ</p>
+					</div>
+					<div class="taxibeampsng-statusgroup">
+						<i class="" id="TaxiInfo_english"></i>
+						<p class="taxibeampsng-taxidetail">พูดภาษาอังกฤษได้</p>
+					</div>
+				</div>
+				<div class="taxibeampsng-taxidetail-groupbtn">
+					<div class="taxibeampsng-taxidetail-btnbox">
+						<button class="taxibeampsng-cancel-btn">ปิดหน้าจอ</button>
+					</div>					
+				</div>
+			</div>
+
+			<!-- How to Use -->
+			<div class="taxibeampsng-howtouse" style="display:none">
+				<div class="skip">ข้าม</div>
+				<p class="taxibeampsng-howtouse-topic">คุณสามารถเรียกแท็กซี่ได้ 2 วิธี</p>
+				<div class="taxibeampsng-howtouse-1">
+					<p>1. แตะที่แท็กซี่แล้วโทรเรียกได้เลย</p>
+					<i class="icon-ar_left"></i>
+					<img src="/img/map/tx_ON.png" srcset="/img/map/tx_ON@2x.png 2x">
+				</div>
+				<div class="taxibeampsng-howtouse-2">
+					<p>2. เลือกเรียกแท็กซี่ผ่านระบบ โดยใส่จุดรับ จุดส่ง และเบอร์โทร</p>
+					<i class="icon-ar_left"></i>
+					<button>เรียกแท็กซี่ผ่านระบบ</button>
+				</div>
+			</div>
+
+			<!-- Wait Taxi -->
+			<div class="taxibeampsng-status-waittaxi">
+				<p>กำลังเรียกแท็กซี่ กรุณารอสักครู่</p>
+				<img src="../img/chf_animate.gif">
+				<button class="taxibeampsng-cancel-btn">ยกเลิก</button>
+			</div>
+
+			<!-- Got Taxi -->
+			<div class="taxibeampsng-status-gottaxi">
+				<div class="taxibeampsng-status-header"></div>
+				<div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="/img/">
+					</div>
+					<p class="taxibeampsng-gottaxi-taxino"></p>
+					<p class="taxibeampsng-gottaxi-taxiname"></p>
+					<p class="taxibeampsng-gottaxi-taxitel">						
+						<span></span>
+					</p>
+					<p class="taxibeampsng-busy-distance"></p>
+					<p class="taxibeampsng-gottaxi-noted"></p>
+				</div>
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-cancel-btn"></button>
+					</div>
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn"></button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Taxi ON THE WAY-->
+			<div class="taxibeampsng-status-busy">
+				<div class="taxibeampsng-status-header-busy">
+					<p>แท็กซี่กำลังมารับคุณ</p>
+					<span>มีรายละเอียดดังนี้</span>
+				</div>
+				<div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="/img/">
+					</div>
+					<p class="taxibeampsng-busy-taxino"></p>
+					<p class="taxibeampsng-busy-taxiname"></p>
+					<p class="taxibeampsng-busy-taxitel">						
+						<span></span>
+					</p>
+					
+
+					<p class="taxibeampsng-busy-noted">คุณสามารถดูตำแหน่งแท็กซี่ หรือยกเลิกการเรียกรถได้</p>
+				</div>
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-cancel-btn">ยกเลิก</button>
+					</div>
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn">ดูตำแหน่งแท็กซี่</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Thank you Psng -->
+			<div class="taxibeampsng-status-thankyou">
+				<div class="taxibeampsng-thankyou-content">
+					<p>ขอบคุณที่ใช้บริการ<br>Taxi-Beam Lite </p>
+					<img src="../img/cm1.png" >
+				</div>
+
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn">ปิด</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- News -->
+			<div class="taxibeampsng-status-news">
+				<p class="taxibeampsng-news-topic"></p>
+				<p class="taxibeampsng-news-content"></p>
+				<button class="taxibeampsng-submit-btn">ปิดหน้าต่าง</button>
+			</div>
+			<div class="taxibeampsng-overlay-news"></div>
+
+		</div>
+
+	</body>
+<script src="/app/passenger/mapsource.js" ></script>
+<script type="text/javascript" src="/app/passenger/app.js"></script>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta content="charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font.css">
+		<style>
+			.bg { background-color: #1a2127; }
+			.header {  position: absolute;color: #d3c14a; font-size: 30px; letter-spacing: 25px; margin-left: 25px; margin-top: 5px; text-align: center; height: 10%;width:100%;}
+			.map-box { position: absolute; width: 100%; height: 60%;top:10%;}
+			.menu-box { position: absolute; top: 70%; width: 100%; height:30%;}
+			.menu-box .menu-logo { height: 113px; margin-bottom: 15px; margin-left: -18px; }
+			.menu-box ul {margin: 10px; background-color: #303940; border-top: 3px solid #D3C14A; box-shadow: 0 10px 20px -5px #000000; color: #9a9a9a; padding: 20px; list-style: none; }
+			.menu-box ul li, .menu-box ul li > a { display: block; text-decoration: none; outline: none; height: 38px; line-height: 36px; padding: 0; color: #fff; margin-bottom: 10px; border-radius: 0; letter-spacing: 1px; }
+			.menu-box ul li:last-child { margin: 0; }
+			.fontcolor { color: #c5c;}
+		</style>
+	</head>
+	<body class="bg">
+		<!-- header -->
+		<div class="header">TAXI</div>
+		<!-- map -->
+		<div id="map" class="map-box"></div>
+
+		<div class="menu-box">
+			
+			<div class="fontcolor">
+				<p>Messege :		<input type="text" name="iMessage" id="iMessage" /> <button type="button" >Submit</button></p><br>
+				<p>Status 	
+					<button type="button" id="SocketOn" >Socket ON</button>
+					<button type="button" id="SocketOff" onClick="SocketOff();" >Socket OFF</button>
+					<button type="button" id="SocketOff" onClick="checkGPS();" >checkGPS</button>
+					
+				</p>
+			</div>
+		</div>
+		<div>
+		
+		</div>
+		
+
+	</body>
+
+	<script src="http://54.149.33.48:1112/socket.io/socket.io.js"></script>
+	<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+	<script src="http://hmap-dev.ecartmap.com/v1/hobbit-loader.js"></script>
+
+
+<script>
+  //var socket = io.connect('http://localhost');
+  var socket = io.connect('http://54.149.33.48:1112');  
+  socket.on('news', function (data) {
+  	
+    console.log(data);
+    //console.log(socket.id);
+    //socket.emit('my other event', { my: 'data aha aha' });
+   
+
+    
+	
+  });
+</script>
+
+
+
+
+
+	<script>
+		var socket = io.connect('http://54.149.33.48:1112');
+
+		var map = H.map("map");
+		var drawControl = new L.Control.Draw();
+
+		var marker;
+		var nLayer;
+		var kml;
+		var fires24;
+		var toggleState = true;
+		var jsonPoiList = 0;
+
+		map.setView([13.753,100.571], 10);
+
+		map.on('draw:created', function (e) {
+			var type = e.layerType,
+			layer = e.layer;
+			map.addLayer(layer);
+		});
+
+
+
+		$(function(){
+
+			checkGPS(function(){
+				getAllPassenger ();
+			});
+			
+			// socket.on('news', function (data) {
+			//     console.log(data);
+			//     socket.emit('my other event', { my: 'data' });
+			// });
+
+		});
+
+
+
+		function SocketOn() {			
+
+		}
+
+
+
+		function SocketOff() {
+
+		}
+
+
+
+		function checkGPS(callback){
+			
+			if(navigator.geolocation) {
+			    
+			    navigator.geolocation.getCurrentPosition(function(position) {
+			      console.log('lat =>'+position.coords.latitude+' || lon =>'+position.coords.longitude);
+console.log(position)
+			      JsonData = { "type": "Point", "coordinates": [position.coords.longitude, position.coords.latitude],"lat": position.coords.latitude, "lng": position.coords.longitude, "altitude" : [position.coords.altitude], "accuracy" : [position.coords.accuracy ], "Altitude Accuracy" : [position.coords.altitudeAccuracy], "heading" : [position.coords.heading] , "speed" : [position.coords.speed] , "time stamp" : [new Date(position.timestamp)] }
+
+			/*
+			'Latitude: '          + position.coords.latitude          + '\n' +
+          	'Longitude: '         + position.coords.longitude         + '\n' +
+          	'Altitude: '          + position.coords.altitude          + '\n' +
+          	'Accuracy: '          + position.coords.accuracy          + '\n' +
+          	'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          	'Heading: '           + position.coords.heading           + '\n' +
+          	'Speed: '             + position.coords.speed             + '\n' +
+          	'Timestamp: '         + new Date(position.timestamp)      + '\n');
+          	*/    
+          		  console.log(JsonData)
+			      socket.emit('myTaxiLocation',  JsonData );
+
+			      if( jsonPoiList != 0 ){ map.removeLayer(jsonPoiList); }
+				  
+			      addPoiJson(JsonData);
+
+			      callback();
+			 
+			    }, function() {
+			      console.log("Can not get your location !!");
+			    });
+			}
+		}
+
+
+
+		function addPoiJson(JsonData) {
+		 
+			 var myIcon = L.icon({iconUrl: 'http://leafletjs.com/dist/images/marker-icon.png'});
+			 
+			 var myStyle = {
+			 	color: '#f00',
+			 	fillColor: '#ffc4c4',
+			 	weight: 2,
+			 	opacity: 0.8,
+			 	icon: myIcon,			
+			 	iconUrl: 'img/map/taxi_pin.png'
+			 };
+
+			 jsonPoiList = L.geoJson(JsonData, {
+			   	style: myStyle
+			 });
+			 map.addLayer(jsonPoiList); 
+			 map.fitBounds(jsonPoiList.getBounds());
+			 map.setZoom(15);
+		}
+
+		function addPoi(JsonData) {
+		//console.log('add poi');		 
+		 var myIcon = L.icon({iconUrl: 'http://leafletjs.com/dist/images/marker-icon.png'});
+		 
+		 var myStyle = {
+		 	color: '#f00',
+		 	fillColor: '#ffc4c4',
+		 	weight: 2,
+		 	opacity: 0.8,
+		 	icon: myIcon,			
+		 	iconUrl: 'img/map/taxi_pin.png'
+		 };
+			
+			console.log('hey!!!!!!');
+			$.each(JsonData.data, function(i, item) {
+			  console.log(item.lat +' , '+item.lng) ;			  
+			 	putMarker = new L.marker([item.lat,item.lng], {icon: myIcon, style: myStyle});
+				map.addLayer(putMarker);			  
+			});
+
+		}
+
+
+
+		/* -----------------------------------------
+				Get passenger list (all)
+	  	   ----------------------------------------- */
+
+		function getAllPassenger () {
+
+			console.log('getAllPassenger');
+			
+			// $.ajax({
+			//     url : "/service/getPassenger/all",
+			//     type: "GET",
+			//     success: function(data){
+			//        	console.log(data);
+			//        	addPoiJson(data.geoJson);
+			//     }
+			// });
+
+
+			
+
+			
+
+			socket.emit('get all passenger',{msg:'request'});
+
+			socket.on('show all passenger',function(data){
+				//alert('her its html show all passenger !!');
+				console.log(data);
+				addPoi(data);
+			});
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get passenger by ID
+	  	   ----------------------------------------- */
+
+		function getPassengerById () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.3, 
+				lng: 100.1,
+				distance: 200,
+				detail: '',
+				status: 3
+			};
+
+			$.ajax({
+			    url : "/service/getPassenger/5555",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get passenger
+	  	   ----------------------------------------- */
+
+		function updatePassenger () {
+
+			var data = {
+				uid: '555',
+				registrationId: 'sdfadsgjakfdg',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.33333333, 
+				lng: 100.11243256,
+				distance: 200,
+				detail: '',
+				passengerID: '',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "/service/getPassenger",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+
+		}
+
+		/* -----------------------------------------
+			POST Taxi need to cancel passenger 
+	  	   ----------------------------------------- */
+
+	  	   function updateDevice () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.456, 
+				lng: 100.11243256,
+				distance: 4564,
+				detail: '',
+				passengerID: '0001',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "service/device/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+		/* -----------------------------------------
+			POST Taxi need to picup passenger
+	  	   ----------------------------------------- */
+
+		function updateDeviceWaiting () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.456, 
+				lng: 100.11243256,
+				distance: 4564,
+				detail: '',
+				passengerID: '0001',
+				status: 5
+			};
+
+			$.ajax({
+			    url : "service/device/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+		/* -----------------------------------------
+				Get Taxi
+	  	   ----------------------------------------- */
+
+		function getTaxi () {
+
+			var data = {
+				uid: '5555',
+				registrationId: 'ljfglkdf',
+				name: 'สมบัติ',
+				phoneNumber: '0843112347',
+				lat: 13.0, 
+				lng: 100.9,
+				distance: 200,
+				detail: '',
+				destination: 'กรุงเทพ',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "/service/getDevice",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get Taxi list (all)
+	  	   ----------------------------------------- */
+
+		function getAllTaxi () {
+
+			$.ajax({
+			    url : "/service/getDevice/all",
+			    type: "GET",
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+	</script>
+
+
+</html>

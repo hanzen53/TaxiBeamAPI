@@ -1,0 +1,135 @@
+@import 'gettysburg.scss';
+
+body.dark-theme {
+
+
+	input, textarea, keygen, select, button {
+		background-color: transparent;
+	}
+
+	.form-control[disabled], 
+	.form-control[readonly], 
+	fieldset[disabled] .form-control {
+		background-color: transparent;
+	}
+
+	.btn-default, 
+	.btn-success,
+	.btn-info, 
+	.btn-warning,
+	.btn-danger {
+		&:hover, &:active, &:focus {
+			background-color: transparent;
+		}
+	}
+
+	.navbar-default {
+		background: $third-color;
+
+		.nav.navbar-nav {
+
+			li {
+				&:hover {
+					background-color: $fourth-color;
+				}
+
+				> a {
+					color: $base_white;
+				}
+			}
+		}
+	}
+
+	.nav.nav-tabs {
+		>li.active>a, 
+		>li.active>a:focus, 
+		>li.active>a:hover {
+			color: $base_white;
+			background-color: transparent;
+		}
+
+		>li>a:focus, >li>a:hover {
+			text-decoration: none;
+			background-color: transparent;
+		}
+	}
+
+
+	.panel {
+
+		background-color: transparent;
+
+		.panel-heading {
+		background-color: transparent;
+			.panel-title {
+				a {
+					&:hover {
+						background-color: rgba(241,241,241,0.1);
+					}
+				}
+			}
+		}
+	}
+
+
+	.table {
+		thead tr th {
+			color: $base_white;
+		}
+		tbody tr {
+			background-color: transparent;
+			&:hover,
+			&.active {
+				background-color: $fifth-color;
+
+				//custom bootstrap
+				>th, >td {
+					background-color: $fifth-color;
+				}
+			}
+		}
+	}
+
+	.modal {
+		.modal-content {
+			background-color: $third-color;
+			.modal-header {
+				color: $base_white;
+			}
+			.modal-body {
+				color: $base_white;
+
+				input, textarea, select, button {
+					color: $base_white;
+				}
+			}
+			.modal-footer {
+				input, textarea, select, button {
+					color: $base_white;
+				}
+			}
+		}
+	}
+
+
+	.popover {
+		color: $base_white;
+		background-color: $third-color;
+		>.arrow:after {
+			border-left-color: $third-color;
+		}
+
+		.popover-title {
+			color: $base_white;
+			background-color: $third-color;
+		}
+	}
+
+
+	.st-menu {
+		* {
+			color: $base_white;
+		}
+		background-color: $third_color;
+	}
+}

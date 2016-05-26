@@ -1,0 +1,49 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+
+	<!--[if lte IE 8]>
+	    <link rel="stylesheet" href="css/ie8.css">
+	<![endif]-->
+	<script type="text/javascript" src="/libs/js/jquery-1.9.1.min.js"></script>
+
+</head>
+
+<body id="body" data-scroll="0">
+	This is Taxi-Beam Driver Download page
+</body>
+<script type="text/javascript">
+
+function getMobileOperatingSystem() {
+	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+	//alert(userAgent);
+	if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ) 
+	{
+		//return 'iOS';
+		//alert('iOS')
+		window.location = "https://itunes.apple.com/us/app/zoclose/id643610840";
+	} 
+	else if( userAgent.match( /Android/i ) )
+	{
+		//return 'Android';
+		//alert('Android')
+		window.location = "https://play.google.com/store/apps/details?id=com.ecartstudio.taxi.driver";
+	}
+	else
+	{
+		return 'unknown';
+		//alert('unknown')
+	}
+}
+
+
+
+$(document).ready(function(){
+
+	getMobileOperatingSystem() ;
+
+});
+
+</script>
+
+</html>

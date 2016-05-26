@@ -1,0 +1,39 @@
+// Autocomplete [Dev Bridge]
+// https://github.com/devbridge/jQuery-Autocomplete
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-suggestion:hover { cursor: pointer; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong {
+	display: block;
+	font-size: small;
+	background: #ECECEC;
+	color: #F44336;
+	padding: 2px 10px;
+	border-bottom: 1px solid #9E9E9E; 
+}
+
+// Custom
+.autocomplete-suggestions {
+	// width: auto!important;
+}
+.autocomplete-suggestion {
+	.presentation {
+		> .icon {
+			float: left;
+			padding: 3px 6px;
+		}
+		> .detail {
+			float: left;
+			padding: 3px 6px;
+
+			.inline {
+				color: #AAA;
+				display: inline;
+				padding-right: 6px;
+			}
+		}
+	}
+}

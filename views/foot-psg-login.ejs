@@ -1,0 +1,33 @@
+
+</body>
+<script>
+	$(document).ready(function(){
+		var deviceH = $(window).height();
+		$('.btn-terms').click(function(){
+			$('.terms-box').addClass('active');
+			$('.terms-box').css('height',deviceH-75);
+			$('.terms-content').css('height',deviceH-75);
+		});
+		$('.terms-head span').click(function(){
+			$('.terms-box').removeClass('active');
+		});
+
+		$(window).resize(function(){
+			var deviceHR = $(window).height();
+			$('.terms-box').css('height',deviceHR-75);
+			$('.terms-content').css('height',deviceHR-75);
+		});
+
+		$('.female').click(function(){
+			$(this).addClass('active');
+			$('.male').removeClass('active');
+		});
+
+		$('.male').click(function(){
+			$(this).addClass('active');
+			$('.female').removeClass('active');
+		});
+
+	});
+</script>
+</html>

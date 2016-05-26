@@ -1,0 +1,67 @@
+@import 'sass/vendors/_autoload.scss';
+@import 'sass/base/_font.scss';
+@import 'sass/themes/_default.scss';
+
+body {
+	font-family: 'Roboto', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+}
+
+.bg {
+	background-color: #303940;
+}
+
+.logo-wrapper {
+	margin-top: 120px;
+	margin-bottom: 50px;
+}
+
+.btn-primary.custom {
+	min-width: 200px;
+	border-radius: 2px;
+	border-color: #03A9F4;
+	background-color: #2196F3;
+}
+
+label.error {
+	color: #FFFFFF;
+	font-size: 12px;
+	padding: 2px 16px;
+	background-color: #A03636;
+	border-radius: 1px 1px 3px 3px;
+}
+
+.panel {
+	border-radius: 2px;
+
+	.panel-heading {
+
+		line-height: 48px;
+		padding: 0px 16px 0px 16px;
+
+		color: #222;
+		background-color: #fcfcfc;
+		border-color: #fcfcfc;
+		text-align: center;
+
+		h2 {
+			font-size: 13px;
+			font-weight: 500;
+			padding: 14px 0 14px;
+			margin: 0;
+			line-height: 20px;
+			opacity: 0.75;
+			text-transform: uppercase;
+		}
+	}
+
+
+
+
+	body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+		font-weight: 300;
+	}
+
+	.form-control {
+		border-radius: 2px;
+	}
+}

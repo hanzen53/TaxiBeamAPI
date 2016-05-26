@@ -1,0 +1,40 @@
+
+{{ include ../head }}
+
+	<div class="garageadmin-changepassword">
+
+		<div class="garageadmin-wrapper">
+			<h1> คุณ {{= user.username }} ต้องการเปลี่ยนรหัสผ่าน</h1>
+			<p>ระบบจะเปลี่ยนรหัสผ่านให้</p>
+			<div class="garageadmin-groupform">
+				<label>รหัสผ่านเดิม</label>
+				<input type="password" name="username" class="garageadmin-password" placeholder="กรอกรหัสเก่า">
+				<img class="garageadmin-showhidepassword" src="/img/btn_show.png">
+				<img class="garageadmin-errorpassword" src="/img/icn_warning.png">
+			</div>
+			<div class="garageadmin-errormessage">
+				อีเมลไม่ถูกต้อง
+			</div>
+			<div class="garageadmin-groupform">
+				<label>รหัสผ่านใหม่</label>
+				<input type="password" name="password" class="garageadmin-password" placeholder="กรอกรหัสใหม่">
+				<img class="garageadmin-showhidepassword" src="/img/btn_show.png">
+			</div>
+			<div class="garageadmin-groupform">
+				<label>ยืนยันรหัสผ่าน</label>
+				<input type="password" name="password" class="garageadmin-password" placeholder="รหัสใหม่อีกครั้ง">
+				<img class="garageadmin-showhidepassword" src="/img/btn_show.png">
+				<img class="garageadmin-errorpassword" src="/img/icn_warning.png">
+			</div>
+			<div class="garageadmin-errormessage garageadmin-newpassword">
+				รหัสผ่านใหม่ไม่ถูกต้อง
+			</div>
+
+
+
+			<input type="submit" class="garageadmin-btn-primary" value="ส่งรหัสให้ฉัน">
+		</div>
+		
+	</div>
+
+	{{ include ../foot }}

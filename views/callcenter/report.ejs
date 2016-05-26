@@ -1,0 +1,119 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+	<li role="presentation" class="active"><a href="#summary-tab" aria-controls="summary-tab" role="tab" data-toggle="tab"><i class="fa fa-pie-chart"></i> ภาพรวม</a></li>
+	<li role="presentation"><a href="#taxi-tab" aria-controls="taxi-tab" role="tab" data-toggle="tab"><i class="fa fa-taxi"></i> แท็กซี่</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="summary-tab">
+
+		<div class="summary-time">
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<div class="pull-left">
+					<h3 class="title">ภาพรวม</h3>
+					</div>
+					<div id="summary-reportrange" class="daterange pull-right">
+						<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+						<span></span> <b class="caret"></b>
+					</div>
+					<div class="clearfix"></div>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<h2>ค่าเฉลี่ยและเวลา</h2>
+		<h5>ใน 24 ชม.ที่ผ่านมา</h5>
+
+		<div class="summary circle jobPerDay">
+			<div class="counter orange">
+				<h1 class="number">0</h1>
+				<p class="unit">งาน</p>
+			</div>
+			<p class="message">จำนวนงานทั้งหมด</p>
+		</div>
+
+		<div class="summary circle jobPerHour">
+			<div class="counter gray">
+				<h1 class="number">0</h1>
+				<p class="unit">งาน/ชั่วโมง</p>
+			</div>
+			<p class="message">ค่าเฉลี่ยการรับงาน</p>
+		</div>
+
+		<div class="summary circle jobPerMinute">
+			<div class="counter green">
+				<h1 class="number">0</h1>
+				<p class="unit">งาน/นาที</p>
+			</div>
+			<p class="message">ค่าเฉลี่ยการรับงาน</p>
+		</div>
+
+		<div class="summary circle jobPerDriver">
+			<div class="counter blue">
+				<h1 class="number">0</h1>
+				<p class="unit">งาน/คัน</p>
+			</div>
+			<p class="message">ค่าเฉลี่ยต่อ 1 คัน</p>
+		</div>
+
+		<div class="summary circle jobPerCallcenter">
+			<div class="counter red">
+				<h1 class="number">0</h1>
+				<p class="unit">งาน/คน</p>
+			</div>
+			<p class="message">งานต่อพนักงาน 1 คน</p>
+		</div>
+
+		<h2>ตำแหน่ง & ชั่วโมงเรียกรถสูงสุด</h2>
+
+		<div class="summary rectangle most-pick">
+			<ul>
+				<li class="icon"><span class="glyphicon glyphicon-flag"></span></li>
+				<li>
+					<p class="caption">ตำแหน่งไปรับมากสุด</p>
+					<p class="title-badge">-</p>
+					<p class="detail">
+						<span class="counter">-</span>
+						<span class="unit">ครั้ง</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="summary rectangle most-destination">
+			<ul>
+				<li class="icon"><span class="glyphicon glyphicon-road"></span></li>
+				<li>
+					<p class="caption">ตำแหน่งไปส่งมากสุด</p>
+					<p class="title-badge">-</p>
+					<p class="detail">
+						<span class="counter">-</span>
+						<span class="unit">ครั้ง</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+
+		<div class="summary rectangle peak-hour">
+			<ul>
+				<li class="icon"><span class="glyphicon glyphicon-time"></span></li>
+				<li>
+					<p class="caption">ชั่วโมงเรียกรถสูงสุด</p>
+					<p class="title-badge">-</p>
+					<p class="detail">
+						<span class="counter">-</span>
+						<span class="unit">ครั้ง</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div role="tabpanel" class="tab-pane" id="taxi-tab">
+		{{ include table-report-driver }}
+	</div>
+	
+	<hr>
+	<button class="btn btn-primary" id="openReportWindowBtn" onclick="Report.openReportWindow();"><i class="material-icons">open_in_new</i> ค้นหน้าข้อมูลเพิ่มเติม</button>
+</div>

@@ -1,0 +1,352 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/taxiadmin-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/font/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.standalone.css" />
+	<link rel="stylesheet" type="text/css" href="css/iconfont/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/taxiadmin-responsive.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/taxiadmin-function.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="js/placeholder.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/taxiadmin-ie8.css"><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/taxiadmin-ie9.css"><![endif]-->
+	<!--[if IE]><!-->
+	<style type="text/css">
+		.color.taxiadmin-input-form i , .year.taxiadmin-input-form i {
+			display: none;
+		}
+		input {
+			font-family: 'Tahoma';
+		}
+	</style><!--<![endif]-->
+</head>
+
+<body>
+	<div class="taxiadmin-container">
+		<div class="taxiadmin-header">
+			<div class="taxiadmin-header-menu">
+				<a class="garageadmin-homelogo" href="taxiadmin-home.html">
+					<img src="img/taxiadmin-logo.png" srcset="img/taxiadmin-logo@2x.png 2x"></a>
+			</div>
+			<div class="taxiadmin-user">
+				<ul>
+					<li>
+						<a>Piyapong</a>
+						<div class="taxiadmin-user-picture">
+							<img src="img/taxiadmin-user-picture.png">
+						</div>
+						<ul class="taxiadmin-user-option">
+							<li class="taxiadmin-change-password-btn"><a>เปลี่ยนรหัสผ่าน</a></li>
+							<li><a href="taxiadmin-login.html">ออกจากระบบ</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="taxiadmin-navigation-menu">
+			<ul>
+				<li><a class="taxiadmin-ico-menu"><i class="icon-menu_show"></i></a></li>
+				<li><a href="taxiadmin-home.html"><i class="icon-menu"></i><p>หน้าแรก</p></a></li>
+				<li class="active"><a href="taxiadmin-driver-list.html"><i class="icon-menu_chf"></i><p>ข้อมูลคนขับ</p></a></li>
+				<li><a href="taxiadmin-taxi-list.html"><i class="icon-menu_taxi"></i><p>ข้อมูลรถแท๊กซี่</p></a></li>
+				<li><a href="taxiadmin-message.html"><i class="icon-menu_msg"></i><p>ส่งข้อความ</p></a></li>
+				<li><a href="taxiadmin-stat.html"><i class="icon-menu_stat"></i><p>สถิติ</p></a></li>
+				<li><a href="taxiadmin-setting.html"><i class="icon-menu_setting"></i><p>ปรับแต่ง</p></a></li>
+			</ul>
+		</div>
+		<div class="taxiadmin-content info active">
+			<div class="taxiadmin-content-wrapper">
+				<h1  class="taxiadmin-topic">ข้อมูลคนขับ <span class="taxiadmin-topic-details">จำนวนคนขับรถทั้งหมด <span class="taxiadmin-hilight">10</span> คน</span></h1>
+				<a class="taxiadmin-btn-add"><div class="taxiadmin-btn-quaternary"><i class="icon-ico_add"></i> เพิ่มรายชื่อ</div></a>
+				<div class="taxiadmin-topic-line"></div>
+				<input type="text" placeholder="กรุณาใส่รายละเอียดเพื่อค้นหา">
+				<input type="submit" class="taxiadmin-btn-search" value="ค้นหา"> 
+				<div class="taxiadmin-table-container">
+					<table class="taxiadmin-table driver">
+						<tr>
+							<th><a>ชื่อ-นามสกุล <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>ชื่อเล่น <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>เบอร์โทรศัพท์ <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>หมายเลขทะเบียน <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>ช่วงเวลาเช่า <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>สถานะ <i class="icon-ico_sortdown"></i></a></th>
+							<th><a class="taxibeam-th-notlink">แก้ไข</a></th>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ไม่ได้ขับแล้ว</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+						<tr>
+							<td><a>สมคิด จิตแจ่มใส</a></td>
+							<td>คิด</td>
+							<td>08-5561-3498</td>
+							<td>กท8765</td>
+							<td>ช่วงเช้า</td>
+							<td>ยังขับอยู่</td>
+							<td><i class="icon-ico_edit"></i></td>
+						</tr>
+					</table>
+				</div>
+				<div class="taxiadmin-pagination">
+					<a href=""><i class="icon-ico_first"></i></a>
+					<a href=""><i class="icon-ico_prev"></i></a>
+					<a href="" class="current">1</a>
+					<a href="">2</a>
+					<a href="">3</a>
+					<a href="">4</a>
+					<a href="">5</a>
+					<a href=""><i class="icon-ico_next"></i></a>
+					<a href=""><i class="icon-ico_last"></i></a>
+				</div>
+			</div>
+			<div class="taxiadmin-driver-profile">
+				<h1 class="taxiadmin-topic">ข้อมูลรถแท็กซี่<i class="icon-ico_close"></i></h1>
+				<div class="taxiadmin-topic-line"></div>
+				<p class="taxiadmin-topic-driver-img">รูปบัตรประชาชน</p>
+				<div class="taxiadmin-driver-img">
+					<img class="taxiadmin-taxiprofile-upload" src="img/taxiadmin-taxiprofile-upload.jpg">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>ชื่อ-นามสกุล</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>ชื่อเล่น</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>เบอร์โทรศัพท์</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>สถานะ</label>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="status1" name="status" checked> <label for="status1"></label>ยังขับอยู่
+					</div>
+					<div class="taxiadmin-group-radio last">
+						<input type="radio" id="status2" name="status"> <label for="status2"></label>ไม่ได้ขับแล้ว
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="taxiadmin-input-form">
+					<label>ช่วงเวลาเช่า</label>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="times1" name="times" checked> <label for="times1"></label>ช่วงเช้า
+					</div>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="times2" name="times"> <label for="times2"></label>ช่วงเย็น
+					</div>
+					<div class="taxiadmin-group-radio last">
+						<input type="radio" id="times3" name="times"> <label for="times3"></label>ทั้งวัน
+					</div>
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>หมายเลขทะเบียนรถ</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-line"></div>
+				<div class="taxiadmin-group-btn">
+					<input type="button" value="ลบ" class="taxiadmin-btn-secondary">
+					<input type="submit" value="บันทึก" class="taxiadmin-btn-tertiary">
+				</div>
+			</div>
+			<div class="taxiadmin-driver-uploadprofile">
+				<h1 class="taxiadmin-topic">เพิ่มคนขับรถแท็กซี่<i class="icon-ico_close"></i></h1>
+				<div class="taxiadmin-topic-line"></div>
+				<p class="taxiadmin-topic-driver-img">รูปบัตรประชาชน</p>
+				<div class="taxiadmin-driver-img">
+					<div class="taxiadmin-adddriver-upload">
+						<img id="blah" src="img/thumbnail_photo.jpg" />
+						<input type="text" readonly>
+						<span class="taxiadmin-btn-file">
+							อัพโหลดรูป <input type="file" onchange="readURL(this);">
+						</span>
+					</div>
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>ชื่อ-นามสกุล</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>ชื่อเล่น</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>เบอร์โทรศัพท์</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>สถานะ</label>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="upload-status1" name="upload-status" checked> <label for="upload-status1"></label>ยังขับอยู่
+					</div>
+					<div class="taxiadmin-group-radio last">
+						<input type="radio" id="upload-status2" name="upload-status"> <label for="upload-status2"></label>ไม่ได้ขับแล้ว
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="taxiadmin-input-form">
+					<label>ช่วงเวลาเช่า</label>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="upload-times1" name="upload-times" checked> <label for="upload-times1"></label>ช่วงเช้า
+					</div>
+					<div class="taxiadmin-group-radio">
+						<input type="radio" id="upload-times2" name="upload-times"> <label for="upload-times2"></label>ช่วงเย็น
+					</div>
+					<div class="taxiadmin-group-radio last">
+						<input type="radio" id="upload-times3" name="upload-times"> <label for="upload-times3"></label>ทั้งวัน
+					</div>
+				</div>
+				<div class="taxiadmin-input-form">
+					<label>หมายเลขทะเบียนรถ</label>
+					<input type="text">
+				</div>
+				<div class="taxiadmin-line"></div>
+				<div class="taxiadmin-group-btn">
+					<input type="button" value="ยกเลิก" class="taxiadmin-btn-secondary">
+					<input type="submit" value="เพิ่ม" class="taxiadmin-btn-tertiary">
+				</div>
+			</div>
+			</div>
+
+		</div>
+		<div class="taxiadmin-footer">©2014 Ecartstudio Co.,Ltd. All Reserved</div>
+		<div class="taxiadmin-change-password-overlay"></div>
+		<div class="taxiadmin-change-password">
+			<div class="taxiadmin-change-password-title">
+				เปลี่ยนรหัสผ่าน
+			</div>
+			<div class="taxiadmin-close-dialog">
+				<i class="icon-ico_close"></i>
+			</div>
+			<div class="taxiadmin-change-password-form">
+				<p>รหัสเดิม</p>
+				<input type="password">
+				<p>รหัสใหม่</p>
+				<input type="password">
+				<p>ยืนยันรหัสใหม่</p>
+				<input type="password">
+				<input type="submit" value="เปลี่ยนรหัส" class="taxiadmin-btn-changepw">
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(160)
+                        .height(160);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+</script>
+</html>

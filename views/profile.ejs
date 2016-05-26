@@ -1,0 +1,53 @@
+<!-- views/profile.ejs -->
+
+
+{{ include head }}
+
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> ข้อมูล </h3>
+
+                    <p>
+                        <strong>id</strong>: {{= user._id }}<br>                        
+                        <strong>username</strong>: {{= user.username }}<br>
+                        <strong>email</strong>: {{= user.local.cemail }}<br>
+                        <strong>group</strong>: {{= user.local.cgroup }}<br>                                              
+                    </p>
+
+            </div>
+
+
+
+            <div class="well">
+                 <h3><span class="fa fa-user"></span> Menu </h3>   
+                 {{ if ( user.local.cgroup  == 'ecartadmin' ) {  }}                     
+                     
+                  {{  } }}
+
+                    <ul>           
+                        {{ menu.forEach(function(menu) { }}
+                          <li>  <a href="{{= menu.url }}"> {{= menu.title[0].thai }}</a> {{= menu.title[0].eng }} </li>
+                        {{  }); }}                  
+                    </ul>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{{ include foot }}

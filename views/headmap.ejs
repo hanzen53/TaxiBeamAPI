@@ -1,0 +1,364 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/font/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-datepicker.standalone.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/iconfont/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/taxiadmin-responsive.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/EC.Popup.css">
+	<link rel="stylesheet" href="/assets/css/app.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+	<script type="text/javascript" src="/assets/libs/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/taxiadmin-function.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/bootstrap-datepicker.js"></script>
+	<script src="/assets/libs/js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/placeholder.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/taxiadmin-ie8.css"><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/taxiadmin-ie9.css"><![endif]-->
+	<!--[if IE]><!-->
+	<style type="text/css">
+
+	</style><!--<![endif]-->
+	
+	<script src="/assets/libs/jquery-ui/jquery.ui.touch-punch.min.js"></script>	
+	<script src="/assets/libs/angular/angular.js"></script>	
+	<script src="/assets/libs/jquery/dist/jquery.min.js"></script>	
+	<!--script src="http://hmap.ecartmap.com/v1/hobbit-loader.js"></script-->
+
+	<!-- Local script src="https://nhmap.ecartmap.com/v1_2/?key=Evs0z2OaYLDO8e3sl8HwK7MwiS66Y@7Yqo-K$eeRwRQkxqrbO$"></script-->
+	<script src="https://nhmap.ecartmap.com/v1_2/?key={{= hmapkey }}"></script>
+
+	<script src="http://rawgithub.com/openplans/Leaflet.AnimatedMarker/master/src/AnimatedMarker.js"></script>
+	<script src="http://rawgithub.com/makinacorpus/Leaflet.GeometryUtil/master/dist/leaflet.geometryutil.js"></script>
+	<!-- Start Auto complete -->
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<!-- End Auto complete --> 
+	<!-- EC.Popup -->
+	<script src="/assets/libs/js/EC.Popup.js"></script>
+
+
+
+<style>
+.color.taxiadmin-input-form i , .year.taxiadmin-input-form i {
+	display: none;
+}
+
+input {
+	font-family: 'Tahoma';
+}
+
+*{
+	font-family: verdana;
+	font-size: 12px;
+}
+
+input[type='button']{
+	background: #5B8EEE;
+	width: 90px;
+	height: 30px;
+	border: 1px solid #CBDBFA;
+	color: white;
+	font-weight: bold;
+	margin: 0 auto;
+	display: block;
+}
+
+
+/*-- start main table --*/
+.table-list-div {
+	overflow-y:scroll;
+	position: absolute;
+	width: 100%;
+	height: 250px;
+}
+.table-list{
+	font-family: verdana;
+	font-size: 12px;
+	border: 1px solid #EAEAEA;
+	padding: 5px;
+	background: #ffffff;
+	margin: 0 auto;
+	max-height: 200px;
+	overflow: auto;
+
+}
+.table-list th{
+	background: #EDF2F6;
+	border-bottom: 1px dotted #DDDDDD;
+	color: #444444;
+	font-size: 12px;
+	font-weight: normal !important;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 5px;
+	text-align: left;
+}
+.table-list td{
+	border-bottom: 1px dotted #EAEAEA;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	height: 28px;
+	padding: 5px;
+	text-align: left;
+}
+.table-list tr:hover{
+	background: #E3F3F9;
+}
+/* --- end main table ---*/
+
+
+
+/*-- start status ON table --*/
+.table-list-on-div {
+	overflow-y:scroll;
+	position: relative;
+	width: 100%;
+	height: 250px;
+	display: block;
+	padding: 0px;
+}
+.table-list-on{
+	font-family: verdana;
+	font-size: 12px;
+	border: 1px solid #EAEAEA;
+	padding: 5px;
+	background: #ffffff;
+	margin: 0 auto;
+	max-height: 200px;
+	overflow: auto;
+
+}
+.table-list-on th{
+	background: #EDF2F6;
+	border-bottom: 1px dotted #DDDDDD;
+	color: #444444;
+	font-size: 12px;
+	font-weight: normal !important;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 5px;
+	text-align: left;
+}
+.table-list-on td{
+	border-bottom: 1px dotted #EAEAEA;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	height: 28px;
+	padding: 5px;
+	text-align: left;
+}
+.table-list-on tr:hover{
+	background: #E3F3F9;
+}
+/* --- end ON table ---*/
+
+
+
+
+/*-- start status MANUAL table --*/
+.table-list-manual-div {
+	overflow-y:scroll;
+	position: relative;
+	width: 100%;
+	height: 250px;
+	display: block;
+}
+.table-list-manual{
+	font-family: verdana;
+	font-size: 12px;
+	border: 1px solid #EAEAEA;
+	padding: 5px;
+	background: #ffffff;
+	margin: 0 auto;
+	max-height: 200px;
+	overflow: auto;
+
+}
+.table-list-manual th{
+	background: #CFCFCF;
+	border-bottom: 1px dotted #DDDDDD;
+	color: #444444;
+	font-size: 12px;
+	font-weight: normal !important;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 5px;
+	text-align: left;
+}
+.table-list-manual td{
+	border-bottom: 1px dotted #EAEAEA;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	height: 28px;
+	padding: 5px;
+	text-align: left;
+}
+.table-list-manual tr:hover{
+	background: #E3F3F9;
+}
+/* --- end ON table ---*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.entry-form{
+	background: #EDF2F6;
+	width: 350px;
+	padding: 10px;
+	border: 5px solid #C5D7E2;
+	box-shadow: 3px 3px 5px #888;
+	position: absolute;
+	top: 25%;
+	left: 35%;
+	display: none;
+	border-radius: 5px;
+	z-index: 15;
+}
+
+.entry-form input[type='text']{
+	border: 1px solid #BBBBBB;
+	box-shadow: 2px 2px 4px #C5D7E2 inset;
+	height: 25px;
+	width: 200px;
+}
+
+.entry-form input[type='text']:focus{
+	border: 1px solid #C5D7E2;
+}
+
+#idirection {  
+	width: 400px; 
+	height: 200px; 
+	background-color: #ccc; 
+	padding: 10px; 
+	line-height: 25px; 
+	position: absolute; 
+	top: 10px; 
+	left: 350px; 
+	z-index: 11; 
+}
+
+/* start css for autocomplete  : http://www.pontikis.net/blog/jquery-ui-autocomplete-step-by-step */
+/* highlight results */
+.ui-autocomplete span.hl_results {
+ 	background-color: #ffff66;
+}
+
+/* loading - the AJAX indicator */
+.ui-autocomplete-loading {
+ 	background: white url('../img/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+
+/* scroll results */
+.ui-autocomplete {
+	max-height: 250px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	/* add padding for vertical scrollbar */
+	padding-right: 5px;
+}
+
+.ui-autocomplete li {
+	font-size: 16px;
+}
+   
+  /* IE 6 doesn't support max-height
+  * we use height instead, but this forces the menu to always be this tall
+  */
+  * html .ui-autocomplete {
+      	height: 250px;
+  }
+  /* start css for autocomplete */
+
+.map-box {  
+  	width: 100%; 
+  	height: 100%; 
+  	float: left;
+}
+
+.myVar_true{ 
+	color:#000; 
+	background-color: #ccc;
+}
+
+/*.myVar_false{ color:green; background-color: green; }*/
+.ui-buttom{
+	font-size:10px;
+}
+
+.fill-input{
+	font-size:10px;
+	border:0.1em solid #C2CFDF;
+}
+
+div.head{
+	font-size: 14px;
+	font-weight: bold;
+	background-color:#FFCC66;
+}
+
+.text{
+	padding: 5px 10px 0px 0px;	
+	font-size : 12px;
+	font-weight: bold;
+}
+
+div.table{
+	width: 250px;
+	border:0.01em solid #FFCC66;
+	padding: 2px 5px 10px 5px;
+	
+}
+
+.text-data{
+	font-size : 12px;
+	padding: 5px 10px 0px 5px;	
+}
+
+.ui-buttom{
+	font-size:10px;
+}
+
+label{
+	cursor:pointer;
+}
+
+.ui-exam{
+	font-size:9px;
+	color:gray;	
+} 
+
+.ui-dialog{
+	font-size:12px;
+}
+
+.ui-datepicker{  
+	font-size:10px;  
+}
+
+
+
+</style>
+
+		
+</head>
+
+<body>

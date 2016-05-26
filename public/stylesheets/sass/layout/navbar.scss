@@ -1,0 +1,494 @@
+// Nav bar
+.navbar.navbar-fixed-top {
+	max-height: 50px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+	button.navbar-toggle {
+		border: none;
+		background: transparent;
+		&.mdl-button {
+			min-width: inherit;
+		}
+		.icon-bar {
+			background-color: #FFF;
+		}
+	}
+
+	.garageadmin-homelogo {
+		height: 50px;
+		display: block;
+		padding: 12px 16px;
+		background-color: #b21616;
+	}
+
+	#navbar {
+		@media (max-width: 767px) {
+			display: none!important;
+		}
+	}
+
+	.nav.navbar-nav {
+
+		> li a {
+			color: #FFF;
+			min-height: 50px;
+			max-height: 50px;
+
+			i.material-icons {
+				font-size: 21px;
+				text-shadow: 1px 1px 2px #000;
+			}
+		}
+
+		> li > a {
+			cursor: pointer;
+		}
+
+		li {
+			.toggle-sidebar {
+				padding: 18px 15px;
+			}
+		}
+
+
+		.dropdown-menu {
+			border: none;
+			background-color: #464952;
+			li a {
+				min-height: initial;
+				max-height: initial;
+
+				&:hover {
+					color: #FFF;
+					background-color: #26282F;
+				}
+			}
+		}
+
+
+		li.filter-marker {
+
+			a.img-icon {
+				padding: 10px;
+			}
+
+			.bottom-line {
+				width: 100%;
+				bottom: 0px;
+				margin: 0px;
+				height: 2px;
+				padding: 0px;
+				display: none;
+				position: absolute;
+				background-color: $base_white;
+			}
+
+			&.active {
+
+				a.img-icon {
+					background-color: $fourth-color;
+				}
+
+				.bottom-line {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+
+#navbar-menu {
+	display: none;
+}
+
+@media (max-width: 767px) {
+
+	#navbar-menu {
+
+		display: block;
+
+		top: 0;
+		z-index: 110;
+		width: 85%;
+		height: 100%;
+		right: -85%;
+		padding-top: 50px;
+		transition: .3s;
+		background: #FFF;
+		position: fixed;
+
+		&.open {
+			right: 0px;
+			transition: .3s;
+			transition-timing-function: ease;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+		}
+
+		.wrapper {
+			height: 100%;
+			padding-bottom: 100px;
+			position: relative;
+			overflow: hidden;
+			overflow-y: auto;
+			box-sizing: border-box;
+
+
+			.mdl-card {
+				width: 100%;
+				min-height: inherit;
+				.mdl-card__supporting-text {
+					width: 100%;
+					padding: 0px 6px;
+					.mdl-list {
+						padding: 8px 16px;
+						.mdl-list__item {
+							height: auto;
+							padding: 0px;
+						}
+					}
+
+					hr {
+						margin-top: 6px;
+						margin-bottom: 0px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.navbar-default {
+	background: $third-color;
+
+	.navbar-nav>.open>a, 
+	.navbar-nav>.open>a:focus, 
+	.navbar-nav>.open>a:hover {
+		background-color: #464952;
+	}
+
+	.nav.navbar-nav {
+		li {
+			&:hover {
+				cursor: pointer;
+				> a {
+					color: $base_white;
+					background-color: #464952;
+				}
+			}
+			&.active  {
+				> a {
+					color: $base_white;
+					background-color: $fourth-color;
+				}
+			}
+		}
+
+		.chat-tab,
+		.announce-tab {
+			> a {
+				color: #FFF;
+				// background-color: #009688;
+
+				// .fa {
+				// 	font-size: 16px;
+				// }
+			}
+			// &:hover {
+			// 	> a {
+			// 		color: #FFF;
+			// 		// background-color: #0A6F66;
+			// 	}
+			// }
+		}
+		.refresh-tab {
+			> a {
+				color: #009688;
+				font-size: 20px;
+			}
+		}
+		.sound-notification-tab {
+			> a {
+				max-height: 50px;
+				padding: 15px 8px;
+				.icon {
+					margin-right: 6px;
+				}
+				.icon,
+				.js-switch-wrap {
+					color: #FFF;
+					float: left;
+				}
+			}
+		}
+
+		.alert-tab {
+
+			.dropdown-toggle {
+				i {
+					color: #FFF;
+				}
+				.label {
+					top: -6px;
+					left: -2px;
+					position: relative;
+				}
+			}
+
+			.dropdown-menu {
+				border: none;
+				padding: 0px;
+				min-width: 300px;
+
+				.panel {
+					padding: 0px;
+					margin: 0px;
+					border: none;
+
+					.panel-heading {
+						color: #F9F9F9;
+						border-radius: 0px;
+						background-color: #464952;
+					}
+
+					.panel-body {
+						padding: 0px;
+						max-height: 400px;
+						overflow-y: auto;
+
+						.list-group {
+							margin: 0px;
+
+							.list-group-item {
+								cursor: pointer;
+								border-left: 0px;
+								border-right: 0px;
+
+								&:first-child,
+								&:last-child {
+									border-radius: 0px;
+								}
+
+								&:hover {
+									background-color: rgb(247, 247, 247);
+								}
+
+								.message {
+									line-height: 1;
+									margin-bottom: 6px;
+									color: #777;
+								}
+
+								span {
+									font-size: 12px;
+								}
+
+								.datetime {
+									color: #E91E63;
+									font-size: 12px;
+								}
+
+								.detail {
+									color: #009688;
+									i {
+										color: #9E9E9E;
+										font-style: normal;
+									}
+								}
+
+								.sender {
+									color: #2196F3;
+									float: right;
+									line-height: 1;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.search-tab {
+			#searchTaskFormNavbar {
+				margin-bottom: 0px;
+			}
+			.mdl-textfield {
+				padding: 9px; 
+				.mdl-button {
+					bottom: initial;
+					i {
+						color: #FFF;
+					}
+				}
+			}
+			.mdl-textfield__input {
+				color: #FFF;
+			}
+		}
+	}
+	
+	.navbar-right {
+		.callcenter-tab,
+		.monitoring-tab {
+			// a {
+				// max-height: 60px;
+				// padding: 7px 20px;
+				// span {
+				// 	margin-right: 10px;
+				// }
+				// img {
+				// 	height: 36px;
+				// }
+				// .counter-wrapper {
+				// 	left: 6px;
+				// 	bottom: -10px;
+				// 	position: absolute;
+				// }
+				// .counter {
+				// 	width: 25px;
+				// 	color: #FFF;
+				// 	height: 25px;
+				// 	margin-right: 0;
+				// 	font-size: 10px;
+				// 	border-radius: 50%;
+				// 	text-align: center;
+				// 	display: inline-block;
+				// 	border: 2px solid #FFF;
+				// 	box-shadow: 1px 1px 2px #ccc;
+				// 	&.off {
+				// 		background-color: #777;
+				// 	}
+				// 	&.on {
+				// 		background-color: #4CAF50;
+				// 	}
+				// 	&.busy {
+				// 		background-color: #FFC107;
+				// 	}
+				// 	&.pick {
+				// 		background-color: #2196F3;
+				// 	}
+				// 	&.broken {
+				// 		background-color: #F44336;
+				// 	}
+				// }
+			// }
+		}
+		.report-tab,
+		.user-profile-tab {
+			&.open {
+				> a {
+					background-color: #464952;
+					&:focus, &:hover {
+						color: $base_white;
+						background-color: #464952;
+					}
+				}
+
+				> .dropdown-menu {
+					border: none;
+					background-color: #464952;
+					>li>a {
+						color: $base_white;
+					}
+					>li>a:focus, 
+					>li>a:hover {
+						background-color: #343642;
+					}
+				}
+			}
+			&:hover {
+				background-color: $fifth-color!important;
+			}
+		}
+		.report-tab {
+			a > i.fa {
+				color: #FFF;
+				font-size: 20px;
+			}
+			.dropdown-toggle {
+				padding: 15px 20px;
+			}
+		}
+		.user-profile-tab {
+			.dropdown-toggle {
+				padding: 2px 15px;
+			}
+
+			> a > img {
+				max-width: 45px;
+				max-height: 45px;
+			}
+
+			> a > .garage-info {
+				margin-top: 8px;
+				margin-left: 8px;
+				p {
+					font-size: 11px;
+					margin-bottom: 0px;
+					line-height: 1.5;
+				}
+			}
+
+			.dropdown-menu {
+				padding: 0;
+				min-width: 300px;
+
+				.img-garage {
+					float: left;
+					min-height: 100px;
+					max-height: 100px;
+				}
+
+				.profile {
+					float: left;
+					color: #FFF;
+					padding: 10px 12px;
+					padding-bottom: 0;
+
+					.title {
+						color: #999;
+						line-height: 1;
+						font-size: 0.9em;
+					}
+
+
+					.name {
+						margin-bottom: 0;
+					}
+					.email {
+						line-height: 1;
+						font-size: 12px;
+						margin-bottom: 0;
+					}
+					.position {
+						color: #FFC107;
+						font-size: 0.9em;
+						margin-bottom: 0;
+					}
+				}
+
+				.divider {
+					margin: 0px;
+				}
+
+				.control {
+					padding: 6px;
+					> a {
+						width: 48%;
+						margin: 0px;
+						padding: 6px 12px;
+						text-align: center;
+						border-radius: 3px;
+						display: inline-block;
+
+						&:first-child {
+							background: #2196F3;
+						}
+					}
+				}
+			}
+		}
+	}
+}

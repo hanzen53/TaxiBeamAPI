@@ -1,0 +1,32 @@
+<div class="queues table-data">
+  <div class="table-control header">
+    <div class="pull-right">
+      <input type="search" class="form-control input-sm" placeholder="ค้นหาคิวงาน" id="searchQueueInput" />
+    </div>
+    <div class="pull-right paging-length">
+    </div>
+    <div class="pull-right">
+      <button class="btn btn-success" onclick="Modal.createTaskModal.open(event)">
+        <i class="fa fa-plus-square-o"></i> เพิ่มงานใหม่
+      </button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="table-wrap">
+    <table id="queueTaskTable" class="table display dataTable table-striped table-inline-editable" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>เวลา</th>
+          <th>จุดรับ</th>
+          <th>จุดส่ง</th>
+          <th>เบอร์โทร</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>

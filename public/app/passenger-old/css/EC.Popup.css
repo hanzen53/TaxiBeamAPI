@@ -1,0 +1,22 @@
+/* --------------------------------- *
+    Ecartstudio Co.,Ltd. 
+    All Rights Reserved.
+ * --------------------------------- */
+.ec-popup-container { font: 12px/1.5 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+.ec-popup-container { position: absolute; top: 55px; right: 10px; z-index: 100; }
+.ec-popup-list, .ec-popup-list_elem { list-style: none; margin: 0; padding: 0; }
+.ec-popup-list_elem { text-decoration: none; height: 100px; width: 160px; float: left; margin-left: 5px; background: #fff; border: 1px solid #ccc; }
+.ec-popup-list_elem:first-child { margin: 0; }
+.ec-popup-list_elem-header { position: relative; font-weight: bold; background-color: #ccc; height: 27px; padding: 5px 10px; font-size: 14px; }
+.ec-popup-list_elem-header:hover { background-color:#98F495; }
+.ec-popup-list_elem-content { padding: 5px 10px; width: 100%; word-wrap: break-word; overflow-y: auto; }
+.ec-popup-list_elem-close_button { 
+    position: absolute; top: 5px; right: 6px; width: 12px; height: 15px; line-height: 15px;
+    color: #F72904; opacity: 0.7;  filter: alpha(opacity=7);  text-shadow: 0 2px 0 #ffffff; text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 26px; font-weight: bold;
+}
+.ec-popup-list_elem-close_button:hover {
+    cursor: pointer; text-decoration: none;
+    background-color: #04F71D;
+    color: #F72904; opacity: 1; filter: alpha(opacity=100);
+}

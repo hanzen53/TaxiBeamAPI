@@ -1,0 +1,49 @@
+<!-- Java Script -->
+
+<script src="/bower_components/material-design-lite/material.min.js"></script>
+
+<script src="/assets/plugins/jquery/jquery-1.12.0.min.js"></script>
+<script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/plugins/jquery-mask/dist/jquery.mask.min.js"></script>
+<script src="/assets/plugins/switchery-master/dist/switchery.min.js"></script>
+<script src="/assets/plugins/devbridge-autocomplete/jquery.autocomplete.min.js"></script>
+<script src="/assets/plugins/nifty-modal/js/jquery.modalEffects.js"></script>
+<script src="/assets/plugins/bootstrap-datetimepicker/js/moment-with-locales.js"></script>
+<script src="/assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/assets/plugins/gritter/js/jquery.gritter.min.js"></script>
+<script src="/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+
+<!-- dataTables -->
+<script src="/assets/plugins/datatables/1.10.11/media/js/jquery.dataTables.js"></script>
+<script src="/assets/plugins/datatables/1.10.11/media/js/dataTables.bootstrap.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script> -->
+<!-- <script src="/assets/plugins/datatables/1.10.11/extensions/Responsive/js/dataTables.responsive.min.js"></script> -->
+<script src="/assets/plugins/datatables/1.10.11/extensions/KeyTable/js/dataTables.keyTable.min.js"></script>
+<script src="/assets/plugins/datatables/1.10.11/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<!-- dataTables -->
+
+
+<!-- MSR -->
+<script src="/assets/plugins/msr/MediaStreamRecorder.js"></script>
+<script type="text/javascript" src="/assets/javascripts/LiveChat.js"></script>
+
+<script src="/assets/plugins/preloader/preloader.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+
+<!-- APP SCRIPT -->
+<script type="text/javascript">
+	var USER_CURRENT_LOCATION = JSON.parse("[{{= usercurloc }}]").reverse();
+	var USER_DATA = {
+		_id: "{{= user_data._id }}",
+		name: "{{= user_data.name }}",
+		email: "{{= user_data.email }}",
+		group: "{{= user_data.group }}",
+		username: "{{= user_data.username }}",
+		groupNameTH: "{{= user_data.groupNameTH }}",
+		provinceTH: "{{= user_data.provinceTH }}"
+	};
+</script>
+<script src="/app/passenger/mapsource.js" ></script>
+<script src="/assets/javascripts/callcenter.js"></script>

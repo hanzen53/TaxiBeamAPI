@@ -1,0 +1,190 @@
+@import 'sass/vendors/_autoload.scss';
+@import 'sass/base/_font.scss';
+
+@import 'sass/components/datatable.scss';
+
+body {
+	height: 100%;
+	padding-top: 60px;
+	overflow-y: auto;
+	// background-color: #CCC;
+}
+
+.container.app,
+.container-fluid.app {
+	height: 100%;
+	padding: 15px;
+	background-color: #FFF;
+}
+
+.tab-content {
+	padding-top: 15px;
+}
+
+.inline-editable {
+	>tbody > tr > .inline-edit {
+		> form {
+			margin: 0;
+			> input {
+				width: 100%;
+				padding: 6px 6px;
+				border-top-width: 0;
+				border-bottom-width: 0;
+				&:focus {
+					outline: none !important;
+				}
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.active {
+			padding: 7px 10px;
+		}
+	}
+}
+
+
+.datatable {
+	thead th, 
+	thead td {
+		font-size: 12px;
+	}
+
+	tbody th, 
+	tbody td {
+		font-size: 12px;
+
+		&:nth-child(n+9) {
+			color: #4CAF50;
+			text-align: center;
+		}
+	}
+}
+
+
+.daterange {
+	padding: 6px 12px;
+}
+
+.daterangepicker .calendar th, 
+.daterangepicker .calendar td {
+    font-size: small;
+}
+
+.dataTables_scrollHeadInner {
+	margin-top: 10px;
+	border-top: 1px solid #000;
+}
+
+
+.g-btn,
+.btn-default {
+	cursor: pointer;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+    -webkit-border-radius: 2px;
+    -webkit-user-select: none;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    color: #757575;
+    text-align: center;
+	&:hover {
+		background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
+		background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+		background-color: #f8f8f8;
+		background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+		background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+		border: 1px solid #c6c6c6;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+		color: #222;
+	}
+}
+
+.fa-spin {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 1s infinite linear;
+}
+
+
+.summary-circle-group {
+	text-align: center;
+
+.summary.circle {    
+	margin: 10px 15px;
+	text-align: center;
+	vertical-align: top;
+	display: inline-block;
+	.counter {
+		margin: 0;
+		width: 120px;
+		height: 120px;
+		cursor: pointer;
+		padding: 26px 0px;
+		border-radius: 50%;
+		text-align: center;
+		margin-bottom: 10px;
+		border: 2px solid #ccc;
+		&.orange {
+			border-color: #FF5722;
+			&:hover {
+				color: #FFF;
+				background-color: #FF5722;
+			}
+		}
+		&.blue {
+			border-color: #2196F3;
+			&:hover {
+				color: #FFF;
+				background-color: #2196F3;
+			}
+		}
+		&.red {
+			border-color: #E91E63;
+			&:hover {
+				color: #FFF;
+				background-color: #E91E63;
+			}
+		}
+		&.green {
+			border-color: #4CAF50;
+			&:hover {
+				color: #FFF;
+				background-color: #4CAF50;
+			}
+		}
+		&.green2 {
+			border-color: #009688;
+			&:hover {
+				color: #FFF;
+				background-color: #009688;
+			}
+		}
+		&.gray {
+			border-color: #607D8B;
+			&:hover {
+				color: #FFF;
+				background-color: #607D8B;
+			}
+		}
+		&.default {
+			border-color: #CCC;
+			&:hover {
+				color: #FFF;
+				background-color: #CCC;
+			}
+		}
+		.number {
+			margin: 0;
+			font-size: 40px;
+		}
+		.unit {
+
+		}
+	}
+}
+}

@@ -1,0 +1,18 @@
+@font-face {
+	font-family: base_webfont;
+	src: url(fonts/sukhumvitset-text-webfont.woff);
+}
+
+@font-face {
+	font-family: clound_light_font;
+	src: url(fonts/Cloud-Light.otf);
+}
+
+@font-face {
+	font-family: clound_bold_font;
+	src: url(fonts/Cloud-Bold.otf);
+}
+
+html, body {
+	font-family: 'base_webfont';
+}

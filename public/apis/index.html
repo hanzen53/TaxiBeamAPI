@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Taxi</title>
+		<link rel="stylesheet" href="../assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../assets/css/font.css">
+
+		<style>
+			.bg { background-color: #1a2127; }
+			.main-box { position: absolute; left: 50%; top: 50%; margin-left: -150px; margin-top: -220px; }
+			.main-box .header { color: #d3c14a; font-size: 70px; letter-spacing: 25px; margin-left: 25px; text-align: center; }
+			.main-box .main-logo { height: 113px; margin-bottom: 15px; margin-left: -18px; }
+			.main-box ul { width: 300px; background-color: #303940; border-top: 3px solid #D3C14A; box-shadow: 0 10px 20px -5px #000000; color: #9a9a9a; padding: 20px; list-style: none; }
+			.main-box ul li, .main-box ul li > a { display: block; text-decoration: none; outline: none; height: 38px; line-height: 36px; padding: 0; color: #fff; margin-bottom: 10px; border-radius: 0; letter-spacing: 1px; }
+			.main-box ul li:last-child { margin: 0; }
+		</style>
+	</head>
+	<body class="bg">
+
+		<div class="main-box">
+			<div class="header">TAXI</div>
+			<ul>
+				<li class="btn btn-success">
+					<a onclick="getPassenger();">GET PASSENGER</a>
+				</li>
+				<!--
+				<li class="btn btn-success">
+					<a onclick="getPassengerById();">GET PASSENGER BY ID</a>
+				</li>
+			     -->
+				<li class="btn btn-success">
+					<a onclick="getAllPassenger();">GET ALL PASSENGER</a>
+				</li>
+				<li class="btn btn-success">
+					<a onclick="getStatusPassenger();">GET STATUS PASSENGER</a>
+				</li>
+				<!--
+				<li class="btn btn-success">
+					<a onclick="updatePassenger();">UPDATE PASSENGER</a>
+				</li>
+                -->
+				<li class="btn btn-primary">
+					<a onclick="updatePassengerAccpet();">PASSENGER ACCEPT</a>
+				</li>
+				<li class="btn btn-primary">
+					<a onclick="updatePassengerCancel();">PASSENGER CANCEL</a>
+				</li>
+
+				<li class="btn btn-warning">
+					<a onclick="getTaxi();">GET TAXI</a>
+				</li>
+				<li class="btn btn-warning">
+					<a onclick="getAllTaxi();">GET ALL TAXI</a>
+				</li>
+				<li class="btn btn-warning">
+					<a onclick="updateDevice();">TAXI UPDATE STATUS(On)</a>
+				</li>
+				<li class="btn btn-warning">
+					<a onclick="updateDeviceWaiting();">TAXI UPDATE STATUS(Waiting)</a>
+				</li>
+				<li class="btn btn-warning">
+					<a onclick="getStatusDevice();">GET STATUS DEVICE</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</body>
+
+
+	<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+
+	<script>
+
+		/* -----------------------------------------
+				Get passenger
+	  	   ----------------------------------------- */
+
+		function getPassenger () {
+
+			var data = {
+				uid: '555',
+				registrationId: 'sdfadsgjakfdg',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.33333333, 
+				lng: 100.11243256,
+				distance: 200,
+				detail: '',
+				passengerID: '',
+				status: 1,
+				direction: {
+				    accuracy: 156,
+				    degree: 45
+				}
+			};
+
+			$.ajax({
+			    url : "/service/getPassenger",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get passenger list (all)
+	  	   ----------------------------------------- */
+
+		function getAllPassenger () {
+
+			$.ajax({
+			    url : "/service/getPassenger/all",
+			    type: "GET",
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+		/* -----------------------------------------
+				Get passenger status by ID
+	  	   ----------------------------------------- */
+
+		function getStatusPassenger () {
+
+			$.ajax({
+			    url : "/service/passenger/getStatus/0001",
+			    type: "GET",
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+		/* -----------------------------------------
+				Get deivce status by ID
+	  	   ----------------------------------------- */
+
+		function getStatusDevice () {
+
+			$.ajax({
+			    url : "/service/device/getStatus/555",
+			    type: "GET",
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get passenger by ID
+	  	   ----------------------------------------- */
+
+		function getPassengerById () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.3, 
+				lng: 100.1,
+				distance: 200,
+				detail: '',
+				status: 3
+			};
+
+			$.ajax({
+			    url : "/service/getPassenger/5555",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get passenger
+	  	   ----------------------------------------- */
+
+		function updatePassenger () {
+
+			var data = {
+				uid: '555',
+				registrationId: 'sdfadsgjakfdg',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.33333333, 
+				lng: 100.11243256,
+				distance: 200,
+				detail: '',
+				passengerID: '',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "/service/getPassenger",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+
+		}
+
+		/* -----------------------------------------
+				Get passenger Accept
+	  	   ----------------------------------------- */
+
+		function updatePassengerAccpet () {
+
+			var data = {
+				uid: '0001',
+				registrationId: 'sdfadsgjakfdg',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.33333333, 
+				lng: 100.11243256,
+				distance: 200,
+				detail: '',
+				taxiUid: '555',
+				action: 'accept',
+			};
+
+			$.ajax({
+			    url : "/service/passenger/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+		}
+
+		/* -----------------------------------------
+				Get passenger Cencel
+	  	   ----------------------------------------- */
+
+		function updatePassengerCancel () {
+
+			var data = {
+				uid: '0001',
+				registrationId: 'sdfadsgjakfdg',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.33333333, 
+				lng: 100.11243256,
+				distance: 200,
+				detail: '',
+				taxiUid: '555',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "/service/passenger/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+
+		}
+
+		/* -----------------------------------------
+			POST Taxi need to cancel passenger 
+	  	   ----------------------------------------- */
+
+	  	   function updateDevice () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.456, 
+				lng: 100.11243256,
+				distance: 4564,
+				detail: '',
+				passengerID: '0001',
+				status: 1,
+				action: "on"
+			};
+
+			$.ajax({
+			    url : "service/device/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+		/* -----------------------------------------
+			POST Taxi need to picup passenger
+	  	   ----------------------------------------- */
+
+		function updateDeviceWaiting () {
+
+			var data = {
+				uid: '555',
+				name: 'สมหมาย',
+				carLicense: 'ดก-4448',
+				lat: 13.456, 
+				lng: 100.11243256,
+				distance: 4564,
+				detail: '',
+				passengerID: '0001',
+				status: 5
+			};
+
+			$.ajax({
+			    url : "service/device/updateStatus",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+		/* -----------------------------------------
+				Get Taxi
+	  	   ----------------------------------------- */
+
+		function getTaxi () {
+
+			var data = {
+				uid: '0001',
+				registrationId: 'ljfglkdf',
+				name: 'สมบัติ',
+				phoneNumber: '0843112347',
+				lat: 13.0, 
+				lng: 100.9,
+				distance: 200,
+				detail: '',
+				destination: 'กรุงเทพ',
+				status: 1
+			};
+
+			$.ajax({
+			    url : "/service/getDevice",
+			    type: "POST",
+			    data : data,
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+
+
+
+
+		/* -----------------------------------------
+				Get Taxi list (all)
+	  	   ----------------------------------------- */
+
+		function getAllTaxi () {
+
+			$.ajax({
+			    url : "/service/getDevice/all",
+			    type: "GET",
+			    success: function(data){
+			       	console.log(data)
+			    }
+			});
+
+		}
+
+	</script>
+
+
+</html>

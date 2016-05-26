@@ -1,0 +1,42 @@
+.taxi-broken-list {
+	position: absolute;
+	right: 0;
+	top: 50px;
+	margin-right: 10px;
+
+	.taxi-broken {
+		background-color: #FFF;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		min-width: 360px;
+		box-shadow: 0 0px 10px rgba(144, 144, 144, 0.5);
+		position: relative;
+		top: 20px;
+		&::after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+		.img-wrap {
+			float: left;
+			img {
+				max-width: 110px;
+			}
+		}
+		.detail-wrap {
+			float: left;
+			padding: 10px;
+			padding-bottom: 0px;
+
+			.caption {
+				font-size: small;
+				color: #9E9E9E;
+				margin-bottom: 0;
+			}
+			.text {
+				color: #444;
+				margin-bottom: 6px;
+			}
+		}
+	}
+}

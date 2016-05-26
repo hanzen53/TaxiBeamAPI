@@ -1,0 +1,36 @@
+body.dark-theme input, body.dark-theme textarea, body.dark-theme keygen, body.dark-theme select, body.dark-theme button {
+  background-color: transparent; }
+body.dark-theme .navbar-default {
+  background: #343642; }
+  body.dark-theme .navbar-default .nav.navbar-nav li:hover {
+    background-color: #979C9C; }
+  body.dark-theme .navbar-default .nav.navbar-nav li > a {
+    color: #FFF; }
+body.dark-theme .nav.nav-tabs > li.active > a,
+body.dark-theme .nav.nav-tabs > li.active > a:focus,
+body.dark-theme .nav.nav-tabs > li.active > a:hover {
+  color: #FFF;
+  background-color: transparent; }
+body.dark-theme .nav.nav-tabs > li > a:focus, body.dark-theme .nav.nav-tabs > li > a:hover {
+  text-decoration: none;
+  background-color: transparent; }
+body.dark-theme .panel {
+  background-color: transparent; }
+  body.dark-theme .panel .panel-heading {
+    background-color: transparent; }
+    body.dark-theme .panel .panel-heading .panel-title a:hover {
+      background-color: rgba(241, 241, 241, 0.1); }
+body.dark-theme .table tbody tr {
+  background-color: transparent; }
+body.dark-theme .modal .modal-content {
+  background-color: #343642; }
+  body.dark-theme .modal .modal-content .modal-header {
+    color: #FFF; }
+  body.dark-theme .modal .modal-content .modal-body {
+    color: #FFF; }
+body.dark-theme .st-menu {
+  background-color: #225378; }
+  body.dark-theme .st-menu * {
+    color: #FFF; }
+
+/*# sourceMappingURL=_dark.css.map */

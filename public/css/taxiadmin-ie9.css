@@ -1,0 +1,44 @@
+.taxiadmin-content.home {
+	position: absolute;
+}
+
+.taxiadmin-content.home {
+	position: absolute;
+}
+.taxiadmin-content.home .taxiadmin-content-wrapper {
+	overflow: hidden;
+}
+.taxiadmin-btn-secondary , .taxiadmin-btn-search , .taxiadmin-btn-tertiary , input , textarea {
+	font-family: 'tahoma';
+}
+.taxiadmin-login {
+	position: absolute;
+}
+.taxiadmin-dialog-close {
+	padding: 16px;
+}
+input[type="text"] , input[type="password"] {
+	padding: 5px 15px !important;
+}
+.taxiadmin-content.info input[type="text"] , .taxiadmin-content.message input[type="text"] , .taxiadmin-content.home input[type="text"] {
+	padding: 0 15px !important;
+	padding-right: 5px !important;
+}
+.taxiadmin-content.info input.taxiadmin-datepicker , .taxiadmin-content.message input.taxiadmin-datepicker , 
+.taxiadmin-content.home input.taxiadmin-datepicker {
+	padding-left: 35px !important; 
+}
+select {
+	padding: 5px !important;
+	padding-left: 15px !important;
+}
+.taxiadmin-setting-form label {
+	margin-top: 2px !important;
+	height: 16px;
+}
+.taxiadmin-checkbox label {
+	margin-top: 0px !important;
+}
+.taxiadmin-content.info .taxiadmin-group-radio label {
+	margin-top: 3px;
+}

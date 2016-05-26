@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/local/autocomplete.css"> 
+		<link rel="stylesheet" href="/resources/demos/style.css">	
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+		<script src="//54.200.72.141:1112/socket.io/socket.io.js"></script>
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>	
+
+		<style>
+			.bg { background-color: #1a2127; }
+			.main-box { position: absolute; top: 20%; width: 100%; height: 80%; }
+			.main-box .header { color: #d3c14a; font-size: 70px; letter-spacing: 25px; margin-left: 25px; text-align: center; }
+			.main-box .main-logo { height: 113px; margin-bottom: 15px;}
+			.main-box ul { width: 100%; background-color: #303940; border-top: 3px solid #D3C14A; box-shadow: 0 10px 20px -5px #000000; color: #9a9a9a; padding: 20px; margin: 10px; list-style: none; }
+			.main-box ul li, .main-box ul li > a { display: block; text-decoration: none; outline: none; height: 38px; line-height: 36px; padding: 0; color: #fff; margin-bottom: 10px; border-radius: 0; letter-spacing: 1px; }
+			.main-box ul li:last-child { margin: 0; }
+		</style>
+	</head>
+	<body class="bg">
+
+		<div class="main-box">
+			<div class="header">TAXI</div>
+			<ul>
+				<li class="btn btn-primary">
+					<a href="/passenger">PASSENGER</a>
+				</li>
+				<li class="btn btn-success">
+					<a href="/taxi">TAXI DRIVER</a>
+				</li>
+				<li class="btn btn-warning">
+					<a href="/ecmap">CALL CENTER</a>
+				</li>	
+				<li class="btn btn-danger">
+					<a href="/logout">LOG OUT</a>
+				</li>				
+			</ul>
+
+			<button type="button" class="btn btn-success"  id="jwjadd" > + </button>
+			<button type="button" class="btn btn-warning"  id="jwjmin" > - </button>
+			<input type="text" id="jwj000" value="0">
+			
+			
+		</div>
+
+	</body>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '640000806117366',
+	      xfbml      : true,
+	      version    : 'v2.1'
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+
+	</script>
+
+	<script>
+
+	var socket = io.connect('//54.200.72.141:1112');
+
+
+	$("#jwjadd").click(function() {
+		//alert( "Handler for .click() called." );	   
+		var currentVal = parseInt($("#jwj000").val());
+		currentVal++;
+		$('#jwj000').val(currentVal);
+		var Sendjwj = currentVal;
+		console.log(Sendjwj)
+
+		socket.emit('Sendjwj000',Sendjwj);
+
+	});	
+
+	$("#jwjmin").click(function() {
+		//alert( "Handler for .click() called." );
+		var currentVal = parseInt($("#jwj000").val());
+		currentVal--;	
+	 	$('#jwj000').val(currentVal);
+		var Sendjwj = currentVal;
+		console.log(Sendjwj)
+
+		socket.emit('Sendjwj000',Sendjwj);
+
+	});	
+
+
+
+
+
+
+
+	</script>
+
+
+</html>
+
+	

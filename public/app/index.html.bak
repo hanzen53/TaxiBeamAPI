@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/local/autocomplete.css"> 
+		<link rel="stylesheet" href="/resources/demos/style.css">	
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		
+		<script src="http://azvdtaximate1.ecartstudio.com:1115/socket.io/socket.io.js"></script>
+		
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>	
+
+		<style>
+			.bg { background-color: #1a2127; }
+			.login-box { width: 300px; position: absolute; top: 50%; left: 50%; margin-left: -150px; margin-top: -198px; }
+			.login-box h1 { font-family: 'open_sanslight'; text-transform: uppercase; color: #e2df26; text-align: center; font-weight: normal; font-size: 86px; margin-bottom: 10px; margin-top: 10px; letter-spacing: 50px; }
+			.login-box form { background-color: #303940; color: #9a9a9a; padding: 20px; border-top: 3px solid #E2DF26; box-shadow: 0px 10px 20px -5px #000000; }
+			.form-group { margin-bottom: 1px; }
+			.signup-box { margin: 10px 0 -10px; text-align: right; }
+			.signup-box a { color: #aaa; text-decoration: none; }
+			.signup-box a:hover { cursor: pointer; color: #fff; }
+			.login-box input[type="text"] { width: 100%; padding: 8px 10px; color: #000; height: auto; }
+			.login-box button { width: 100%; text-transform: uppercase; margin-top: 15px; }
+			.login-logo { height: 113px; margin-left: -18px; margin-bottom: 15px; }
+			.copyright { position: absolute; bottom: 10px; width: 100%; color: #fff; display: block; text-align: center; color: #9a9a9a; }
+		</style>
+	</head>
+	<body class="bg">
+
+		<div class="login-box">
+			<h1>TAXI</h1>
+			<form action="/login" method="post">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Username" name="username">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" placeholder="Password" name="password">
+				</div>
+				
+				<button class="btn btn-success">Sign in</button>
+
+				<div class="form-group signup-box">
+					<a class="signup-btn" id="signup-btn" href="/signup">Sign up</a>
+				</div>
+			</form>
+		</div>
+		<div class="copyright">Taxi version 1.0b | Developed by Ecartstudio Co., Ltd</div>
+
+	</body>
+
+
+</html>
+
+	

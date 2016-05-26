@@ -1,0 +1,402 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/style-dropdown.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+	<script type="text/javascript" src="/assets/libs/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/function.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/jquery.dropdown.js"></script>
+	<script src="/assets/libs/js/modernizr.custom.js"></script>
+</head>
+
+<body>
+
+
+	<div class="garageadmin-container garageadmin-list">
+		<div class="garageadmin-header">
+			<img src="/assets/img/home_logo.png">
+			<div class="garageadmin-search">
+				<label><img src="/assets/img/icn_search.png"></label>
+				<input type="text" placeholder="ค้นหา...">
+			</div>
+
+			<ul class="garageadmin-user">
+				<li><img src="/assets/img/icn_person.png"> <p>Adminkib</p> <img class="garageadmin-arrow" src="/assets/img/btn_arrowdown_b.png">
+					<ul class="garageadmin-userhidden">
+						<li><img src="/assets/img/icn_changepw.png"> <a href="changepassword.html"><p>เปลี่ยนรหัสผ่าน</p></a></li>
+						<li><img src="/assets/img/icn_logout.png"> <a href="login.html"><p>ออกจากระบบ</p></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="garageadmin-wrapper">
+			<h1>รายชื่ออู่แท็กซี่</h1>
+			<a class="garageadmin-btn-primary garageadmin-btn-addGarage" >เพิ่มอู่แท็กซี่</a>
+			<div class="garageadmin-alertmessage garageadmin-added">
+				<div class="garageadmin-alertwrapper">
+					<img src="/assets/img/garage_11.png">
+					<span>เพิ่ม "อู่กังวาล" เรียบร้อยแล้ว</span>
+				</div>
+			</div>
+
+			<div class="garageadmin-alertmessage garageadmin-edited">
+				<div class="garageadmin-alertwrapper">
+					<img src="/assets/img/garage_11.png">
+					<span>แก้ไข "อู่กังวาล" เรียบร้อยแล้ว</span>
+				</div>
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="garageadmin-addGarage">
+				<a href="" class="garageadmin-closeGarage"><img src="/assets/img/btn_close.png"></a>
+				<h1>เพิ่มอู่แท็กซี่</h1>
+				<div class="garageadmin-addGarage-upload">
+					<img id="blah" src="/assets/img/thumbnail_photo.jpg" />
+					<input type="text" readonly>
+					<span class="garageadmin-btn-file">
+						อัพโหลดรูป <input type="file" onchange="readURL(this);">
+					</span>
+				</div>
+				<div class="garageadmin-addGarage-form">
+					<h4>ชื่ออู่แท็กซี่</h4>
+					<input type="text" class="garageadmin-garagename" placeholder="ระบุชื่ออู่แท็กซี่">
+					<h4>ที่อยู่</h4>
+					<div class="garageadmin-addGarage-address">
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>เลขที่</span>
+							<input type="text" class="garageadmin-number">
+						</div>
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>หมู่</span>
+							<input type="text" class="garageadmin-village">
+						</div>
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>ถนน</span>
+							<input type="text" class="garageadmin-road">
+						</div>
+						<div class="garageadmin-addGarage-addressgroup subdistrict">
+							<span>แขวง</span>
+							<input type="text" class="garageadmin-subdistrict">
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="garageadmin-addGarage-address">
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>เขต</span>
+							<input type="text" class="garageadmin-district">
+						</div>
+						<div class="garageadmin-addGarage-addressgroup garageadmin-province">
+							<span>จังหวัด</span>
+							<select id="cd-dropdown" class="cd-select">
+								<!--<option value="-1" selected>เลือกจังหวัด</option>-->
+								<option value="1" selected>กรุงเทพมหานคร</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>รหัสไปรษณีย์</span>
+							<input type="text" class="garageadmin-zipcode">
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="garageadmin-addGarage-address last">
+						<img src="/assets/img/icn_latlog.png">
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>ลองติจูด</span>
+							<input type="text" class="garageadmin-longtitude">
+						</div>
+						<div class="garageadmin-addGarage-addressgroup">
+							<span>ละติจูด</span>
+							<input type="text" class="garageadmin-latitude">
+						</div>
+					</div>
+					<h4>ชื่อผู้ติดต่อ</h4>
+					<input type="text" class="garageadmin-garagename" placeholder="ระบุชื่อผู้ติดต่อ">
+					<div class="garageadmin-addGarage-left">
+						<h4>เบอร์โทรศัพท์</h4>
+						<input type="text" class="garageadmin-garagename" placeholder="เบอร์โทรศัพท์">
+					</div>
+					<div class="garageadmin-addGarage-right">
+						<h4>อีเมล</h4>
+						<input type="text" class="garageadmin-garagename" placeholder="อีเมลผู้ติดต่อ">
+					</div>
+				</div>
+				<input type="submit" class="garageadmin-btn-primary" value="เพิ่ม" >
+			</div>
+
+			<div class="garageadmin-addGarage-overlay">
+				<div class="garageadmin-deleteGarage">
+					<div class="garageadmin-deleteGarage-titlebars">ลบพนักงาน</div>
+					<div class="garageadmin-deleteGarage-message">
+						คุณแน่ใจที่จะลบ "สมศักดิ์ ตามสมทบ" หรือไม่
+						<input type="submit" value="ลบ" class="garageadmin-btn-danger">
+						<a href="" class="garageadmin-closeGarage"><img src="/assets/img/btn_close.png"></a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+			<div class="garageadmin-listbox">
+				<img src="/assets/img/thumbnail_photo.jpg">
+				<div class="garageadmin-listdetails">
+					<h2>อู่กังวาล <span class="garageadmin-amount">(8)</span></h2>
+					<div class="garageadmin-addressbox">
+						<img src="/assets/img/icn_pin.png">
+						<div class="garageadmin-addressdetails">
+							<h3>18 ถนน สีลม แขวง สีลม เขต บางรัก กรุงเทพมหานคร 10500</h3>
+							<h4 class="garageadmin-address">13.756067, 100.571699</h4>
+						</div>
+					</div>
+					<div class="garageadmin-contact">
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_contact.png">
+							<p>ยานเทพ ทำการยนต์</p>
+						</div>
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_phone.png">
+							<p>026523333</p>
+						</div>
+
+						<div class="garageadmin-contactbox">
+							<img src="/assets/img/icn_mail.png">
+							<p>kiti@kangwan.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="garageadmin-editdel">
+					<a class="garageadmin-edit"><img src="/assets/img/btn_edit.png"></a>
+					<a class="garageadmin-delete"><img src="/assets/img/btn_delete.png"></a>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(160)
+                        .height(160);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    $( function() {
+			
+			$( '#cd-dropdown ,#cd-dropdown1' ).dropdown( {
+				gutter : 5,
+				stack : false/*,
+				slidingIn : 100*/
+			} );
+
+		});
+
+</script>
+</html>

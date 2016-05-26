@@ -1,0 +1,123 @@
+<nav class="st-menu">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<br>
+				<div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#tabContentCreateTask" aria-controls="tabContentCreateTask" role="tab" data-toggle="tab" data-tab-name="create-task">รับงาน</a></li>
+						<li role="presentation"><a href="#tabContentAssignTask" aria-controls="tabContentAssignTask" role="tab" data-toggle="tab" data-tab-name="assign-task">จ่ายงาน</a></li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="tabContentCreateTask">
+
+							<div class="panel-group" id="accordionCreateTask" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="headingCreateTask">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#accordionCreateTask" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												ฟอร์มรับงาน
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCreateTask">
+										<div class="panel-body">
+
+										{{ include ../callcenter/form-callcenter-task }}
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<table id="callcenterTaskTable" class="table table-hover task-table"> 
+								<thead> 
+									<tr> 
+										<th>#</th> 
+										<th>เวลา</th> 
+										<th>จุดรับ</th> 
+										<th>จุดส่ง</th>
+										<th>เบอร์โทร</th>
+									</tr> 
+								</thead> 
+								<tbody></tbody>
+							</table>
+
+
+						</div>
+						<div role="tabpanel" class="tab-pane" id="tabContentAssignTask">
+
+							<div class="panel-group" id="accordionAssignTask" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-borderless">
+
+									<div class="panel-heading" role="tab" id="headingAssignTask">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#accordionAssignTask" href="#collapseAssignTask" aria-expanded="true" aria-controls="collapseAssignTask">
+												รอจ่ายงาน
+											</a>
+										</h4>
+									</div>
+
+									<div id="collapseAssignTask" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingAssignTask">
+										<div class="panel-body">
+											<table id="taskTable" class="table table-hover task-table"> 
+												<thead> 
+													<tr> 
+														<th>#</th> 
+														<th>เวลา</th> 
+														<th>จุดรับ</th> 
+														<th>จุดส่ง</th>
+														<th>เบอร์โทร</th>
+														<th><i class="fa fa-ellipsis-h"></i></th>
+													</tr> 
+												</thead> 
+												<tbody> 
+												</tbody> 
+											</table>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="panel-group" id="accordionAssignedTask" role="tablist" aria-multiselectable="true">
+								<div class="panel panel-borderless">
+
+									<div class="panel-heading" role="tab" id="headingAssignedTask">
+										<h4 class="panel-title">
+											<a role="button" data-toggle="collapse" data-parent="#accordionAssignedTask" href="#collapseAssignedTask" aria-expanded="true" aria-controls="collapseAssignedTask">
+												จ่ายงานแล้ว
+											</a>
+										</h4>
+									</div>
+
+									<div id="collapseAssignedTask" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingAssignedTask">
+										<div class="panel-body">
+											<table id="assignedTaskTable" class="table table-hover task-table"> 
+												<thead> 
+													<tr> 
+														<th>#</th> 
+														<th>เวลา</th> 
+														<th>จุดรับ</th> 
+														<th>จุดส่ง</th>
+														<th>เบอร์โทร</th>
+														<th><i class="fa fa-ellipsis-h"></i></th>
+													</tr> 
+												</thead> 
+												<tbody> 
+												</tbody> 
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>

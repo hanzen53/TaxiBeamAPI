@@ -1,0 +1,460 @@
+@import url(sass/vendors/font-awesome/css/font-awesome.min.css);
+@import url(sass/vendors/hover-master/css/hover-min.css);
+@import url(sass/vendors/animate/animate.css);
+@font-face {
+  font-family: base_webfont;
+  src: url(fonts/sukhumvitset-text-webfont.woff); }
+@font-face {
+  font-family: clound_light_font;
+  src: url(fonts/Cloud-Light.otf); }
+@font-face {
+  font-family: clound_bold_font;
+  src: url(fonts/Cloud-Bold.otf); }
+html, body {
+  font-family: 'base_webfont'; }
+
+.table-wrap {
+  min-height: 355px; }
+
+.table-data {
+  margin-bottom: 50px; }
+  .table-data .header {
+    padding-bottom: 6px;
+    border-bottom: 3px solid #343642; }
+    @media (max-width: 674px) {
+      .table-data .header .pull-right {
+        float: none !important; }
+        .table-data .header .pull-right.paging-length {
+          display: none; }
+        .table-data .header .pull-right .btn.btn-success {
+          display: none; } }
+    .table-data .header .title {
+      margin-bottom: 0; }
+    .table-data .header .indicator {
+      top: -15px;
+      right: 6px;
+      color: #FFF;
+      width: 30px;
+      height: 30px;
+      padding-top: 6px;
+      font-size: 12px;
+      border-radius: 50%;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      border: 3px solid #F9F9F9; }
+      .table-data .header .indicator.red {
+        background-color: #A03636; }
+      .table-data .header .indicator.green {
+        background-color: #41A036; }
+    .table-data .header .btn {
+      padding: 4px 12px;
+      margin-right: 5px;
+      border-color: #009245;
+      background-color: #009245; }
+  .table-data .table > thead > tr > th,
+  .table-data .table > tbody > tr > th,
+  .table-data .table > tbody > tr > td {
+    font-size: 13px; }
+  .table-data .table > tbody > tr > td,
+  .table-data .table > tbody > tr > th {
+    vertical-align: middle; }
+  .table-data .table > tbody > tr > td:last-child:not(.dataTables_empty) {
+    text-align: right; }
+
+.table-inline-editable > tbody > tr > .inline-edit > form {
+  margin: 0; }
+  .table-inline-editable > tbody > tr > .inline-edit > form > input {
+    width: 100%;
+    padding: 6px 6px;
+    border-top-width: 0;
+    border-bottom-width: 0; }
+    .table-inline-editable > tbody > tr > .inline-edit > form > input:focus {
+      outline: none !important; }
+.table-inline-editable > tbody > tr > .inline-edit:hover {
+  cursor: pointer; }
+.table-inline-editable > tbody > tr > .inline-edit.active {
+  padding: 7px 10px; }
+
+.queues.table-data .dataTables_wrapper .dataTables_filter,
+.pending.table-data .dataTables_wrapper .dataTables_filter,
+.advance.table-data .dataTables_wrapper .dataTables_filter,
+.assigned.table-data .dataTables_wrapper .dataTables_filter {
+  display: none; }
+.queues.table-data .dataTables_wrapper .dataTables_length label,
+.pending.table-data .dataTables_wrapper .dataTables_length label,
+.advance.table-data .dataTables_wrapper .dataTables_length label,
+.assigned.table-data .dataTables_wrapper .dataTables_length label {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+.queues.table-data tbody > tr > td.jobtype,
+.pending.table-data tbody > tr > td.jobtype,
+.advance.table-data tbody > tr > td.jobtype,
+.assigned.table-data tbody > tr > td.jobtype {
+  max-width: 40px; }
+.queues.table-data tbody > tr .status-time,
+.pending.table-data tbody > tr .status-time,
+.advance.table-data tbody > tr .status-time,
+.assigned.table-data tbody > tr .status-time {
+  font-size: 1.2em; }
+  .queues.table-data tbody > tr .status-time .detail,
+  .pending.table-data tbody > tr .status-time .detail,
+  .advance.table-data tbody > tr .status-time .detail,
+  .assigned.table-data tbody > tr .status-time .detail {
+    float: left;
+    font-size: 11px;
+    margin-left: 8px;
+    display: inline-block; }
+    .queues.table-data tbody > tr .status-time .detail > span,
+    .pending.table-data tbody > tr .status-time .detail > span,
+    .advance.table-data tbody > tr .status-time .detail > span,
+    .assigned.table-data tbody > tr .status-time .detail > span {
+      font-size: 11px; }
+  .queues.table-data tbody > tr .status-time.book,
+  .pending.table-data tbody > tr .status-time.book,
+  .advance.table-data tbody > tr .status-time.book,
+  .assigned.table-data tbody > tr .status-time.book {
+    color: #2196F3; }
+    .queues.table-data tbody > tr .status-time.book .detail,
+    .pending.table-data tbody > tr .status-time.book .detail,
+    .advance.table-data tbody > tr .status-time.book .detail,
+    .assigned.table-data tbody > tr .status-time.book .detail {
+      color: #00BCD4; }
+  .queues.table-data tbody > tr .status-time.new,
+  .pending.table-data tbody > tr .status-time.new,
+  .advance.table-data tbody > tr .status-time.new,
+  .assigned.table-data tbody > tr .status-time.new {
+    color: #4CAF50; }
+    .queues.table-data tbody > tr .status-time.new .detail,
+    .pending.table-data tbody > tr .status-time.new .detail,
+    .advance.table-data tbody > tr .status-time.new .detail,
+    .assigned.table-data tbody > tr .status-time.new .detail {
+      color: #009688; }
+  .queues.table-data tbody > tr .status-time.normal,
+  .pending.table-data tbody > tr .status-time.normal,
+  .advance.table-data tbody > tr .status-time.normal,
+  .assigned.table-data tbody > tr .status-time.normal {
+    color: #FFC107; }
+    .queues.table-data tbody > tr .status-time.normal .detail,
+    .pending.table-data tbody > tr .status-time.normal .detail,
+    .advance.table-data tbody > tr .status-time.normal .detail,
+    .assigned.table-data tbody > tr .status-time.normal .detail {
+      color: #FF9800; }
+  .queues.table-data tbody > tr .status-time.long,
+  .pending.table-data tbody > tr .status-time.long,
+  .advance.table-data tbody > tr .status-time.long,
+  .assigned.table-data tbody > tr .status-time.long {
+    color: #F44336; }
+    .queues.table-data tbody > tr .status-time.long .detail,
+    .pending.table-data tbody > tr .status-time.long .detail,
+    .advance.table-data tbody > tr .status-time.long .detail,
+    .assigned.table-data tbody > tr .status-time.long .detail {
+      color: #E91E63; }
+  .queues.table-data tbody > tr .status-time i,
+  .pending.table-data tbody > tr .status-time i,
+  .advance.table-data tbody > tr .status-time i,
+  .assigned.table-data tbody > tr .status-time i {
+    float: left;
+    display: inline-block; }
+.queues.table-data tbody > tr td[data-field-name="createdjob"],
+.pending.table-data tbody > tr td[data-field-name="createdjob"],
+.advance.table-data tbody > tr td[data-field-name="createdjob"],
+.assigned.table-data tbody > tr td[data-field-name="createdjob"] {
+  text-align: left; }
+  .queues.table-data tbody > tr td[data-field-name="createdjob"] .date,
+  .pending.table-data tbody > tr td[data-field-name="createdjob"] .date,
+  .advance.table-data tbody > tr td[data-field-name="createdjob"] .date,
+  .assigned.table-data tbody > tr td[data-field-name="createdjob"] .date {
+    font-size: 12px; }
+.queues.table-data tbody > tr td:last-child button i,
+.pending.table-data tbody > tr td:last-child button i,
+.advance.table-data tbody > tr td:last-child button i,
+.assigned.table-data tbody > tr td:last-child button i {
+  font-size: 16px; }
+.queues.table-data .label-rejected,
+.pending.table-data .label-rejected,
+.advance.table-data .label-rejected,
+.assigned.table-data .label-rejected {
+  color: #E91E63;
+  font-size: 12px; }
+.queues.table-data tbody > tr.lock,
+.pending.table-data tbody > tr.lock,
+.advance.table-data tbody > tr.lock,
+.assigned.table-data tbody > tr.lock {
+  color: #FFF;
+  background-color: #E53935 !important; }
+  .queues.table-data tbody > tr.lock td.sorting_1,
+  .pending.table-data tbody > tr.lock td.sorting_1,
+  .advance.table-data tbody > tr.lock td.sorting_1,
+  .assigned.table-data tbody > tr.lock td.sorting_1 {
+    background-color: #E53935 !important; }
+  .queues.table-data tbody > tr.lock .status-time,
+  .pending.table-data tbody > tr.lock .status-time,
+  .advance.table-data tbody > tr.lock .status-time,
+  .assigned.table-data tbody > tr.lock .status-time {
+    color: #FFF; }
+    .queues.table-data tbody > tr.lock .status-time > .detail,
+    .pending.table-data tbody > tr.lock .status-time > .detail,
+    .advance.table-data tbody > tr.lock .status-time > .detail,
+    .assigned.table-data tbody > tr.lock .status-time > .detail {
+      color: #FFF; }
+  .queues.table-data tbody > tr.lock td:last-child,
+  .pending.table-data tbody > tr.lock td:last-child,
+  .advance.table-data tbody > tr.lock td:last-child,
+  .assigned.table-data tbody > tr.lock td:last-child {
+    padding: 0px; }
+    .queues.table-data tbody > tr.lock td:last-child .btn-group,
+    .pending.table-data tbody > tr.lock td:last-child .btn-group,
+    .advance.table-data tbody > tr.lock td:last-child .btn-group,
+    .assigned.table-data tbody > tr.lock td:last-child .btn-group {
+      display: none; }
+  .queues.table-data tbody > tr.lock p.user-locker,
+  .pending.table-data tbody > tr.lock p.user-locker,
+  .advance.table-data tbody > tr.lock p.user-locker,
+  .assigned.table-data tbody > tr.lock p.user-locker {
+    margin: 0;
+    line-height: initial;
+    border-radius: 3px 0px 0px 3px;
+    padding: 3px 6px;
+    text-align: left;
+    font-size: smaller;
+    background-color: rgba(255, 255, 255, 0.2); }
+    @media (max-width: 414px) {
+      .queues.table-data tbody > tr.lock p.user-locker,
+      .pending.table-data tbody > tr.lock p.user-locker,
+      .advance.table-data tbody > tr.lock p.user-locker,
+      .assigned.table-data tbody > tr.lock p.user-locker {
+        display: none; } }
+
+.dataTables_wrapper .dataTables_filter {
+  float: none; }
+
+.dataTables_scrollBody::-webkit-scrollbar {
+  width: 5px; }
+
+.table-data tbody > tr > td .circle-text {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  padding-top: 2px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle; }
+  .table-data tbody > tr > td .circle-text.orange {
+    color: #FFF;
+    border: 2px solid #A74C21;
+    background-color: #A05836; }
+  .table-data tbody > tr > td .circle-text.default {
+    color: #555;
+    border: 2px solid #999;
+    background-color: #FFF; }
+
+.pending.table-data td.line-job span,
+.assigned.table-data td.line-job span {
+  color: #FFF;
+  cursor: pointer;
+  padding: 0px 5px;
+  border-radius: 15px;
+  border: 2px solid #FFFFFF;
+  background-color: #4CAF50; }
+
+.assigned.table-data #assignedTaskTable_length,
+.assigned.table-data #queueTaskTable_length,
+.queues.table-data #assignedTaskTable_length,
+.queues.table-data #queueTaskTable_length {
+  margin-right: 6px; }
+  .assigned.table-data #assignedTaskTable_length > label,
+  .assigned.table-data #queueTaskTable_length > label,
+  .queues.table-data #assignedTaskTable_length > label,
+  .queues.table-data #queueTaskTable_length > label {
+    margin-bottom: 0px; }
+
+.assigned.table-data tr.has-comment td:first-child {
+  border-left: 5px solid #2196F2; }
+.assigned.table-data tr.has-comment .showTaskDetail {
+  color: #FFF;
+  background-color: #2196F3; }
+
+.report-driver.table-data .dataTables_wrapper .dataTables_filter {
+  display: none; }
+.report-driver.table-data #taxiReportTable,
+.report-driver.table-data #taxiReportTable_wrapper .dataTables_scrollHead >
+.dataTables_scrollHeadInner > .dataTable {
+  font-size: 12px; }
+.report-driver.table-data #report-date-filter {
+  max-width: 150px; }
+  .report-driver.table-data #report-date-filter .input-group-addon {
+    color: #FFF;
+    border: none;
+    background-color: #2196F3; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  padding: 0px; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0px; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #444; }
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: none;
+    border: 1px solid transparent; }
+
+.dataTables_paginate.paging_simple_numbers .pagination {
+  margin: 0px; }
+
+.pagination > li > a,
+.pagination > li > span {
+  border-radius: 2px; }
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  border-color: #2196F3;
+  background-color: #2196F3; }
+
+body {
+  height: 100%;
+  padding-top: 60px;
+  overflow-y: auto; }
+
+.container.app,
+.container-fluid.app {
+  height: 100%;
+  padding: 15px;
+  background-color: #FFF; }
+
+.tab-content {
+  padding-top: 15px; }
+
+.inline-editable > tbody > tr > .inline-edit > form {
+  margin: 0; }
+  .inline-editable > tbody > tr > .inline-edit > form > input {
+    width: 100%;
+    padding: 6px 6px;
+    border-top-width: 0;
+    border-bottom-width: 0; }
+    .inline-editable > tbody > tr > .inline-edit > form > input:focus {
+      outline: none !important; }
+.inline-editable > tbody > tr > .inline-edit:hover {
+  cursor: pointer; }
+.inline-editable > tbody > tr > .inline-edit.active {
+  padding: 7px 10px; }
+
+.datatable thead th,
+.datatable thead td {
+  font-size: 12px; }
+.datatable tbody th,
+.datatable tbody td {
+  font-size: 12px; }
+  .datatable tbody th:nth-child(n+9),
+  .datatable tbody td:nth-child(n+9) {
+    color: #4CAF50;
+    text-align: center; }
+
+.daterange {
+  padding: 6px 12px; }
+
+.daterangepicker .calendar th,
+.daterangepicker .calendar td {
+  font-size: small; }
+
+.dataTables_scrollHeadInner {
+  margin-top: 10px;
+  border-top: 1px solid #000; }
+
+.g-btn,
+.btn-default {
+  cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  -webkit-border-radius: 2px;
+  -webkit-user-select: none;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  color: #757575;
+  text-align: center; }
+  .g-btn:hover,
+  .btn-default:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f1f1f1));
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+    background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #222; }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 1s infinite linear; }
+
+.summary-circle-group {
+  text-align: center; }
+  .summary-circle-group .summary.circle {
+    margin: 10px 15px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block; }
+    .summary-circle-group .summary.circle .counter {
+      margin: 0;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      padding: 26px 0px;
+      border-radius: 50%;
+      text-align: center;
+      margin-bottom: 10px;
+      border: 2px solid #ccc; }
+      .summary-circle-group .summary.circle .counter.orange {
+        border-color: #FF5722; }
+        .summary-circle-group .summary.circle .counter.orange:hover {
+          color: #FFF;
+          background-color: #FF5722; }
+      .summary-circle-group .summary.circle .counter.blue {
+        border-color: #2196F3; }
+        .summary-circle-group .summary.circle .counter.blue:hover {
+          color: #FFF;
+          background-color: #2196F3; }
+      .summary-circle-group .summary.circle .counter.red {
+        border-color: #E91E63; }
+        .summary-circle-group .summary.circle .counter.red:hover {
+          color: #FFF;
+          background-color: #E91E63; }
+      .summary-circle-group .summary.circle .counter.green {
+        border-color: #4CAF50; }
+        .summary-circle-group .summary.circle .counter.green:hover {
+          color: #FFF;
+          background-color: #4CAF50; }
+      .summary-circle-group .summary.circle .counter.green2 {
+        border-color: #009688; }
+        .summary-circle-group .summary.circle .counter.green2:hover {
+          color: #FFF;
+          background-color: #009688; }
+      .summary-circle-group .summary.circle .counter.gray {
+        border-color: #607D8B; }
+        .summary-circle-group .summary.circle .counter.gray:hover {
+          color: #FFF;
+          background-color: #607D8B; }
+      .summary-circle-group .summary.circle .counter.default {
+        border-color: #CCC; }
+        .summary-circle-group .summary.circle .counter.default:hover {
+          color: #FFF;
+          background-color: #CCC; }
+      .summary-circle-group .summary.circle .counter .number {
+        margin: 0;
+        font-size: 40px; }
+
+/*# sourceMappingURL=admin-report.css.map */

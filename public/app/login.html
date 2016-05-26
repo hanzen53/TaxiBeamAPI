@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html lang="th">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="/assets/libs/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/assets/libs/js/function.js"></script>
+</head>
+
+<body>
+	<div class="garageadmin-login">
+	<form action="/login" method="post">
+		<div class="garageadmin-loginwrapper">
+			<img class="garageadmin-loginlogo" src="/assets/img/login_logo.png">
+			<div class="garageadmin-errormessage">
+				อีเมล/รหัสผ่านไม่ถูกต้อง
+				<img src="/assets/img/icn_fail.png">
+			</div>
+
+			<div class="garageadmin-groupform">
+				<label>อีเมล</label>
+				<input type="text" name="username" placeholder="email">
+			</div>
+			<div class="garageadmin-groupform">
+				<label>รหัสผ่าน</label>
+				<input type="password" name="password" class="garageadmin-password" placeholder="••••••••">
+				<img class="garageadmin-showhidepassword" src="/assets/img/btn_show.png">
+			</div>
+			<input type="submit" class="garageadmin-btn-primary" value="เข้าสู่ระบบ">			
+			<a href="" class="garageadmin-warning">ลืมรหัสผ่าน?</a>
+		</div>
+	</form>
+	</div>
+</body>
+</html>

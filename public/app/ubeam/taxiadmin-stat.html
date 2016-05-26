@@ -1,0 +1,172 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/taxiadmin-style.css" />
+	<link rel="stylesheet" type="text/css" href="css/font/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.standalone.css" />
+	<link rel="stylesheet" type="text/css" href="css/iconfont/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/taxiadmin-responsive.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/taxiadmin-function.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="js/placeholder.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/taxiadmin-ie8.css"><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/taxiadmin-ie9.css"><![endif]-->
+	<!--[if IE]><!-->
+	<style type="text/css">
+		.color.taxiadmin-input-form i , .year.taxiadmin-input-form i {
+			display: none;
+		}
+		input {
+			font-family: 'Tahoma';
+		}
+	</style><!--<![endif]-->
+</head>
+
+<body>
+	<div class="taxiadmin-container">
+		<div class="taxiadmin-header">
+			<div class="taxiadmin-header-menu">
+				<a class="garageadmin-homelogo" href="taxiadmin-home.html">
+					<img src="img/taxiadmin-logo.png" srcset="img/taxiadmin-logo@2x.png 2x"></a>
+			</div>
+			<div class="taxiadmin-user">
+				<ul>
+					<li>
+						<a>Piyapong</a>
+						<div class="taxiadmin-user-picture">
+							<img src="img/taxiadmin-user-picture.png">
+						</div>
+						<ul class="taxiadmin-user-option">
+							<li class="taxiadmin-change-password-btn"><a>เปลี่ยนรหัสผ่าน</a></li>
+							<li><a href="taxiadmin-login.html">ออกจากระบบ</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="taxiadmin-navigation-menu">
+			<ul>
+				<li><a class="taxiadmin-ico-menu"><i class="icon-menu_show"></i></a></li>
+				<li><a href="taxiadmin-home.html"><i class="icon-menu"></i><p>หน้าแรก</p></a></li>
+				<li><a href="taxiadmin-driver-list.html"><i class="icon-menu_chf"></i><p>ข้อมูลคนขับ</p></a></li>
+				<li><a href="taxiadmin-taxi-list.html"><i class="icon-menu_taxi"></i><p>ข้อมูลรถแท๊กซี่</p></a></li>
+				<li><a href="taxiadmin-message.html"><i class="icon-menu_msg"></i><p>ส่งข้อความ</p></a></li>
+				<li class="active"><a href="taxiadmin-stat.html"><i class="icon-menu_stat"></i><p>สถิติ</p></a></li>
+				<li><a href="taxiadmin-setting.html"><i class="icon-menu_setting"></i><p>ปรับแต่ง</p></a></li>
+			</ul>
+		</div>
+		<div class="taxiadmin-content message active">
+			<div class="taxiadmin-content-wrapper">
+				<h1  class="taxiadmin-topic">สถิติ</h1>
+				<div class="taxiadmin-topic-line"></div>
+				<div class="taxiadmin-search-stat">
+					<div class="taxiadmin-form-input-search">
+						<label>ค้นหาชื่อ</label>
+						<input type="text">
+					</div>
+					<div class="taxiadmin-form-input-search">
+						<label>ค้นหาเลขทะเบียน</label>
+						<input type="text" class="taxiadmin-number">
+					</div>
+					<div class="taxiadmin-form-input-search">
+						<label>วันที่เริ่มต้น<span>*</span></label>
+						<input type="text" class="taxiadmin-datepicker" placeholder="dd/mm/yy">
+							<i class="icon-ico_cal"></i>
+					</div>
+					<div class="taxiadmin-form-input-search last">
+						<label>วันที่สิ้นสุด<span>*</span></label>
+						<input type="text" class="taxiadmin-datepicker" placeholder="dd/mm/yy">
+							<i class="icon-ico_cal"></i>
+					</div>
+					<div class="clear"></div>
+					<input type="submit" class="taxiadmin-btn-search" value="ค้นหา">
+				</div>
+				<div class="taxiadmin-line"></div>
+				<p class="taxiadmin-stat-topic">ผลการค้นหา <span>(รถ <span class="taxiadmin-hilight">10</span> คัน ระยะทางรวม <span class="taxiadmin-hilight">240</span> กม.)</span></p>
+				<div class="taxiadmin-table-container">
+					<table class="taxiadmin-table stat">
+						<tr>
+							<th><a>ชื่อ-นามสกุล <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>หมายเลขทะเบียน <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>ระยะทาง (กม.) <i class="icon-ico_sortdown"></i></a></th>
+							<th><a>จำนวนงาน <i class="icon-ico_sortdown"></i></a></th>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>สมคิด จิตแจ่มใส</td>
+							<td>กท8765</td>
+							<td>0.50</td>
+							<td>1</td>
+						</tr>
+					</table>
+				</div>
+				<div class="taxiadmin-pagination">
+					<a href=""><i class="icon-ico_first"></i></a>
+					<a href=""><i class="icon-ico_prev"></i></a>
+					<a href="" class="current">1</a>
+					<a href="">2</a>
+					<a href="">3</a>
+					<a href="">4</a>
+					<a href="">5</a>
+					<a href=""><i class="icon-ico_next"></i></a>
+					<a href=""><i class="icon-ico_last"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="taxiadmin-footer">©2014 Ecartstudio Co.,Ltd. All Reserved</div>
+		<div class="taxiadmin-change-password-overlay"></div>
+		<div class="taxiadmin-change-password">
+			<div class="taxiadmin-change-password-title">
+				เปลี่ยนรหัสผ่าน
+			</div>
+			<div class="taxiadmin-close-dialog">
+				<i class="icon-ico_close"></i>
+			</div>
+			<div class="taxiadmin-change-password-form">
+				<p>รหัสเดิม</p>
+				<input type="password">
+				<p>รหัสใหม่</p>
+				<input type="password">
+				<p>ยืนยันรหัสใหม่</p>
+				<input type="password">
+				<input type="submit" value="เปลี่ยนรหัส" class="taxiadmin-btn-changepw">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

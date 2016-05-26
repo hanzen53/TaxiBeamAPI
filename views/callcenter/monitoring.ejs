@@ -1,0 +1,61 @@
+<!-- MONITORING CONTAINER -->
+<div class="container-fluid monitoring">
+	<div class="taxi-counter">
+		<a href="#" class="puller" onclick="Monitoring.toggleFilterControl(this);"><i class="material-icons">chevron_left</i></a>
+		<ul class="list-group">
+			<li class="list-group-item" data-toggle="tooltip" title="พิมพ์เลขทะเบียน" data-placement="left">
+				<form action="#" class="find-taxi">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="taxi-carplate">
+						<label class="mdl-textfield__label" for="taxi-carplate">ค้นหาแท็กซี่...</label>
+					</div>
+				</form>
+			</li>
+			<li class="list-group-item OFF" data-toggle="tooltip" title="ออฟไลน์" data-placement="left">
+				<img src="/assets/img/map/tx_OFF.png"> OFF 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item ON" data-toggle="tooltip" title="ออนไลน์" data-placement="left">
+				<img src="/assets/img/map/tx_ON.png"> ON 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item WAIT" data-toggle="tooltip" title="รอการตอบกลับจากผู้โดยสาร" data-placement="left">
+				<img src="/assets/img/map/tx_WAIT.png"> WAIT 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item DPENDING" data-toggle="tooltip" title="กำลังตอบกลับมายังระบบ" data-placement="left">
+				<img src="/assets/img/map/tx_DPENDING.png"> DPENDING 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item BUSY" data-toggle="tooltip" title="กำลังไปรับผู้โดยสาร" data-placement="left">
+				<img src="/assets/img/map/tx_BUSY.png"> BUSY 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item PICK" data-toggle="tooltip" title="กำลังไปส่งผู้โดยสาร" data-placement="left">
+				<img src="/assets/img/map/tx_PICK@2x.png"> PICK 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item ASSIGNED" data-toggle="tooltip" title="จ่ายงานให้เรียบร้อย" data-placement="left">
+				<img src="/assets/img/map/tx_ASSIGNED.png"> ASSIGNED 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item BROKEN" data-toggle="tooltip" title="รถเสีย" data-placement="left">
+				<img src="/assets/img/map/tx_BROKEN@2x.png"> BROKEN 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+				<span class="badge">0</span>
+			</li>
+			<li class="list-group-item PARKING" data-toggle="tooltip" title="จุดจอดรถ" data-placement="left">
+				<i class="material-icons">local_parking</i> จุดจอดรถ 
+				<div class="js-switch-wrap"><input type="checkbox" class="js-switch" checked /></div>
+			</li>
+		</ul>
+	</div>
+	<div id="map" class="hide"></div>
+</div>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Taxi</title>
+
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="/path/to/local/autocomplete.css"> 
+		<link rel="stylesheet" href="/resources/demos/style.css">	
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+
+		<script src="assets/libs/jquery/dist/jquery.min.js"></script>	
+
+		<style>
+			.bg { background-color: #1a2127; text-align: center; }
+
+			.signup { position: absolute; padding: 30px; padding-top: 20px; padding-bottom: 20px; font-family: 'open_sanslight'; background-color: #303940; margin-top: 40px; border-radius: 5px;width: 500px; max-width: 500px; }
+			.signup .signup-header { margin-bottom: 20px; }
+			.signup .signup-header .text { color: #e2df26; font-size: 40px; }
+			.signup .signup-row { color: #fff; }
+			.signup .signup-row {text-align: left; line-height: 30px; }
+			.signup-label { text-align: left; width: 200px; line-height: 30px; }
+		</style>
+	</head>
+	<body class="bg">
+
+		<div class="signup">
+			<div class="signup-header row">
+		  		<div class="text col-md-12">Sign up  member</div>
+			</div>
+			<form action="/signup" method="post">
+			  	<div class="signup-row row form-group">
+			  		<div class="signup-label">LoginUser :
+				  		<input type="text" class="form-control" name="username">
+				  	</div>
+				</div>
+				<div class="signup-row row form-group">
+			  		<div class="signup-label">Password :
+				  		<input type="password" class="form-control" name="password">
+				  	</div>
+				</div>
+				<div class="signup-row row form-group">
+			  		<div class="signup-label col-md-2">Name :
+				  		<input type="text" class="form-control" name="cname">
+				  	</div>
+				</div>
+				<div class="signup-row row form-group">
+			  		<div class="signup-label col-md-2">Email :
+				  		<input type="cgroup" class="form-control" name="cemail">
+				  	</div>
+				</div>				
+				<div class="signup-row row form-group">
+			  		<div class="signup-label col-md-2">Group name :
+				  	  		<select name="cgroup">
+				  	  		       <option value="none"> เลือกกลุ่มผู้ใช้</option>
+				  	               {{ gp.forEach(function(gp) { }}
+                     			       <option value="{{= gp.group }}">{{= gp.group }}</option>
+                        			{{  }); }}    
+				  		<select>	
+				  	</div>
+				</div>
+				<div class="signup-row row form-group">
+			  		<div class="signup-label col-md-2"></div>
+			  		<p><p>
+				  	<div class="signup-text-box col-md-3">
+				  		<button class="btn btn-success col-xs-12 col-sm-12 col-md-3">Submit</button>
+				  	</div>
+				</div>
+			</form>
+		</div>
+
+	</body>
+
+</html>
+
+	

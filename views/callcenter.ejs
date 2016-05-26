@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+	{{ include callcenter/head }}
+</head>
+<body class="loading">
+
+	{{ include callcenter/app-init-loader }}
+
+	{{ include callcenter/nav }}
+	
+	<!-- MAIN CONTAINER -->
+	<div class="container-fluid app">
+		<div class="row">
+
+			{{ include callcenter/tab-container }}
+
+			{{ include callcenter/tab-bottom }}
+			
+		</div>
+	</div>
+
+	{{ include callcenter/monitoring }}
+
+	<!-- CHAT SECTION -->
+	{{ include chat/chat }}
+
+	{{ include callcenter/modal }}
+	
+	{{ include callcenter/taxi-broken-list }}
+
+	{{ include callcenter/sounds }}
+
+	{{ include callcenter/scripts }}
+</body>
+</html>

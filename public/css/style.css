@@ -1,0 +1,989 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 16px;
+	font-family: "Tahoma";
+}
+.clear {
+	clear: both;
+}
+:focus {
+	outline: 0;
+}
+
+.garageadmin-login {
+	background: url(../img/login_bg.jpg);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
+.garageadmin-loginwrapper {
+	width: 340px;
+	margin: 0px auto;
+	height: auto;
+	padding-top: 15%;
+}
+.garageadmin-loginlogo {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+.garageadmin-loginwrapper label {
+	padding: 14px 22px;
+	height: 46px;
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	font-weight: bold;
+	width: 106px;
+}
+.garageadmin-loginwrapper .garageadmin-groupform input {
+	padding: 14px;
+	padding-left: 6px;
+	border: 0px;
+	margin-left: 105px;
+	font-size: 16px;
+	height: 46px;
+	width: 235px;
+}
+.garageadmin-groupform {
+	position: relative;
+	margin-bottom: 20px;
+}
+#showHide {
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	opacity: 0;
+}
+#showHide.active {
+	opacity: 1;
+}
+
+.garageadmin-showhidepassword {
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	display: none;
+}
+.garageadmin-showhidepassword.active {
+	display: block;
+}
+
+.garageadmin-warning {
+	color: red;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	margin-top: 20px;
+}
+.garageadmin-btn-primary {
+	color: #ffffff;
+	background-color: #46b48e;
+	border: 0px;
+	height: 50px;
+	width: 340px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.garageadmin-errormessage {
+	width: 340px;
+	height: 46px;
+	padding: 12px;
+	border: 1px solid #f2686e;
+	background-color: #f8b2b6;
+	color: #e41e25;
+	padding-left: 22px;
+	position: relative;
+	margin-bottom: 10px;
+	display: none;
+}
+.garageadmin-errormessage.active {
+	display: block;
+}
+.garageadmin-errormessage img {
+	float: right;
+	cursor: pointer;
+}
+
+/* Header */
+
+.garageadmin-header {
+	background-color: #24252f;
+}
+.garageadmin-header {
+	padding: 12px 15px;
+	height: 60px;
+}
+
+.garageadmin-header > img { 
+	float: left; 
+}
+
+.garageadmin-header .garageadmin-search {
+	float: left;
+	position: relative;
+	margin-left: 15px;
+	margin-top: 4px;
+}
+.garageadmin-header input {
+	height: 30px;
+	border: 0px;
+	font-size: 16px;
+	padding: 5px;
+	margin-left: 31px;
+	width: 249px;
+}
+.garageadmin-header label {
+	height: 30px;
+	background-color: #ffffff;
+	position: absolute;
+  	top: 0;
+  	padding: 7px;
+}
+
+.garageadmin-user {
+	list-style: none;
+	color: #ffffff;
+	width: 170px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}
+.garageadmin-user > li {
+	padding: 18px 20px;
+	height: 60px;
+}
+.garageadmin-userhidden {
+	position: absolute;
+	top: 60px;
+	list-style: none;
+	background-color: #414149;
+	padding: 20px 0;
+	width: 170px;
+	right: 0;
+	padding-top: 0px;
+	display: none;
+}
+.garageadmin-userhidden a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.garageadmin-userhidden li {
+	padding: 5px 20px;
+}
+
+.garageadmin-userhidden li:hover {
+	padding: 5px 20px;
+	background-color: #e41e25;
+}
+.garageadmin-userhidden img {
+	float: left;
+	margin-top: 2px;
+}
+.garageadmin-userhidden p {
+	margin-left: 30px;
+}
+.garageadmin-userhidden.active { 
+	display: block;
+}
+
+.garageadmin-user.active { 
+	background-color: #414149;
+}
+
+.garageadmin-user .garageadmin-arrow {
+	float: right;
+	margin-top: 4px;
+}
+.garageadmin-user > li > img:not(.garageadmin-arrow) {
+ 	float: left;
+ 	margin-right: 10px;
+}
+.garageadmin-user > li > p {
+	float: left;
+	line-height: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+.garageadmin-forgotpassword .garageadmin-wrapper {
+	width: 340px;
+	margin: 0 auto;
+	padding-top: 110px;
+}
+
+.garageadmin-forgotpassword h1 {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.garageadmin-forgotpassword p {
+	text-align: center;
+}
+.garageadmin-forgotpassword input {
+	margin-top: 30px;
+}
+
+.garageadmin-forgotpassword input[type=text] {
+	padding: 14px 22px;
+	border: 1px solid #b7b7b7;
+	font-size: 16px;
+	width: 340px;
+}
+
+.garageadmin-forgotpassword .garageadmin-errormessage {
+	position: absolute;
+	top: 268px;
+	margin-left: 350px;
+	height: 48px;
+	border: 0px;
+	width: 140px;
+}
+
+.garageadmin-forgotpassword .garageadmin-errormessage:after {
+    content:" ";
+    position: absolute;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+}
+.garageadmin-forgotpassword .garageadmin-errormessage:after {
+    right: 100%;
+    border-right: 11px solid #f8b2b6;
+}
+
+/* Forgot Password Send */
+.garageadmin-forgotpassword-send .garageadmin-wrapper img {
+	display: block;
+	margin: 10px auto;
+	margin-bottom: 40px;
+}
+
+.garageadmin-forgotpassword-send .garageadmin-wrapper {
+	width: 500px;
+	margin: 0 auto;
+	padding-top: 120px;
+}
+
+.garageadmin-forgotpassword-send h1 {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.garageadmin-forgotpassword-send p {
+	text-align: center;
+}
+
+.garageadmin-line {
+	height: 1px;
+	width: 100%;
+	background-color: #cccccc;
+	margin-top: 140px;
+	margin-bottom: 20px;
+}
+
+.garageadmin-forgotpassword-send a {
+	color: #e11730;
+	text-decoration: none;
+}
+
+.garageadmin-forgotpassword-send a:hover {
+	text-decoration: underline;
+}
+
+.garageadmin-changepassword .garageadmin-wrapper {
+	width: 340px;
+	margin: 0 auto;
+	padding-top: 110px;
+}
+
+/* Change Password */
+
+.garageadmin-changepassword h1 {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.garageadmin-changepassword p {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+
+.garageadmin-changepassword label {
+	padding: 14px 22px;
+	padding-right: 0px;
+	height: 48px;
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	font-weight: bold;
+	width: 165px;
+	border: 1px solid #b7b7b7;
+	border-right: 0px;
+}
+.garageadmin-changepassword .garageadmin-groupform input {
+	padding: 14px;
+	padding-left: 0px;
+	border: 1px solid #b7b7b7;
+	border-left: 0px;
+	margin-left: 165px;
+	font-size: 16px;
+	width: 175px;
+	padding-right: 40px;
+	height: 48px;
+}
+
+.garageadmin-changepassword .garageadmin-errormessage {
+	position: absolute;
+	top: 268px;
+	margin-left: 350px;
+	height: 48px;
+	border: 0px;
+	width: 140px;
+}
+
+.garageadmin-changepassword .garageadmin-errormessage:after {
+    content:" ";
+    position: absolute;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+}
+.garageadmin-changepassword .garageadmin-errormessage:after {
+    right: 100%;
+    border-right: 11px solid #f8b2b6;
+}
+
+.garageadmin-changepassword .garageadmin-newpassword {
+	 width: 186px;
+	 top: 404px;
+}
+
+ .garageadmin-errorpassword {
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	display: none;
+}
+.garageadmin-errorpassword.active {
+	display: block;
+}
+
+/* Change Password Send*/
+
+.garageadmin-changepassword-send .garageadmin-wrapper img {
+	display: block;
+	margin: 10px auto;
+	margin-bottom: 40px;
+}
+
+.garageadmin-changepassword-send .garageadmin-wrapper {
+	width: 500px;
+	margin: 0 auto;
+	padding-top: 120px;
+}
+
+.garageadmin-changepassword-send h1 {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.garageadmin-changepassword-send p {
+	text-align: center;
+}
+
+.garageadmin-changepassword-send a {
+	color: #e11730;
+	text-decoration: none;
+}
+
+.garageadmin-changepassword-send a:hover {
+	text-decoration: underline;
+}
+
+.garageadmin-changepassword-send .garageadmin-line {
+	height: 1px;
+	width: 100%;
+	background-color: #cccccc;
+	margin-top: 160px;
+	margin-bottom: 20px;
+}
+
+/* List */
+.garageadmin-list .garageadmin-header {
+	position: fixed;
+	width: 100%;
+	z-index: 9;
+}
+
+.garageadmin-list .garageadmin-wrapper {
+	padding: 75px 30px;
+	padding-bottom: 15px;
+	background-color: #ebebeb;
+}
+
+.garageadmin-list h1 {
+	font-size: 22px;
+	float: left;
+	line-height: 40px;
+}
+
+.garageadmin-list .garageadmin-btn-primary {
+	width: 120px;
+	height: 40px;
+	margin-top: 0px;
+	float: right;
+}
+
+.garageadmin-list .garageadmin-listbox {
+	margin-top: 20px;
+	padding: 15px;
+	background-color: #ffffff;
+	overflow: hidden;
+	position: relative;
+}
+.garageadmin-list .garageadmin-listbox img {
+	float: left;
+}
+.garageadmin-list .garageadmin-listdetails {
+	margin-left: 185px;
+	position: relative;
+	height: 160px;
+}
+
+.garageadmin-list h3 {
+	font-size: 16px;
+	font-weight: normal;
+	margin-left: 30px;
+}
+
+.garageadmin-list h4 {
+	color: #adb1b2;
+	font-size: 12px;
+	font-weight: normal;
+	margin-left: 30px;
+}
+.garageadmin-list .garageadmin-amount {
+	color: #adb1b2;
+	font-weight: normal;
+}
+.garageadmin-list h2 {
+	color: #e11730;
+	margin-bottom: 10px;
+}
+.garageadmin-list .garageadmin-contact {
+	float: left;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.garageadmin-list .garageadmin-contactbox {
+	width: 33.3%;
+	float: left;
+}
+.garageadmin-list .garageadmin-contactbox p {
+	margin-left: 30px;
+}
+
+.garageadmin-list .garageadmin-contact .garageadmin-contactbox:last-child img {
+	margin-top: 4px;
+}
+
+.garageadmin-list .garageadmin-editdel {
+	position: absolute;
+	right: 15;
+	top: 10;
+}
+.garageadmin-list .garageadmin-editdel img {
+	margin: 10px 15px;
+	cursor: pointer;
+}
+
+/* Lightbox */
+/*.html5lightbox {
+	text-decoration: none;
+	text-align: center;
+	padding: 10px;
+}
+#addGarage {
+	display: none;
+	background-color: #ffffff;
+}
+
+#html5-watermark {
+	display: none !important;
+}
+#html5-close {
+	margin-top: 0px !important;
+	margin-right: 0px !important;
+}
+.garageadmin-lightbox-content {
+	padding: 24px;
+	height: 100%;
+	text-align: left;
+}
+.garageadmin-lightbox-content h1 {
+	font-size: 22px;
+	float: none;
+	margin-bottom: 30px;
+	
+}
+.garageadmin-lightbox-form {
+	margin-left: 190px;
+}
+
+.garageadmin-lightbox-content input {
+	font-size: 16px;
+	border: 1px solid #adb1b2;
+	height: 40px;
+}
+.garageadmin-lightbox-upload {
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.garageadmin-lightbox-upload input {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border: 0px;
+}
+
+
+
+.garageadmin-btn-file {
+	left: 0px;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.6);
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.garageadmin-btn-file input[type=file] {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.garageadmin-lightbox-upload input[readonly] {
+  display: none;
+}*/
+
+.garageadmin-addGarage {
+	
+	background-color: #ffffff;
+	position: absolute;
+	height: auto;
+	width: 96%;
+	top: 3%;
+	left: 2%;
+	z-index: -1;
+	padding: 30px;
+	opacity: 0;
+}
+
+.garageadmin-addGarage.active {
+	opacity: 1;
+	z-index: 10;
+}
+
+.garageadmin-addGarage-overlay {
+	display: none;
+	background-color: rgba(0,0,0,0.6);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9;
+}
+.garageadmin-addGarage-overlay.active {
+	display: block;
+}
+.garageadmin-closeGarage {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+.garageadmin-addGarage-upload {
+	position: relative;
+	width: 160px;
+	overflow: hidden;
+	float: left;
+}
+.garageadmin-addGarage input {
+	font-size: 16px;
+	border: 1px solid #adb1b2;
+	height: 40px;
+	line-height: 40px;
+	padding: 0px 20px;
+}
+.garageadmin-addGarage-upload input {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border: 0px;
+}
+.garageadmin-btn-file {
+	left: 0px;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.6);
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.garageadmin-btn-file input[type=file] {
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 160px;
+}
+.garageadmin-addGarage-upload input[readonly] {
+  display: none;
+}
+
+.garageadmin-addGarage-form {
+	margin-left: 190px;
+	overflow: hidden;
+}
+
+.garageadmin-addGarage-form h4 {
+	font-size: 18px;
+	color: #000000;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-bottom: 15px;
+}
+
+.garageadmin-addGarage h1 {
+	float: none;
+	margin-bottom: 20px;
+}
+.garageadmin-garagename {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.garageadmin-addGarage-address {
+	margin-bottom: 20px;
+	color: #adb1b2;
+	height: 40px;
+}
+.garageadmin-addGarage-address input {
+	margin-left: 5px;
+	margin-right: 30px;
+}
+.garageadmin-addGarage-form .garageadmin-number , .garageadmin-addGarage-form .garageadmin-zipcode {
+	width: 100px;
+}
+.garageadmin-addGarage-form .garageadmin-village {
+	width: 50px;
+}
+.garageadmin-addGarage-form .garageadmin-road , .garageadmin-addGarage-form .garageadmin-subdistrict , 
+.garageadmin-addGarage-form .garageadmin-district
+{
+	width: 160px;
+}
+.garageadmin-addGarage-form .garageadmin-longtitude , .garageadmin-addGarage-form .garageadmin-latitude {
+	width: 180px;
+}
+.garageadmin-addGarage-addressgroup {
+	float: left;
+}
+.garageadmin-province > span {
+	float: left;
+	line-height: 42px;
+	margin-right: 10px;
+}
+.garageadmin-addGarage-addressgroup.garageadmin-province {
+	width: 270px;
+}
+
+.garageadmin-addGarage-address img {
+	float: left;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+
+.garageadmin-addGarage-address.last {
+	margin-bottom: 40px;
+}
+
+.garageadmin-addGarage-left , .garageadmin-addGarage-right {
+	width: 50%;
+	float: left;
+}
+.garageadmin-addGarage-left {
+	padding-right: 15px; 
+}
+
+
+.garageadmin-addGarage-right {
+	padding-left: 15px;
+}
+
+.garageadmin-addGarage-left input , .garageadmin-addGarage-right input {
+	margin-bottom: 0px;
+}
+
+.garageadmin-addGarage .garageadmin-btn-primary {
+	margin-top: 60px;
+	border: 0px;
+}
+.garageadmin-btn-addGarage {
+	padding: 10px;
+	text-align: center;
+	margin-top: 5px !important;
+}
+
+.garageadmin-added , .garageadmin-edited {
+	width: 500px;
+	height: 50px;
+	background: rgba(70,180,142,0.4);
+	margin: 0 auto;
+	color: #248966;
+	opacity: 0;
+	left: 36%;
+	position: absolute;
+	z-index: 10;
+	transition: opacity 0.3s ease-out;
+	-moz-transition: opacity 0.3s ease-out; 
+	-webkit-transition: opacity 0.3s ease-out; 
+	-o-transition: opacity 0.3s ease-out;
+}
+.garageadmin-added.active , .garageadmin-edited.active {
+	opacity: 1;
+
+	transition: opacity 0s ease-out;
+	-moz-transition: opacity 0s ease-out; 
+	-webkit-transition: opacity 0s ease-out; 
+	-o-transition: opacity 0s ease-out;
+}
+.garageadmin-alertwrapper {
+	width: 220px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.garageadmin-edited .garageadmin-alertwrapper {
+	width: 230px;
+	margin: 0 auto;
+	position: relative;
+}
+.garageadmin-alertmessage img {
+	margin-right: 5px;
+	margin-top: 14px;
+}
+.garageadmin-alertmessage span {
+	position: absolute;
+	top: 15px;
+	right: 0px;
+}
+
+.garageadmin-deleteGarage , .garageadmin-deleteEmployee {
+	background-color: #ffffff;
+	position: absolute;
+	height: auto;
+	width: 340px;
+	top: 42%;
+	left: 42%;
+	z-index: -1;
+	opacity: 0;
+}
+.garageadmin-deleteGarage.active , .garageadmin-deleteEmployee.active {
+	opacity: 1;
+	z-index: 10;
+}
+
+.garageadmin-deleteGarage-titlebars {
+	font-weight: bold;
+	padding: 15px;
+	text-align: center;
+	border-bottom: 1px solid #a8aaac;
+}
+.garageadmin-deleteGarage-message {
+	padding: 30px 20px;
+	text-align: center;
+}
+.garageadmin-btn-danger {
+	color: #ffffff;
+	background-color: #e11730;
+	border: 0px;
+	height: 40px;
+	width: 160px;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 auto;
+	display: block;
+	margin-top: 30px;
+}
+
+.garageadmin-deleteGarage .garageadmin-closeGarage {
+	top: 16px;
+}
+
+/* List Details  */
+.garageadmin-listdetails .garageadmin-wrapper {
+	background-color: #ffffff;
+}
+
+.garageadmin-listdetails .garageadmin-listbox {
+	padding: 15px 0;
+}
+.garageadmin-map {
+	margin-bottom: 40px;
+	margin-top: 15px;
+}
+.garageadmin-map img {
+	width: 100%;
+}
+.garageadmin-listdetails .garageadmin-line {
+	margin-top: 30px;
+}
+
+.garageadmin-listdetails h1 {
+	float: none;
+	margin-bottom: 10px;
+}
+.garageadmin-formbox {
+	background-color: #ebebeb;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+.garageadmin-formbox h1 {
+	color: #46b48e;
+}
+.garageadmin-formbox-box {
+	width: 400px;
+	float: left;
+	margin-right: 40px;
+}
+
+.garageadmin-formbox-box h4 {
+  font-size: 18px;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 0px;
+  margin-bottom: 15px;
+}
+
+.garageadmin-formbox-box input {
+  font-size: 16px;
+  border: 1px solid #adb1b2;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
+  width: 100%;
+}
+
+
+.garageadmin-formbox .cd-dropdown,
+.garageadmin-formbox .cd-select {
+	position: relative;
+	width: 140px;
+	display: block;
+	float: left;
+	z-index: 1;
+}
+
+.garageadmin-listemployee {
+	margin-bottom: 30px;
+	text-align: center;
+	color: #a8aaac;
+}
+.garageadmin-formbox .garageadmin-btn-primary {
+	border: 0px;
+	float: left;
+	margin-left: 40px;
+}
+.garageadmin-listemployee table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.garageadmin-listemployee tr {
+	height: 40px;
+}
+.garageadmin-listemployee tr:nth-child(even) {
+	background: #e0e0e0;
+}
+.garageadmin-listemployee tr:nth-child(odd) {
+	background: #ebebeb
+}
+.garageadmin-listemployee td:first-child {
+	width: 80px;
+	text-align: center;
+}
+.garageadmin-listemployee td:last-child {
+	width: 86px;
+	text-align: right;
+}
+.garageadmin-listemployee td:last-child a {
+	margin-right: 20px;
+}
+.garageadmin-listemployee tr.active {
+	padding: 10px 0px;
+	height: 60px;
+	background-color: #e41e25;
+}
+.garageadmin-listemployee tr.active td:first-child {
+	padding-right: 0px;
+	color: #ffffff;
+}
+.garageadmin-listemployee tr.active td:last-child {
+	padding-right: 0px;
+}
+.garageadmin-listemployee tr.active td {
+	padding-right: 20px;
+}
+.garageadmin-listemployee input {
+  font-size: 16px;
+  border: 1px solid #adb1b2;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 20px;
+  width: 100%;
+
+}
+.garageadmin-listemployee .garageadmin-btn-primary {
+	float: left;
+	margin-left: 20px;
+	border: 0px;
+}
+.garageadmin-listemployee a {
+	cursor: pointer;
+}
+.garageadmin-mappreview {
+	display: none;
+	position: absolute;
+	top: 3%;
+	left: 2%;
+	width: 96%;
+}
+.garageadmin-mappreview.active {
+	display: block;
+}
+.garageadmin-formbox-box.last {
+	width: 300px;
+	margin-right: 0px;
+}

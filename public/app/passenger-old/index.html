@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en"> 
+	<head>
+		<meta content="charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<!--meta name="apple-mobile-web-app-capable" content="yes" /-->		
+		<title>Taxi-Beam: Passengers</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="../assets/libs/jquery/dist/jquery.min.js"></script>		
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>
+ 
+		<link rel="stylesheet" href="../assets/css/font.css">	
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		
+		<script type="text/javascript" src="../assets/libs/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>		
+		<!-- script src="../assets/libs/angular/angular.js"></script -->
+		<!-- script src="controller/mainpsg.ctrl.js"></script -->
+		<script src="/socket.io/socket.io.js"></script>		
+		<!--script src="route/app.js"></script -->
+		<!-- Localhost -->
+		<script src="mapsource.js"></script>
+		<!--script src="https://nhmap.ecartmap.com/v1_2/?key=NM7SZ26ZV$jN6Ed8-TJ2@dx4cXXOuj9H9rrD5OOgU4Fh4hSavu"></script-->
+		
+		<link rel="stylesheet" href="fonts/iconmoon/style.css">	
+		<link rel="stylesheet" href="app.css">	
+
+	</head>	
+<script> 
+/*
+if ( localStorage.getItem('device_id') == null ) { 
+	tempid = Math.floor(Math.random() * 999) + 9 + '-' + new Date().getTime();	
+	localStorage.setItem('device_id', tempid );
+}
+*/
+//console.log(localStorage.getItem('device_id'));
+
+</script>
+
+	<body class="bg" ng-app="PassengersApp">
+		<!-- header -->
+		<div class="taxibeampsng-wrapper">
+			<div class="header">TAXI-BEAM Lite Passenger000</div>
+
+			<div id="idirection" style="display:none;" >
+				<legend>Direction: </legend>
+				<div >จาก from: 	<font id="FromDir"></font></div>
+				<div >ไป  : 		<font id="ToDir"></font></div>
+				<div >Distance:	<font id="DistanceDir"></font></div>
+				<div >Time: 	<font id="TimeDir"></font></div>			
+				<div>
+					<input type="button" id="ClearDir" value="Clear" onClick="LbisLocatorClear();" >
+					<input type="button" id="ClearDir" value="Close" onClick="LbisLocatorClose();" >				
+				</div>
+				<div>&nbsp;</div>
+			</div>
+
+
+			<!-- map -->
+			<div class="taxibeampsng-map-box">
+				<div id="map" class="map-box taxibeampsng-map"></div>
+			</div>
+
+			<div class="menu-box taxibeampsng-form-calltaxi">
+				<div class="taxibeampsng-hide-form-calltaxi">
+					<i class="icon-btn_hide"></i>
+				</div>
+				<div class="taxibeampsng-choose-typeoftaxi">
+					<div class="taxibeampsng-checkbox">
+						<input type="checkbox" id="car" value="car" name="favcartype">
+						<label for="car" class="taxibeampsng-checkbox-car">
+							<div class="taxibeampsng-grouptext car">
+								<i class="icon-btn_sedan_uncheck"></i>
+								Car
+							</div>
+						</label>
+					</div>
+					<div class="taxibeampsng-splitline"></div>
+					<div class="taxibeampsng-checkbox">
+						<input type="checkbox" id="minivan" value="minivan" name="favcartype">
+						<label for="minivan" class="taxibeampsng-checkbox-minivan">
+							<div class="taxibeampsng-grouptext minivan">
+								<i class="icon-btn_minivan_uncheck"></i>
+								Mini Van
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_pin"></i>จาก</div>
+					<input type="text" name="psgfrom" id="psgfrom" class="box_input" maxlength="100" value="ใช้ตำแหน่งปัจจุบัน" placeholder="" onClick="checkGPS();" />
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_destination"></i>ไป</div>
+					<input type="text" name="psgto" id="psgto" class="box_input" maxlength="100" placeholder="ใส่ปลายทาง" />
+				</div>
+				<div class="menu-box-row">
+					<div class="taxibeampsng-fieldname"><i class="icon-icn_phone"></i>โทร</div>
+					<input type="text" name="psgphone" id="psgphone" class="box_input" maxlength="15"  placeholder="ใส่เบอร์โทร" maxlength="10" />
+				</div>			
+
+			            	<div ng-controller="PostsCtrl">
+			              		<div class="wrapper b-b header">{{title}} : 
+				                <a ng-click="pulltaxi(1);">ON</a>
+				                || 
+				                <a ng-click="pulltaxi(2);">OFF</a>
+				                ||
+				                <a ng-click="pulltaxi('');">ALL</a>
+			              		</div>
+			          	</div>
+
+			             	<div >
+					<div>
+
+			                	</div>
+				</div>            
+
+				<div class="menu-box-row taxibeampsng-submit-taxi">
+					<button type="button" class="btn btn-large btn-block taxibeampsng-submit-btn" onClick="gatMeaTaxi();" >เรียกแท๊กซี่</button>					
+				</div>			
+			</div>
+
+
+			<div class="show-dialog-btn btn btn-warning" style="display:none;">SHOW</div>
+
+			<div class="taxibeampsng-submit-btn taxibeampsng-calltaxi-btn">เรียกแท็กซี่ผ่านระบบ</div>
+
+
+			<!--div class="process-loading-topic">			
+				CALLING A TAXI
+			</div>
+
+
+			<div class="process-loading">			
+				<img src="../img/loadingwaiting.gif">
+			</div-->
+			
+
+			<!-- Modal >
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog"-->
+					<!-- Modal content>
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Modal Header</h4>
+						</div>
+						<div class="modal-body">
+							<p>Some text in the modal.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div-->
+
+			<!-- How to Use -->
+			<div class="taxibeampsng-howtouse" >
+			  <button id="skip">skip</button>
+				<div class="skip">ข้าม</div>
+				<p class="taxibeampsng-howtouse-topic">คุณสามารถเรียกแท็กซี่ได้ 2 วิธี</p>
+				<div class="taxibeampsng-howtouse-1">
+					<p>1. แตะที่แท็กซี่แล้วโทรเรียกได้เลย</p>
+					<i class="icon-ar_left"></i>
+					<img src="../img/map/tx_ON.png" srcset="../img/map/tx_ON@2x.png 2x">
+				</div>
+				<div class="taxibeampsng-howtouse-2">
+					<p>2. เลือกเรียกแท็กซี่ผ่านระบบ โดยใส่จุดรับ จุดส่ง และเบอร์โทร</p>
+					<i class="icon-ar_left"></i>
+					<button>เรียกแท็กซี่ผ่านระบบ</button>
+				</div>
+			</div>
+
+			<!-- Wait Taxi -->
+			<div class="taxibeampsng-status-waittaxi">
+				<p>กำลังเรียกแท็กซี่ กรุณารอสักครู่</p>
+				<img src="../img/chf_animate.gif">
+				<button class="taxibeampsng-cancel-btn">CANCEL</button>
+			</div>
+
+			<!-- Got Taxi -->
+			<div class="taxibeampsng-status-gottaxi">
+				<div class="taxibeampsng-status-header">
+					<p>แท็กซี่ตอบรับแล้ว</p>
+					<span>มีรายละเอียดดังนี้</span>
+				</div>
+				<div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="../img/">
+					</div>
+					<p class="taxibeampsng-gottaxi-taxino"></p>
+					<p class="taxibeampsng-gottaxi-taxiname"></p>
+					<p class="taxibeampsng-gottaxi-taxitel">						
+						<span></span>
+					</p>
+					<p class="taxibeampsng-gottaxi-noted">กรุณาเลือกตกลงหรือปฏิเสธบริการนี้</p>
+				</div>
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-cancel-btn">ปฏิเสธ</button>
+					</div>
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn">ตกลง</button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Taxi ON THE WAY-->
+			<div class="taxibeampsng-status-busy">
+				<div class="taxibeampsng-status-header-busy">
+					<p>แท็กซี่กำลังมารับคุณ</p>
+					<span>มีรายละเอียดดังนี้</span>
+				</div>
+				<div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="../img/">
+					</div>
+					<p class="taxibeampsng-busy-taxino"></p>
+					<p class="taxibeampsng-busy-taxiname"></p>
+					<p class="taxibeampsng-busy-taxitel">						
+						<span></span>
+					</p>
+					<p class="taxibeampsng-busy-noted">คุณสามารถดูตำแหน่งแท็กซี่ หรือยกเลิกการเรียกรถได้</p>
+				</div>
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-cancel-btn">ยกเลิก</button>
+					</div>
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn">ดูตำแหน่งแท็กซี่</button>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Thank you Psng -->
+			<div class="taxibeampsng-status-thankyou">
+				<div class="taxibeampsng-status-header-busy">
+					<p>ขอบคุณที่ใช้บริการ</p>
+					<p>Taxi-Beam</p>
+					<p></p>
+				</div>
+
+				<img src="../img/cm1.png" srcset="../img/cm1@2x.png 2X">
+				<!--div class="taxibeampsng-status-content">
+					<div class="taxibeampsng-status-cropimg">
+						<img src="../img/">
+					</div>
+					<p class="taxibeampsng-busy-taxino"></p>
+					<p class="taxibeampsng-busy-taxiname"></p>
+					<p class="taxibeampsng-busy-taxitel">						
+						<span>
+							<i class="icon-icn_phone"></i>
+							<a></a>
+						</span>
+					</p>
+					<p class="taxibeampsng-busy-noted">Click view to see your taxi location</p>
+				</div-->
+				<div class="taxibeampsng-groupbtn">
+					<div class="taxibeampsng-btnbox">
+						<button class="taxibeampsng-submit-btn">CLOSE</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+	</body>
+
+<script type="text/javascript" src="app.js"></script>
+
+
+</html>

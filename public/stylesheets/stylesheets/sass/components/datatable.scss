@@ -1,0 +1,321 @@
+// Table Data
+.table-wrap {
+	min-height: 355px;
+}
+
+.table-data {
+	margin-bottom: 20px;
+	.header {
+		padding-bottom: 6px;
+		border-bottom: 3px solid #343642;
+		.title {
+			margin-bottom: 0;
+		}
+		.indicator {
+			top: -15px;
+			right: 6px;
+			color: #FFF;
+			width: 30px;
+			height: 30px;
+			padding-top: 6px;
+			font-size: 12px;
+			border-radius: 50%;
+			font-weight: bold;
+			text-align: center;
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			border: 3px solid #F9F9F9;
+
+			&.red {
+				background-color: #A03636;
+			}
+
+			&.green {
+				background-color: #41A036;
+			}
+		}
+		.btn {
+			padding: 4px 12px;
+			margin-right: 5px;
+			background-color: #009245;
+		}
+	}
+
+	.table {
+
+		>thead > tr > th,
+		>tbody > tr > th,
+		>tbody > tr > td {
+			font-size: 13px;
+		}
+
+		>tbody > tr > td,
+		>tbody > tr > th {
+			vertical-align: middle;
+		}
+
+		>tbody > tr > td:last-child:not(.dataTables_empty) {
+			// min-width: 80px;
+			text-align: right;
+		} 
+	}
+}
+
+
+.table-inline-editable {
+	>tbody > tr > .inline-edit {
+		> form {
+			margin: 0;
+			> input {
+				width: 100%;
+				padding: 6px 6px;
+				border-top-width: 0;
+				border-bottom-width: 0;
+				&:focus {
+					outline: none !important;
+				}
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.active {
+			padding: 7px 10px;
+		}
+	}
+}
+
+
+.queues.table-data,
+.pending.table-data,
+.advance.table-data,
+.assigned.table-data {
+
+	.dataTables_wrapper .dataTables_filter {
+		display: none;
+	}
+
+	.dataTables_wrapper .dataTables_length {
+		label {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+	}
+
+	tbody > tr > td.jobtype {
+		max-width: 40px;
+	}
+	tbody > tr .status-time {
+		font-size: 1.2em;
+		.detail {
+			float: left;
+			font-size: 11px;
+			margin-left: 8px;
+			display: inline-block;
+			>span {
+				font-size: 11px;
+			}
+		}
+		&.book {
+			color: #2196F3;
+			.detail {
+				color: #00BCD4;
+			}
+		}
+		&.new {
+			color: #4CAF50;
+			.detail {
+				color: #009688;
+			}
+		}
+		&.normal {
+			color: #FFC107;
+			.detail {
+				color: #FF9800;
+			}
+		}
+		&.long {
+			color: #F44336;
+			.detail {
+				color: #E91E63;
+			}
+		}
+		i {
+			float: left;
+			display: inline-block;
+		}
+	}
+	tbody > tr td[data-field-name="createdjob"] {
+		text-align: left;
+		.date {
+			font-size: 12px;
+		}
+	}
+	tbody > tr td:last-child {
+		button i {
+			font-size: 16px;
+		}
+	}
+	.label-rejected {
+		color: #E91E63;
+		font-size: 12px;
+	}
+
+	tbody > tr.lock {
+		color: #FFF;
+		background-color: #E53935!important;
+
+		td.sorting_1 {
+			background-color: #E53935!important;
+		}
+
+		.status-time {
+			color: #FFF;
+
+			> .detail {
+				color: #FFF;
+			}
+		}
+
+		td:last-child {
+			padding: 0px;
+			
+			.btn-group {
+				display: none;
+			}
+
+			p.user-locker {
+				margin: 0;
+				line-height: initial;
+				border-radius: 3px 0px 0px 3px;
+				padding: 3px 6px;
+				text-align: left;
+				font-size: smaller;
+				background-color: rgba(255,255,255,0.2);
+			}
+		}
+	}
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: none;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar{
+	width: 5px;
+}
+
+.table-data {
+	tbody > tr > td .circle-text {
+		width: 24px;
+		height: 24px;
+		cursor: pointer;
+		font-size: 12px;
+		padding-top: 2px;
+		font-weight: bold;
+		border-radius: 50%;
+		text-align: center;
+		display: inline-block;
+		vertical-align: middle;
+		&.orange {
+			color: #FFF;
+			border: 2px solid #A74C21;
+			background-color: #A05836;
+		}
+		&.default {
+			color: #555;
+			border: 2px solid #999;
+			background-color: #FFF;
+		}
+	}
+}
+
+.pending.table-data,
+.assigned.table-data {
+	td.line-job {
+		span {
+			color: #FFF;
+			cursor: pointer;
+			padding: 0px 5px;
+			border-radius: 15px;
+			border: 2px solid #FFFFFF;
+			background-color: #4CAF50;
+		}
+	}
+}
+
+.assigned.table-data,
+.queues.table-data {
+	#assignedTaskTable_length,
+	#queueTaskTable_length {
+		margin-right: 6px;
+		> label {
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.report-driver.table-data {
+
+	.dataTables_wrapper .dataTables_filter {
+		display: none;
+	}
+
+	#taxiReportTable, 
+	#taxiReportTable_wrapper .dataTables_scrollHead > 
+	.dataTables_scrollHeadInner > .dataTable {
+		font-size: 12px;
+	}
+
+	#report-date-filter {
+		max-width: 150px;
+
+		.input-group-addon {
+			color: #FFF;
+			border: none;
+			background-color: #2196F3;
+		}
+	}
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, 
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, 
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+	padding: 0px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+	padding: 0px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+	color: #444;
+	&:hover {		
+		background: none;
+		border: 1px solid transparent;
+	}
+}
+
+
+.dataTables_paginate.paging_simple_numbers {
+	.pagination {
+		margin: 0px;
+	}
+}
+.pagination>li>a, 
+.pagination>li>span {
+	border-radius: 2px;
+}
+
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover {
+	border-color: #607D8B;
+    background-color: #607D8B;
+}
